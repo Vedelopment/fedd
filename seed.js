@@ -5,17 +5,20 @@ var restaurant_list = [{
     name: 'Shizen',
     description: 'Vegan Sushi Bar and Izakaya',
     address: '370 14th St, San Francisco, CA 94103',
-    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+    dietary: 'vegetarian, vegan, gluten-free, dairy-free',
+    url: 'https://www.yelp.com/biz/shizen-vegan-sushi-bar-and-izakaya-san-francisco'
 }, {
     name: 'Gracias Madre',
     description: 'Vegan Mexican Cuisine',
     address: '2211 Mission St, San Francisco, CA 94110',
-    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+    dietary: 'vegetarian, vegan, gluten-free, dairy-free',
+    url: 'http://gracias-madre.com/'
 }, {
     name: 'Cha-Ya',
     description: 'Vegan Sushi Restaurant',
     address: '762 Valencia St, San Francisco, CA 94110',
     dietary: 'vegetarian, vegan, gluten-free, dairy-free',
+    url: 'http://www.thechaya.com/'
 }]
 
 //////////   REMOVES AND CREATES RESTAURANT LIST   //////////

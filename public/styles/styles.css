@@ -5,6 +5,7 @@
 body {
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
+  font-size: .6em;
   background-color: #c8c8c8;
   background-image:url(http://i.imgur.com/qRNmp2e.jpg);
   background-attachment: fixed;
@@ -24,6 +25,10 @@ h1 {
 /*   font-weight: bold; */
 }
 
+h3 {
+  font-size: 6em;
+}
+
 .content-card {
   padding: 10px;
   background-color: white;
@@ -33,7 +38,7 @@ h1 {
 }
 
 p {
- font-size: 28px;
+ font-size: 4em;
 }
 
 form {

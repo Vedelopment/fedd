@@ -23,7 +23,7 @@ $.ajax({
 //////////   RESTAURANT SUCCESS FUNCTION   //////////
 function handleRestaurantsLoadSuccess(allRestaurants) {
   allRestaurants.forEach(function(restaurantData){
-    restaurantHtml = template({restaurant: restaurantData});
+    restaurantHtml = restaurantTemplate({restaurant: restaurantData});
     $restaurantsList.append(restaurantHtml);
 
   })

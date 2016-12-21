@@ -7,6 +7,7 @@ var RestaurantSchema = new Schema({
   description: String, //stretch: validate less than 140 charac//
   address: String,
   dietary: [String],
+  url: String
   //cuisine: []//stretch: relate these, eventually be able to filter results//
   //coord: some data //stretch: google maps//
   //rating: some data //stretch: javascript logic stuff//
