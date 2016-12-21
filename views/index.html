@@ -90,7 +90,47 @@
                     <h4 class="modal-title">Modal Header</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Some text in the modal.</p>
+
+
+                  <!-- FORM INSIDE MODAL!-->
+                  <form class="form-inline" id="newRestaurantForm">
+
+                      <!-- name request -->
+                      <div class="form-group">
+                          <!-- <label for="title">Name</label> -->
+                          <input type="text" class="form-control" name="name" placeholder="Restaurant Name">
+                      </div>
+
+                      <!-- description request -->
+                      <div class="form-group">
+                          <!-- <label for="title">Description</label> -->
+                          <input type="text" class="form-control" name="description" placeholder="Description">
+                      </div>
+
+                      <!-- address request -->
+                      <div class="form-group">
+                          <!-- <label for="title">Location</label> -->
+                          <input type="text" class="form-control" name="address" placeholder="Address">
+                      </div>
+
+                      <!-- address request -->
+                      <div class="form-group">
+                          <!-- <label for="title">Location</label> -->
+                          <input type="text" class="form-control" name="dietary" placeholder="Dietary Tags">
+                      </div>
+
+                      <!-- url request -->
+                      <div class="form-group">
+                          <!-- <label for="title">Location</label> -->
+                          <input type="text" class="form-control" name="url" placeholder="Restaurant url">
+                      </div>
+
+                      <!-- button -->
+                      <button type="submit" class="btn btn-default">Update</button>
+
+                  </form>
+              </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

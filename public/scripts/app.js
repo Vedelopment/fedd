@@ -32,6 +32,19 @@ $(document).ready(function() {
         });
     });
 
+    $('#updateRestaurantForm').on('submit', function(event) {
+       event.preventDefault();
+       console.log('for submit');
+       $.ajax({
+         method: 'POST',
+         url: '/api/restaurants/'+$(this).attr('data-id'),
+         data: $(this).serializeArray(),
+         success: updateRestaurantSuccess,
+         error: apiError
+       });
+     });
+
+
 
     /////////////////////////////////////////////////////////////
     //////////////////   SUCCESS FUNCTIONS   ////////////////////
@@ -55,6 +68,17 @@ $(document).ready(function() {
         console.log(allRestaurants);
         allRestaurants.append(json);
     }
+
+    //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////
+    function updateRestaurantSuccess(json) {
+      var restaurant = json;
+      var restaurandId = restaurant._id;
+
+      for(var )
+
+    }
+
+
 
     //////////   ERROR FUNCTION   //////////
     function apiError(e) {

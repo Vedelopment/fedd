@@ -113,6 +113,30 @@ app.get('/api', function api_index(req, res) {
   });
 });
 
+//UPDATE RESTAURANT LISTING
+app.patch('/api/restaurants/:id', function (req, res) {
+  db.Restaurant.findOne({_id: req.params.id }, function(err, foundRestaurant) {
+    if (err) {
+      res.status(500).send('error: ', err);
+    }
+     else {
+       foundRestaurant.name = req.body.name || foundRestaurant.name;
+       foundRestaurant.description = req.body.description || foundRestaurant.description;
+       foundRestaurant.address = req.body.address || foundRestaurant.address;
+       foundRestaurant.dietary = req.body.dietary || foundRestaurant.dietary;
+       foundRestaurant.url = req.body.url || foundRestaurant.url;
+
+       foundRestaurant.save(function (err, savedRestaurant) {
+         if (err) {
+           response.status(500).send('database error');
+         } else {
+           res.json(foundRestaurant);
+         }
+       })
+     }
+  });
+});
+
 /**********
  * SERVER *
  **********/
