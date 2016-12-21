@@ -4,11 +4,18 @@ var mongoose = require('mongoose'),
 //Set up Restaurant Schema
 var RestaurantSchema = new Schema({
   name: String,
-  location: String,
+  description: String, //stretch: validate less than 140 charac//
+  address: String,
+  dietary: [String],
+  //cuisine: []//stretch: relate these, eventually be able to filter results//
+  //coord: some data //stretch: google maps//
+  //rating: some data //stretch: javascript logic stuff//
+});
 
 
 
-//Set up Travel Model
-var Travel = mongoose.model('Travel', TravelSchema);
 
-module.exports = Travel;
+//Set up Restaurant model
+var Restaurant = mongoose.model('Restaurant', RestaurantSchema);
+
+module.exports = Restaurant;
