@@ -85,7 +85,7 @@ app.get('/api', function api_index(req, res) {
   * API ROUTES *
   **************/
 
-// GET ALL TRAVELS
+// GET ALL RESTAURANTS
  app.get('/api/restaurants', function (req, res) {
    db.Restaurant.find(function(err, restaurants){
      if (err) { return console.log("index error: " + err); }
