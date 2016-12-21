@@ -2,7 +2,7 @@
   "name": "fedd",
   "version": "1.0.0",
   "description": "a database site that helps users find and update restaurants with common dietary restrictions",
-  "main": "seed.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"

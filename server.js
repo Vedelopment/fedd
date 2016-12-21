@@ -55,31 +55,43 @@ app.get('/api', function api_index(req, res) {
             description: "All available endpoints"
         }, {
             method: "GET",
-            path: "/api/profile",
-            description: "My life, online"
+            path: "/api/about",
+            description: "What we can do for your gut."
         }, {
             method: "GET",
-            path: "/api/travels",
-            description: "Where I've been"
+            path: "/api/restaurants",
+            description: "Where to eat!"
         }, {
             method: "GET",
-            path: "/api/travels/:id",
-            description: "Location Information"
+            path: "/api/restaurants/:id",
+            description: "Restaurant Information"
         }, {
             method: "POST",
-            path: "/api/travels",
-            description: "Add to my Wunderlust list"
+            path: "/api/restaurants",
+            description: "Add a restaurant to our database."
         }, {
             method: "PATCH",
-            path: "/api/travels/:id",
-            description: "Update Travel location"
+            path: "/api/restaurants/:id",
+            description: "Update Restaurant Information."
         }, {
             method: "DELETE",
-            path: "/api/travels/:id",
-            description: "Remove from my Wunderlust list"
+            path: "/api/restaurants/:id",
+            description: "Remove this Restaurant."
         }]
     })
 });
+
+/**************
+  * API ROUTES *
+  **************/
+
+// GET ALL RESTAURANTS
+ app.get('/api/restaurants', function (req, res) {
+   db.Restaurant.find(function(err, restaurants){
+     if (err) { return console.log("index error: " + err); }
+     res.json(restaurants);
+   });
+ });
 
 /**********
  * SERVER *

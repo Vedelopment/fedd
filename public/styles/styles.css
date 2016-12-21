@@ -1,0 +1,57 @@
+/* *{
+  border: dashed 2px black;
+} */
+
+body {
+  color: #333;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: .6em;
+  background-color: #c8c8c8;
+  background-image:url(http://i.imgur.com/qRNmp2e.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+h1 {
+  font-size: 100px;
+  margin-top: 10px;
+  text-align: center;
+  background-color: white;
+  opacity:.9;
+  border-radius: 15px 50px;
+  border: 1px black solid;
+  font-family: 'Palatino Linotype', ‘Book Antiqua’, Palatino, serif;
+/*   font-weight: bold; */
+}
+
+h3 {
+  font-size: 6em;
+}
+
+.content-card {
+  padding: 10px;
+  background-color: white;
+  border: 3px black solid;
+  text-align: center;
+  border-radius: 20px;
+}
+
+p {
+ font-size: 4em;
+}
+
+form {
+  padding: 15px;
+}
+
+.form-control {
+  border: 2px black solid;
+}
+
+.btn {
+  border: 2px black solid;
+  background-color: grey;
+  color: black;
+  font-weight: bold;
+}
