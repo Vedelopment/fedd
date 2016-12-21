@@ -1,22 +1,22 @@
-var db = require('.models');
+var db = require('./models');
 
 //////////   RESTAURANT SEED DATA   //////////
 var restaurant_list = [{
-            name: 'Shizen',
-            description: 'Vegan Sushi Bar and Izakaya',
-            address: '370 14th St, San Francisco, CA 94103',
-            dietary: 'vegetarian, vegan, gluten-free, dairy-free'
-        }, {
-            name: 'Gracias Madre',
-            description: 'Vegan Mexican Cuisine',
-            address: '2211 Mission St, San Francisco, CA 94110',
-            dietary: 'vegetarian, vegan, gluten-free, dairy-free'
-        }, {
-            name: 'Cha-Ya',
-            description: 'Vegan Sushi Restaurant',
-            address: '762 Valencia St, San Francisco, CA 94110',
-            dietary: 'vegetarian, vegan, gluten-free, dairy-free',
-        ]
+    name: 'Shizen',
+    description: 'Vegan Sushi Bar and Izakaya',
+    address: '370 14th St, San Francisco, CA 94103',
+    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+}, {
+    name: 'Gracias Madre',
+    description: 'Vegan Mexican Cuisine',
+    address: '2211 Mission St, San Francisco, CA 94110',
+    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+}, {
+    name: 'Cha-Ya',
+    description: 'Vegan Sushi Restaurant',
+    address: '762 Valencia St, San Francisco, CA 94110',
+    dietary: 'vegetarian, vegan, gluten-free, dairy-free',
+}]
 
 //////////   REMOVES AND CREATES RESTAURANT LIST   //////////
 db.Restaurant.remove({}, function(err, restaurants) {
