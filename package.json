@@ -1,0 +1,25 @@
+{
+  "name": "fedd",
+  "version": "1.0.0",
+  "description": "a database site that helps users find and update restaurants with common dietary restrictions",
+  "main": "seed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vedelopment/fedd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vedelopment/fedd/issues"
+  },
+  "homepage": "https://github.com/Vedelopment/fedd#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.4"
+  }
+}
