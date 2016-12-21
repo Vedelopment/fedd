@@ -93,6 +93,26 @@ app.get('/api', function api_index(req, res) {
    });
  });
 
+// CREATE A NEW RESTAURANT
+ app.post('/api/restaurants', function (req, res) {
+     var restaurantInfo = {
+     name: req.body.name,
+     description: req.body.description,
+     address:req.body.address,
+     dietary: req.body.dietary,
+     url: req.body.url
+   };
+   var newRestaurant = new db.Restaurant(restaurantInfo);
+   newRestaurant.save(function(err, restaurant){
+    if (err) {
+      response.status(500).send('database error');
+      return console.log('error', err);
+    } else {
+      res.json(restaurant);
+    }
+  });
+});
+
 /**********
  * SERVER *
  **********/

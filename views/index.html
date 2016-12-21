@@ -34,7 +34,7 @@
             <!-- form submit -->
 
             <div class="col-md-8 col-md-offset-2">
-                <form class="form-inline" id="#">
+                <form class="form-inline" id="newRestaurantForm">
 
                     <!-- name request -->
                     <div class="form-group">
@@ -42,16 +42,28 @@
                         <input type="text" class="form-control" name="name" placeholder="Restaurant Name">
                     </div>
 
-                    <!-- country request -->
-                    <div class="form-group">
-                        <!-- <label for="title">Location</label> -->
-                        <input type="text" class="form-control" name="location" placeholder="Location">
-                    </div>
-
-                    <!-- time of year request -->
+                    <!-- description request -->
                     <div class="form-group">
                         <!-- <label for="title">Description</label> -->
                         <input type="text" class="form-control" name="description" placeholder="Description">
+                    </div>
+
+                    <!-- address request -->
+                    <div class="form-group">
+                        <!-- <label for="title">Location</label> -->
+                        <input type="text" class="form-control" name="address" placeholder="Address">
+                    </div>
+
+                    <!-- address request -->
+                    <div class="form-group">
+                        <!-- <label for="title">Location</label> -->
+                        <input type="text" class="form-control" name="dietary" placeholder="Dietary Tags">
+                    </div>
+
+                    <!-- url request -->
+                    <div class="form-group">
+                        <!-- <label for="title">Location</label> -->
+                        <input type="text" class="form-control" name="url" placeholder="Restaurant url">
                     </div>
 
                     <!-- button -->
@@ -61,10 +73,31 @@
             </div>
         </div>
         <div id="restaurantTarget">
-        <!-- handlebars returns data here -->
-      </div>
+            <!-- handlebars returns data here -->
+        </div>
 
     </div>
+    </div>
+
+    <!-- Update Restaurant Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Update Restaurant Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
     </div>
     <script id="restaurants-template" type="text/x-handlebars-template">
         <!-- future HANDLEBARS SCRIPT tag -->
@@ -77,6 +110,8 @@
             <p>{{restaurant.address}}</p>
             <hr>
             <p>{{restaurant.dietary}}</p>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">Edit {{restaurant.name}}</button>
         </article>
     </script>
 </body>
