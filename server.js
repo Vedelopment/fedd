@@ -45,18 +45,47 @@ app.get('/', function homepage(req, res) {
  */
 
 app.get('/api', function api_index(req, res) {
-  res.json({
-    message: "Welcome to the FEDD api! Here's what you need to know, RJ, Ryan and Michael!",
-    documentationUrl: "https://github.com/c00z/express-personal-api/blob/master/README.md",
-    baseUrl: "https://c00z.herokuapp.com/",
-    endpoints: [
-      {method: "GET", path: "/api", description: "All available endpoints"},
-      {method: "GET", path: "/api/profile", description: "My life, online"},
-      {method: "GET", path: "/api/travels", description: "Where I've been"},
-      {method: "GET", path: "/api/travels/:id", description: "Location Information"},
-      {method: "POST", path: "/api/travels", description: "Add to my Wunderlust list"},
-      {method: "PATCH", path: "/api/travels/:id", description: "Update Travel location"},
-      {method: "DELETE", path: "/api/travels/:id", description: "Remove from my Wunderlust list"}
-    ]
-  })
+    res.json({
+        message: "Welcome to the FEDD api! Here's what you need to know, RJ, Ryan and Michael!",
+        documentationUrl: "https://github.com/Vedelopment/fedd/blob/skateboard-v1/README.md",
+        baseUrl: "https://vedelopment.herokuapp.com/",
+        endpoints: [{
+            method: "GET",
+            path: "/api",
+            description: "All available endpoints"
+        }, {
+            method: "GET",
+            path: "/api/profile",
+            description: "My life, online"
+        }, {
+            method: "GET",
+            path: "/api/travels",
+            description: "Where I've been"
+        }, {
+            method: "GET",
+            path: "/api/travels/:id",
+            description: "Location Information"
+        }, {
+            method: "POST",
+            path: "/api/travels",
+            description: "Add to my Wunderlust list"
+        }, {
+            method: "PATCH",
+            path: "/api/travels/:id",
+            description: "Update Travel location"
+        }, {
+            method: "DELETE",
+            path: "/api/travels/:id",
+            description: "Remove from my Wunderlust list"
+        }]
+    })
+});
+
+/**********
+ * SERVER *
+ **********/
+
+// listen on the port that Heroku prescribes (process.env.PORT) OR port 3000
+app.listen(process.env.PORT || 3000, function() {
+    console.log('Express server is up and running on http://localhost:3000/');
 });
