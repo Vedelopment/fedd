@@ -97,7 +97,7 @@ app.get('/api', function api_index(req, res) {
  app.post('/api/restaurants', function (req, res) {
      var restaurantInfo = {
      name: req.body.name,
-     descripton: req.body.description,
+     description: req.body.description,
      address:req.body.address,
      dietary: req.body.dietary,
      url: req.body.url
