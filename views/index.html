@@ -93,7 +93,7 @@
 
 
                   <!-- FORM INSIDE MODAL!-->
-                  <form class="form-inline" id="newRestaurantForm">
+                  <form class="form-inline" id="updateRestaurantForm">
 
                       <!-- name request -->
                       <div class="form-group">
@@ -151,7 +151,7 @@
             <hr>
             <p>{{restaurant.dietary}}</p>
             <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">Edit {{restaurant.name}}</button>
+            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal" id="{{_id}}">Edit {{restaurant.name}}</button>
         </article>
     </script>
 </body>

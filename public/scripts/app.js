@@ -32,7 +32,7 @@ $(document).ready(function() {
         });
     });
 
-    $('#updateRestaurantForm').on('submit', function(event) {
+    $('#updateRestaurantForm').on('click', function(event) {
        event.preventDefault();
        console.log('for submit');
        $.ajax({
@@ -42,6 +42,8 @@ $(document).ready(function() {
          success: updateRestaurantSuccess,
          error: apiError
        });
+       console.log($(this).attr('data-id'));
+
      });
 
 
@@ -71,10 +73,11 @@ $(document).ready(function() {
 
     //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////
     function updateRestaurantSuccess(json) {
-      var restaurant = json;
-      var restaurandId = restaurant._id;
-
-      for(var )
+      console.log('plz');
+      // var restaurant = json;
+      // var restaurandId = restaurant._id;
+      //
+      // for(var )
 
     }
 
