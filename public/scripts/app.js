@@ -31,11 +31,12 @@ $(document).ready(function() {
             error: apiError
         });
     });
-
-    $('.updateRestaurantButton').on('click', function(event) {
+    //////////   UDPATE RESTAURANT   //////////
+    $('#updateRestaurantForm').on('submit', function(event) {
        event.preventDefault();
-       var currentId = $('#restaurantTarget');
-       var restId = $(currentId).attr('restaurant-id');
+      //  var currentId = $('#restaurantTarget');
+      //  var restId = $(currentId).attr('id');
+      var restId = $('.update').attr('data-id');
        $.ajax({
          method: 'POST',
          url: '/api/restaurants/'+ restId,

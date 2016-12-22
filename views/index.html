@@ -31,7 +31,7 @@
         <div class="row">
             <h1 id="hero">FEDD</h1>
 
-            <!-- form submit -->
+            <!-- ADD NEW RESTAURANT FORM -->
 
             <div class="col-md-8 col-md-offset-2">
                 <form class="form-inline" id="newRestaurantForm">
@@ -79,7 +79,7 @@
     </div>
     </div>
 
-    <!-- Update Restaurant Modal -->
+    <!-- UPDATE RESTAURANT MODAL -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -141,17 +141,17 @@
     </div>
     <script id="restaurants-template" type="text/x-handlebars-template">
         <!-- future HANDLEBARS SCRIPT tag -->
-        <article class="content-card col-md-6 col-md-offset-3">
-            <!-- future handlebars text -->
-            <h3><a href="{{restaurant.url}}">{{restaurant.name}}</a></h3>
-            <hr>
-            <p>{{restaurant.description}}</p>
-            <hr>
-            <p>{{restaurant.address}}</p>
-            <hr>
-            <p>{{restaurant.dietary}}</p>
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal" id="{{restaurant._id}}">Edit</button>
+          <article class="content-card col-md-6 col-md-offset-3">
+              <!-- future handlebars text -->
+              <h3><a href="{{restaurant.url}}">{{restaurant.name}}</a></h3>
+              <hr>
+              <p>{{restaurant.description}}</p>
+              <hr>
+              <p>{{restaurant.address}}</p>
+              <hr>
+              <p>{{restaurant.dietary}}</p>
+              <!-- Trigger the modal with a button -->
+              <button type="button" class="btn btn-warning btn-sm update" data-toggle="modal" data-target="#myModal" data-id="{{#each restaurant}}{{restaurant._id}}{{/each}}">Edit</button>
         </article>
     </script>
 </body>
