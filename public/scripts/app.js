@@ -34,23 +34,18 @@ $(document).ready(function() {
     //////////   UDPATE RESTAURANT   //////////
     $('#updateRestaurantForm').submit(function(event) {
        event.preventDefault();
-      //  var currentId = $('#restaurantTarget');
-      //  var restId = $(currentId).attr('id');
-      var restId = $('.update').attr('data-id');
-      console.log(restId);
-       $.ajax({
-         method: 'PATCH',
-         url: '/api/restaurants/'+ restId,
-         data: $(this).serializeArray(),
-         success: updateRestaurantSuccess,
-         error: apiError
-       });
-       $('#myModal').modal('toggle');
-      //  console.log($(this).attr('data-id'));
+      // var restId = $('.update').attr('data-id');
+      // console.log(restId);
+      //  $.ajax({
+      //    method: 'PATCH',
+      //    url: '/api/restaurants/'+restId,
+      //    data: $(this).serializeArray(),
+      //    success: updateRestaurantSuccess,
+      //    error: apiError
+      //  });
+      //  $('#myModal').modal('toggle');
 
      });
-
-
 
     /////////////////////////////////////////////////////////////
     //////////////////   SUCCESS FUNCTIONS   ////////////////////
@@ -78,11 +73,24 @@ $(document).ready(function() {
     //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////
     function updateRestaurantSuccess(json) {
       console.log('plz');
-      // var restaurant = json;
-      // var restaurandId = restaurant._id;
-      //
-      // for(var )
+      $.ajax({
+        method: 'GET',
+        url: '/api/restaurants/'+json._id,
+        data: $(this).serializeArray(),
+        success: updateRestaurantSuccessAppend,
+        error: apiError
+      });
 
+    }
+
+    // function updateRestaurantSuccessAppend (json) {
+    // var restaurantsHtml = restaurantTemplate(json);
+    //  $('[data-id='+json._id+']').html(restaurantsHtml);
+    //  console.log("appended", json);
+    // }
+
+    function appendSongError(err){
+      console.log("not appended", err)
     }
 
 

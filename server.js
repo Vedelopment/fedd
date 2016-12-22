@@ -137,6 +137,19 @@ app.patch('/api/restaurants/:id', function (req, res) {
   });
 });
 
+//DELETE RESTAURANT
+app.delete('/api/restaurants/:id', function (req, res) {
+   console.log('restaurants delete', req.params);
+   var restaurantId = req.params.id;
+   var deleteRestaurantIndex = restaurants.findIndex(function(element, index) {
+     return (element._id === parseInt(req.params.id)); //params are strings
+   });
+   console.log('deleting restaurants with index', deleteRestaurantIndex);
+   var restaurantToDelete = restaurants[deleteRestaurantIndex];
+   restaurants.splice(deleteRestaurantIndex, 1);
+   res.json(restaurantToDelete);
+ });
+
 /**********
  * SERVER *
  **********/
