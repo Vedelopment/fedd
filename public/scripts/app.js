@@ -34,10 +34,11 @@ $(document).ready(function() {
 
     $('#updateRestaurantForm').on('click', function(event) {
        event.preventDefault();
-       console.log('for submit');
+       var data = $(this);
+       console.log(data);
        $.ajax({
          method: 'POST',
-         url: '/api/restaurants/'+$(this).attr('data-id'),
+         url: '/api/restaurants/'+ data,
          data: $(this).serializeArray(),
          success: updateRestaurantSuccess,
          error: apiError
