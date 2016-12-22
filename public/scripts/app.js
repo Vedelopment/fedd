@@ -39,7 +39,7 @@ $(document).ready(function() {
       //  var restId = $(currentId).attr('id');
       var restId = $('.update').attr('data-id');
        $.ajax({
-         method: 'POST',
+         method: 'PATCH',
          url: '/api/restaurants/'+ restId,
          data: $(this).serializeArray(),
          success: updateRestaurantSuccess,
