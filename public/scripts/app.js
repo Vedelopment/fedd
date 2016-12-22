@@ -1,5 +1,6 @@
 console.log('sanity check!');
 
+var MODAL_SELECTOR = '#myModal';
 var restaurantTemplate;
 var $restaurantsList;
 var allRestaurants = [];
@@ -32,6 +33,27 @@ $(document).ready(function() {
         });
     });
 
+    //////////   UDPATE RESTAURANT   //////////
+     $('#updateRestaurantForm').submit(function(event) {
+       event.preventDefault();
+       var restId = $(MODAL_SELECTOR).data('id');
+       var data = {};
+       $(this).serializeArray().forEach(function(item) {
+         data[item.name] = item.value;
+       });
+
+       console.log(restId, data);
+
+        $.ajax({
+          method: 'PATCH',
+          url: '/api/restaurants/'+restId,
+          data: data,
+          success: updateRestaurantSuccess,
+          error: apiError
+        });
+
+        $(MODAL_SELECTOR).modal('toggle');
+      });
 
     /////////////////////////////////////////////////////////////
     //////////////////   SUCCESS FUNCTIONS   ////////////////////
@@ -57,23 +79,15 @@ $(document).ready(function() {
     }
 
     //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////
-    function updateRestaurantSuccess(json) {
-      console.log('plz');
-      $.ajax({
-        method: 'GET',
-        url: '/api/restaurants/'+json._id,
-        data: $(this).serializeArray(),
-        success: updateRestaurantSuccessAppend,
-        error: apiError
-      });
+    function updateRestaurantSuccess(response) {
+      var $article = $('article[data-id=' + response._id +']');
 
+      $article.find('.name a').text(response.name);
+      $article.find('.name a').attr('href', response.url);
+      $article.find('.description').text(response.description);
+      $article.find('.address').text(response.address);
+      $article.find('.dietary').text(response.dietary);
     }
-
-    // function updateRestaurantSuccessAppend (json) {
-    // var restaurantsHtml = restaurantTemplate(json);
-    //  $('[data-id='+json._id+']').html(restaurantsHtml);
-    //  console.log("appended", json);
-    // }
 
     function appendSongError(err){
       console.log("not appended", err)
@@ -87,25 +101,67 @@ $(document).ready(function() {
         // $('#restaurantTarget').text('api error, is the server working?');
     }
 
+
+   ///// Sets all form information to the restaurant /////
+    function setModalData(event) {
+      /// gets all text data of restaurant ////
+      var $article = $(event.target).parents('article'),
+          id = $article.data('id'),
+          name = $article.find('.name').text().trim(),
+          url = $article.find('.name a').attr('href').trim(),
+          description = $article.find('.description').text().trim(),
+          address = $article.find('.address').text().trim(),
+          dietary = $article.find('.dietary').text().trim();
+
+        ////creates obj of data////
+      var data = {
+        id: id,
+        name: name,
+        url: url,
+        description: description,
+        address: address,
+        dietary: dietary
+      }
+
+      /// Selecting all elements ///
+      var $modal = $(MODAL_SELECTOR);
+          $description = $modal.find('input[name=description]'),
+          $name = $modal.find('input[name=name]'),
+          $address = $modal.find('input[name=address]'),
+          $dietary = $modal.find('input[name=dietary]'),
+          $url = $modal.find('input[name=url]');
+
+    /// Setting all elements in modal to display previous information ///
+     $modal.data('id', data.id);
+     $description.val(data.description);
+     $name.val(data.name);
+     $address.val(data.address);
+     $dietary.val(data.dietary);
+     $url.val(data.url);
+    }
+
+
+    /// Click handler for the restaurant modal  ///
+    $('body').on('click', 'button.restaurant-edit', setModalData);
 });
 
-$(window).load(function() {
-      alert("window load occurred!");
-      //////////   UDPATE RESTAURANT   //////////
-
-      $('button').click(function(event) {
-        console.log('button clicked');
-         event.preventDefault();
-        var restId = $('.update').attr('data-id');
-        console.log(restId);
-         $.ajax({
-           method: 'PATCH',
-           url: '/api/restaurants/'+restId,
-           data: $(this).serializeArray(),
-           success: updateRestaurantSuccess,
-           error: apiError
-         });
-        //  $('#myModal').modal('toggle');
-
-       });
-});
+// $(window).load(function() {
+//       alert("window load occurred!");
+//       //////////   UDPATE RESTAURANT   //////////
+//
+//       $('button').click(function(event) {
+//         console.log('button clicked');
+//          event.preventDefault();
+//         var restId = $('.update').attr('data-id');
+//         console.log(restId);
+//          $.ajax({
+//            method: 'PATCH',
+//            url: '/api/restaurants/'+restId,
+//            data: $(this).serializeArray(),
+//            success: updateRestaurantSuccess,
+//            error: apiError
+//          });
+//         //  $(MODAL_SELECTOR).modal('toggle');
+//
+//        });
+// });
