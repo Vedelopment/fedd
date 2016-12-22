@@ -34,10 +34,10 @@ $(document).ready(function() {
     //////////   UDPATE RESTAURANT   //////////
     $('#updateRestaurantForm').submit(function(event) {
        event.preventDefault();
-       $('#myModal').modal('toggle');
       //  var currentId = $('#restaurantTarget');
       //  var restId = $(currentId).attr('id');
       var restId = $('.update').attr('data-id');
+      console.log(restId);
        $.ajax({
          method: 'PATCH',
          url: '/api/restaurants/'+ restId,
@@ -45,6 +45,7 @@ $(document).ready(function() {
          success: updateRestaurantSuccess,
          error: apiError
        });
+       $('#myModal').modal('toggle');
       //  console.log($(this).attr('data-id'));
 
      });
