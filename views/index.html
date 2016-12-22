@@ -30,6 +30,7 @@
     <div class='container'>
         <div class="row">
             <h1 id="hero">FEDD</h1>
+            <button type="submit" class="btn btn-default updateRestaurantButton" id="testButton" data-restaurant-id="test-button-id">Update</button>
 
             <!-- ADD NEW RESTAURANT FORM -->
 
@@ -126,8 +127,8 @@
                       </div>
 
                       <!-- button -->
-                      <!-- <button type="submit" class="btn btn-default updateRestaurantButton">Update</button>
-                      <button type="submit" class="btn btn-default deleteRestaurantButton">Delete</button> -->
+                      <button type="submit" class="btn btn-default updateRestaurantButton">Update</button>
+                      <button type="submit" class="btn btn-default deleteRestaurantButton">Delete</button>
 
                   </form>
               </div>
@@ -142,7 +143,7 @@
     </div>
     <script id="restaurants-template" type="text/x-handlebars-template">
         <!-- future HANDLEBARS SCRIPT tag -->
-          <article class="content-card col-md-6 col-md-offset-3" data-restaurant-id"{{restaurant._id}}">
+          <article class="content-card col-md-6 col-md-offset-3">
               <!-- future handlebars text -->
               <h3><a href="{{restaurant.url}}">{{restaurant.name}}</a></h3>
               <hr>
@@ -153,8 +154,8 @@
               <p>{{restaurant.dietary}}</p>
               <!-- Trigger the modal with a button -->
               <!-- <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">Edit</button> -->
-              <button type="submit" class="btn btn-default updateRestaurantButton">Update</button>
-              <button type="submit" class="btn btn-default deleteRestaurantButton">Delete</button>
+              <button type="submit" class="btn btn-default updateRestaurantButton" data-restaurant-id="{{restaurant._id}}">Update</button>
+              <button type="submit" class="btn btn-default deleteRestaurantButton" data-restaurant-id="{{restaurant._id}}">Delete</button>
         </article>
     </script>
 </body>

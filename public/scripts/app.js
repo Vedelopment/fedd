@@ -31,21 +31,7 @@ $(document).ready(function() {
             error: apiError
         });
     });
-    //////////   UDPATE RESTAURANT   //////////
-    $('#updateRestaurantForm').submit(function(event) {
-       event.preventDefault();
-      // var restId = $('.update').attr('data-id');
-      // console.log(restId);
-      //  $.ajax({
-      //    method: 'PATCH',
-      //    url: '/api/restaurants/'+restId,
-      //    data: $(this).serializeArray(),
-      //    success: updateRestaurantSuccess,
-      //    error: apiError
-      //  });
-      //  $('#myModal').modal('toggle');
 
-     });
 
     /////////////////////////////////////////////////////////////
     //////////////////   SUCCESS FUNCTIONS   ////////////////////
@@ -67,7 +53,7 @@ $(document).ready(function() {
         $('#newRestaurantForm input').val('');
         allRestaurants.push(json);
         console.log(allRestaurants);
-        allRestaurants.append(json);
+        $restaurantsList.append(json);
     }
 
     //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////
@@ -101,4 +87,25 @@ $(document).ready(function() {
         // $('#restaurantTarget').text('api error, is the server working?');
     }
 
+});
+
+$(window).load(function() {
+      alert("window load occurred!");
+      //////////   UDPATE RESTAURANT   //////////
+
+      $('button').click(function(event) {
+        console.log('button clicked');
+         event.preventDefault();
+        var restId = $('.update').attr('data-id');
+        console.log(restId);
+         $.ajax({
+           method: 'PATCH',
+           url: '/api/restaurants/'+restId,
+           data: $(this).serializeArray(),
+           success: updateRestaurantSuccess,
+           error: apiError
+         });
+        //  $('#myModal').modal('toggle');
+
+       });
 });

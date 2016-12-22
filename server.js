@@ -117,7 +117,7 @@ app.get('/api', function api_index(req, res) {
 app.patch('/api/restaurants/:id', function (req, res) {
   db.Restaurant.findOne({_id: req.params.id }, function(err, foundRestaurant) {
     if (err) {
-      res.status(500).send('error: ', err);
+      res.status(500).send('error: ');
     }
      else {
        foundRestaurant.name = req.body.name || foundRestaurant.name;
