@@ -1,0 +1,29 @@
+('#585adc2dd6f7f829d23b66e6')
+[button#585adc2dd6f7f829d23b66e6.btn.btn-warning.btn-sm]0: button#585adc2dd6f7f829d23b66e6.btn.btn-warning.btn-smcontext: documentlength: 1selector: "#585adc2dd6f7f829d23b66e6"__proto__: Object[0]
+$('#585adc2dd6f7f829d23b66e5')
+[button#585adc2dd6f7f829d23b66e5.btn.btn-warning.btn-sm]0: button#585adc2dd6f7f829d23b66e5.btn.btn-warning.btn-smcontext: documentlength: 1selector: "#585adc2dd6f7f829d23b66e5"__proto__: Object[0]
+$('#585adc2dd6f7f829d23b66e5').on('click', function (e) {
+  console.log(this);
+});
+[button#585adc2dd6f7f829d23b66e5.btn.btn-warning.btn-sm]
+2016-12-21 17:38:33.903 VM4811:2 <button type=​"button" class=​"btn btn-warning btn-sm" data-toggle=​"modal" data-target=​"#myModal" id=​"585adc2dd6f7f829d23b66e5">​Edit​</button>​
+$('#585adc2dd6f7f829d23b66e5').on('click', function (e) {
+  console.log(this);
+}).id;
+undefined
+$('#585adc2dd6f7f829d23b66e5').on('click', function (e) {
+  console.log(this);
+})._id;
+undefined
+var buttonObj = $('#585adc2dd6f7f829d23b66e5').on('click', function (e) {
+  console.log(this);
+});
+undefined
+buttonObj
+[button#585adc2dd6f7f829d23b66e5.btn.btn-warning.btn-sm]0: button#585adc2dd6f7f829d23b66e5.btn.btn-warning.btn-smcontext: documentlength: 1selector: "#585adc2dd6f7f829d23b66e5"__proto__: Object[0]
+buttonObj.attr('id');
+"585adc2dd6f7f829d23b66e5"
+var id = buttonObj.attr('id');
+undefined
+id
+"585adc2dd6f7f829d23b66e5"

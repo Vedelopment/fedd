@@ -32,18 +32,18 @@ $(document).ready(function() {
         });
     });
 
-    $('#updateRestaurantForm').on('click', function(event) {
+    $('.updateRestaurantButton').on('click', function(event) {
        event.preventDefault();
-       var data = $(this);
-       console.log(data);
+       var currentId = $('#restaurantTarget');
+       var restId = $(currentId).attr('restaurant-id');
        $.ajax({
          method: 'POST',
-         url: '/api/restaurants/'+ data,
+         url: '/api/restaurants/'+ restId,
          data: $(this).serializeArray(),
          success: updateRestaurantSuccess,
          error: apiError
        });
-       console.log($(this).attr('data-id'));
+      //  console.log($(this).attr('data-id'));
 
      });
 
