@@ -32,8 +32,9 @@ $(document).ready(function() {
         });
     });
     //////////   UDPATE RESTAURANT   //////////
-    $('#updateRestaurantForm').on('submit', function(event) {
+    $('#updateRestaurantForm').submit(function(event) {
        event.preventDefault();
+       $('#myModal').modal('toggle');
       //  var currentId = $('#restaurantTarget');
       //  var restId = $(currentId).attr('id');
       var restId = $('.update').attr('data-id');
