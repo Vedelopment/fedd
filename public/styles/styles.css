@@ -56,6 +56,10 @@ form {
   font-weight: bold;
 }
 
+/* spacing between restaurant list divs */
+article {
+  margin: 12px;
+}
 
 
 /* The side navigation menu */
@@ -67,7 +71,7 @@ form {
     top: 0;
     right: 0;
     background-color: #111; /* Black*/
-    opacity: .9;
+    opacity: .8;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -109,8 +113,10 @@ form {
     .sidenav a {font-size: 18px;}
 }
 
+/* hambburger image */
 img {
 float: right;
 height: 90px;
-padding-top: 15px;
+padding-top: 20px;
+margin: 14px;
 }
