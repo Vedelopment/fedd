@@ -145,23 +145,15 @@ $(document).ready(function() {
     $('body').on('click', 'button.restaurant-edit', setModalData);
 });
 
-// $(window).load(function() {
-//       alert("window load occurred!");
-//       //////////   UDPATE RESTAURANT   //////////
-//
-//       $('button').click(function(event) {
-//         console.log('button clicked');
-//          event.preventDefault();
-//         var restId = $('.update').attr('data-id');
-//         console.log(restId);
-//          $.ajax({
-//            method: 'PATCH',
-//            url: '/api/restaurants/'+restId,
-//            data: $(this).serializeArray(),
-//            success: updateRestaurantSuccess,
-//            error: apiError
-//          });
-//         //  $(MODAL_SELECTOR).modal('toggle');
-//
-//        });
-// });
+////SIDE BAR NAVIGATION ////
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+}

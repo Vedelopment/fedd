@@ -27,12 +27,13 @@
 
 <body>
     <!-- Main Body -->
+    <img src="http://i.imgur.com/7wOuYHx.png" onclick="openNav()">
     <div class='container'>
         <div class="row">
             <h1 id="hero">FEDD</h1>
             <!-- <button type="submit" class="btn btn-default updateRestaurantButton" id="testButton" data-restaurant-id="test-button-id">Update</button> -->
 
-            <!-- ADD NEW RESTAURANT FORM -->
+            <!-- TOP ADD NEW RESTAURANT FORM -->
 
             <div class="col-md-8 col-md-offset-2">
                 <form class="form-inline" id="newRestaurantForm">
@@ -80,7 +81,7 @@
     </div>
     </div>
 
-    <!-- UPDATE RESTAURANT MODAL -->
+    <!-- UPDATE & DELETE RESTAURANT MODAL -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -135,16 +136,16 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                 </div>
             </div>
-
         </div>
     </div>
+
+        <!-- HANDLEBARS SCRIPT tag -->
     <script id="restaurants-template" type="text/x-handlebars-template">
-        <!-- future HANDLEBARS SCRIPT tag -->
           <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
-              <!-- future handlebars text -->
+              <!--handlebars text -->
               <h3 class="name">
                 <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
               </h3>
@@ -160,6 +161,27 @@
               <button type="submit" class="btn btn-default deleteRestaurantButton" data-restaurant-id="{{restaurant._id}}">Delete</button> -->
         </article>
     </script>
+
+<!-- SIDE BAR MENU -->
+
+<div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">Restaurants</a>
+                <a href="#">Add Your Own</a>
+                <a href="#">Map it!</a>
+                <a href="#">Cuisines</a>
+              </div>
+
+              <!-- Use any element to open the sidenav -->
+              <!-- <span onclick="openNav()">HELLO CLICK HERE</span> -->
+
+<!-- <button onclick="openNav()" type="button" class="btn btn-primary btn-block">OPEN MER</button> -->
+              <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+              <div id="main">
+
+        </div>
+
+
 </body>
 
 </html>
