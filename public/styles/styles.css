@@ -13,6 +13,11 @@ body {
   background-size: cover;
 }
 
+/* spacing between restaurant list divs */
+article {
+  margin: 12px;
+}
+
 h1 {
   font-size: 100px;
   margin-top: 10px;
@@ -56,13 +61,10 @@ form {
   font-weight: bold;
 }
 
-/* spacing between restaurant list divs */
-article {
-  margin: 12px;
-}
 
-
-/* The side navigation menu */
+/*//////////////////////////*/
+/* The sidebar navigation menu*/
+/*//////////////////////////*/
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
@@ -103,7 +105,7 @@ article {
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-    transition: margin-right .5s;
+    transition: margin-left .5s;
     padding: 20px;
 }
 
