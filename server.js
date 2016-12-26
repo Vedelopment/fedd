@@ -86,73 +86,86 @@ app.get('/api', function api_index(req, res) {
 });
 
 /**************
-  * API ROUTES *
-  **************/
+ * API ROUTES *
+ **************/
 
 // GET ALL RESTAURANTS
- app.get('/api/restaurants', function (req, res) {
-   db.Restaurant.find(function(err, restaurants){
-     if (err) { return console.log("index error: " + err); }
-     res.json(restaurants);
-   });
- });
+app.get('/api/restaurants', function(req, res) {
+    db.Restaurant.find(function(err, restaurants) {
+        if (err) {
+            return console.log("index error: " + err);
+        }
+        res.json(restaurants);
+    });
+});
 
 // CREATE A NEW RESTAURANT
- app.post('/api/restaurants', function (req, res) {
-     var restaurantInfo = {
-     name: req.body.name,
-     description: req.body.description,
-     address:req.body.address,
-     dietary: req.body.dietary,
-     url: req.body.url
-   };
-   var newRestaurant = new db.Restaurant(restaurantInfo);
-   newRestaurant.save(function(err, restaurant){
-    if (err) {
-      response.status(500).send('database error');
-      return console.log('error', err);
-    } else {
-      res.json(restaurant);
-    }
-  });
+app.post('/api/restaurants', function(req, res) {
+    var restaurantInfo = {
+        name: req.body.name,
+        description: req.body.description,
+        address: req.body.address,
+        dietary: req.body.dietary,
+        url: req.body.url
+    };
+    var newRestaurant = new db.Restaurant(restaurantInfo);
+    newRestaurant.save(function(err, restaurant) {
+        if (err) {
+            response.status(500).send('database error');
+            return console.log('error', err);
+        } else {
+            res.json(restaurant);
+        }
+    });
 });
 
 //UPDATE RESTAURANT LISTING
-app.patch('/api/restaurants/:id', function (req, res) {
-  db.Restaurant.findOne({_id: req.params.id }, function(err, foundRestaurant) {
-    if (err) {
-      res.status(500).send('error: ');
-    }
-     else {
-       foundRestaurant.name = req.body.name || foundRestaurant.name;
-       foundRestaurant.description = req.body.description || foundRestaurant.description;
-       foundRestaurant.address = req.body.address || foundRestaurant.address;
-       foundRestaurant.dietary = req.body.dietary || foundRestaurant.dietary;
-       foundRestaurant.url = req.body.url || foundRestaurant.url;
+app.patch('/api/restaurants/:id', function(req, res) {
+    db.Restaurant.findOne({
+        _id: req.params.id
+    }, function(err, foundRestaurant) {
+        if (err) {
+            res.status(500).send('error: ');
+        } else {
+            foundRestaurant.name = req.body.name || foundRestaurant.name;
+            foundRestaurant.description = req.body.description || foundRestaurant.description;
+            foundRestaurant.address = req.body.address || foundRestaurant.address;
+            foundRestaurant.dietary = req.body.dietary || foundRestaurant.dietary;
+            foundRestaurant.url = req.body.url || foundRestaurant.url;
 
-       foundRestaurant.save(function (err, savedRestaurant) {
-         if (err) {
-           response.status(500).send('database error');
-         } else {
-           res.json(foundRestaurant);
-         }
-       })
-     }
-  });
+            foundRestaurant.save(function(err, savedRestaurant) {
+                if (err) {
+                    response.status(500).send('database error');
+                } else {
+                    res.json(foundRestaurant);
+                }
+            })
+        }
+    });
 });
 
 //DELETE RESTAURANT
-app.delete('/api/restaurants/:id', function (req, res) {
-   console.log('restaurants delete', req.params);
-   var restaurantId = req.params.id;
-   var deleteRestaurantIndex = restaurants.findIndex(function(element, index) {
-     return (element._id === parseInt(req.params.id)); //params are strings
-   });
-   console.log('deleting restaurants with index', deleteRestaurantIndex);
-   var restaurantToDelete = restaurants[deleteRestaurantIndex];
-   restaurants.splice(deleteRestaurantIndex, 1);
-   res.json(restaurantToDelete);
- });
+app.delete('/api/restaurants/:id', function(req, res) {
+    console.log('restaurants delete', req.params);
+    var restaurantId = req.params.id;
+    var deleteRestaurantIndex = restaurants.findIndex(function(element, index) {
+        return (element._id === parseInt(req.params.id)); //params are strings
+    });
+    console.log('deleting restaurants with index', deleteRestaurantIndex);
+    var restaurantToDelete = restaurants[deleteRestaurantIndex];
+    restaurants.splice(deleteRestaurantIndex, 1);
+    res.json(restaurantToDelete);
+});
+
+// GET ALL CUISINES
+app.get('/api/cuisines', function(req, res) {
+    db.Cuisine.find(function(err, restaurants) {
+        if (err) {
+            return console.log("index error: " + err);
+        }
+        res.json(restaurants);
+    });
+});
 
 /**********
  * SERVER *
