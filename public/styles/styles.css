@@ -187,3 +187,9 @@ form {
     padding-top: 20px;
     margin: 14px;
 }
+
+.disclaimer {
+  font-size: 1.5em;
+  font-family: 'Telex', sans-serif;
+  color: red;
+}

@@ -30,49 +30,57 @@
     <!-- Main Body -->
     <!-- side bar nav button / open -->
     <hgroup>
-      <h1 id="hero">f e d d</h1>
-      <h6 id="hero">free <span class="glyphicon glyphicon-grain"></span> easy <span class="glyphicon glyphicon-grain"></span> dietary <span class="glyphicon glyphicon-grain"></span> database</h6>
+        <h1 id="hero">f e d d</h1>
+        <h6 id="hero">free <span class="glyphicon glyphicon-grain"></span> easy <span class="glyphicon glyphicon-grain"></span> dietary <span class="glyphicon glyphicon-grain"></span> database</h6>
     </hgroup>
     <div id="more" class="glyphicon glyphicon-menu-hamburger"></div>
+
+    <article class="content-card col-md-6 col-md-offset-3">
+        <p class="disclaimer">
+            Please note that kosher and nut allergen cuisines are not listed as they are highly dependent on individual restaurant practices. Please also note the cuisines listed for a wheat allergy or
+            gluten sensitivity are for those where cross-contamination is a possibility. Always check with the restaurant if you have questions or concerns!
+        </p>
+    </article>
+
     <div class='container'>
 
         <!-- <div id="restaurantTarget"> -->
-            <!-- handlebars returns data here -->
+        <!-- handlebars returns data here -->
         <!-- </div> -->
 
     </div>
 
-        <!-- HANDLEBARS SCRIPT tag -->
+    <!-- HANDLEBARS SCRIPT tag -->
     <script id="restaurants-template" type="text/x-handlebars-template">
-          <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
-              <!--handlebars text -->
-              <h3 class="name">
+        <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
+            <!--handlebars text -->
+            <h3 class="name">
                 <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
               </h3>
-              <hr>
-              <p class="description">{{restaurant.description}}</p>
-              <hr>
-              <p class="address">{{restaurant.address}}</p>
-              <hr>
-              <p class="dietary">{{restaurant.dietary}}</p>
-              <!-- Trigger the modal with a button -->
-              <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
+            <hr>
+            <p class="description">{{restaurant.description}}</p>
+            <hr>
+            <p class="address">{{restaurant.address}}</p>
+            <hr>
+            <p class="dietary">{{restaurant.dietary}}</p>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
         </article>
     </script>
 
-<!-- SIDE BAR MENU -->
+    <!-- SIDE BAR MENU -->
 
-<div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn">&times;</a>
-                <a href="/">Restaurants</a>
-                <a href="#">Add Your Own</a>
-                <a href="#">Map it!</a>
-                <a href="cuisines">Cuisines</a>
-              </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn">&times;</a>
+        <a href="/">Restaurants</a>
+        <a href="#">Add Your Own</a>
+        <a href="#">Map it!</a>
+        <a href="cuisines">Cuisines</a>
+    </div>
 
-              <!-- Use any element to open the sidenav -->
-              <!-- <span onclick="openNav()">HELLO CLICK HERE</span> -->
-              <!-- <div id="main">
+    <!-- Use any element to open the sidenav -->
+    <!-- <span onclick="openNav()">HELLO CLICK HERE</span> -->
+    <!-- <div id="main">
 
         </div> -->
 
