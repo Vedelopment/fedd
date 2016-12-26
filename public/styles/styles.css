@@ -183,12 +183,12 @@ form {
 
 /* hambburger image */
 
-#more {
-    font-size: 4em;
+.burger-icon {
     display: visible;
     position: fixed;
+    top: 0;
     right: 10px;
-    height: 90px;
+    height: 74px;
     padding-top: 20px;
     margin: 14px;
 }
