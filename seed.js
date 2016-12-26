@@ -37,3 +37,30 @@ db.Restaurant.remove({}, function(err, restaurants) {
         });
     }
 });
+
+//////////   CUISINES SEED DATA   //////////
+var cuisines_list = [{
+    name: 'Thai',
+    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+}, {
+    name: 'Vietnamese',
+    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+}, {
+    name: 'Japanese',
+    dietary: 'vegetarian, gluten-free, dairy-free'
+}, {
+    name: 'South Indian',
+    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+}, {
+    name: 'Mexican',
+    dietary: 'vegetarian'
+}, {
+    name: 'Chinese',
+    dietary: 'vegetarian, dairy-free'
+}, {
+    name: 'Buddhist',
+    dietary: 'vegetarian'
+}, {
+    name: 'Greek',
+    dietary: 'vegetarian, gluten-free'
+}]

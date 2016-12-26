@@ -184,3 +184,21 @@ form {
         font-size: 18px;
     }
 }
+
+/* hambburger image */
+
+#more {
+    font-size: 4em;
+    display: visible;
+    position: fixed;
+    right: 10px;
+    height: 90px;
+    padding-top: 20px;
+    margin: 14px;
+}
+
+.disclaimer {
+  font-size: 1.5em;
+  font-family: 'Telex', sans-serif;
+  color: red;
+}
