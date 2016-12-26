@@ -1,4 +1,5 @@
 body {
+    font-size: 12px;
     color: white;
     font-family: 'Telex', sans-serif;
     background-color: #c8c8c8;
@@ -106,22 +107,26 @@ form {
 .sidenav {
     height: 100%;
     /* 100% Full-height */
-    width: 0;
+    width: 250px;
     /* 0 width - change this with JavaScript */
     position: fixed;
     /* Stay in place */
     z-index: 1;
     /* Stay on top */
     top: 0;
-    right: 0;
+    right: -250px;
     background-color: #111;
     opacity: 1;
     overflow-x: hidden;
     /* Disable horizontal scroll */
-    padding-top: 60px;
+    padding-top: 90px;
     /* Place content 60px from the top */
-    transition: 0.3s;
+    transition: 0.5s;
     /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.sidenav-open {
+    right: 0;
 }
 
 
@@ -143,16 +148,21 @@ form {
     color: black;
 }
 
-/* Position and style the close button (top right corner) */
+/* hambburger image */
 
+.burger-icon {
+  height: 50px;
+  position: fixed;
+  display: visible;
+  top: 0;
+  right: 10px;
+  margin: 14px;
+}
+
+/* Position and style the close button (top right corner) */
 .sidenav .closebtn, .sidenav .closebtn:hover {
-    color: white;
     position: absolute;
-    top: 0;
-    right: 20px;
-    font-size: 36px;
     margin-left: 50px;
-    background-color: transparent;
 }
 
 
@@ -174,7 +184,6 @@ form {
         font-size: 18px;
     }
 }
-
 
 /* hambburger image */
 
