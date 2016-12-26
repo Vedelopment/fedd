@@ -149,7 +149,7 @@ $(document).ready(function() {
       $("#mySidenav").addClass('sidenav-open');
     })
 
-    $('#mySidenav').click(function() {
+    $('.closebtn').click(function() {
       $('#more').show();
       $("#mySidenav").removeClass('sidenav-open');
     })

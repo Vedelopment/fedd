@@ -119,7 +119,7 @@ form {
     opacity: 1;
     overflow-x: hidden;
     /* Disable horizontal scroll */
-    padding-top: 60px;
+    padding-top: 90px;
     /* Place content 60px from the top */
     transition: 0.5s;
     /* 0.5 second transition effect to slide in the sidenav */
@@ -151,13 +151,23 @@ form {
 /* Position and style the close button (top right corner) */
 
 .sidenav .closebtn, .sidenav .closebtn:hover {
-    color: white;
+    height: 50px;
     position: absolute;
     top: 0;
     right: 20px;
-    font-size: 36px;
     margin-left: 50px;
-    background-color: transparent;
+    margin: 14px;
+}
+
+/* hambburger image */
+
+.burger-icon {
+  height: 50px;
+  position: fixed;
+  display: visible;
+  top: 0;
+  right: 10px;
+  margin: 14px;
 }
 
 
@@ -178,17 +188,4 @@ form {
     .sidenav a {
         font-size: 18px;
     }
-}
-
-
-/* hambburger image */
-
-.burger-icon {
-    display: visible;
-    position: fixed;
-    top: 0;
-    right: 10px;
-    height: 74px;
-    padding-top: 20px;
-    margin: 14px;
 }
