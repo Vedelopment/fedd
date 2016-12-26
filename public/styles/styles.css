@@ -148,17 +148,6 @@ form {
     color: black;
 }
 
-/* Position and style the close button (top right corner) */
-
-.sidenav .closebtn, .sidenav .closebtn:hover {
-    height: 50px;
-    position: absolute;
-    top: 0;
-    right: 20px;
-    margin-left: 50px;
-    margin: 14px;
-}
-
 /* hambburger image */
 
 .burger-icon {
@@ -168,6 +157,12 @@ form {
   top: 0;
   right: 10px;
   margin: 14px;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn, .sidenav .closebtn:hover {
+    position: absolute;
+    margin-left: 50px;
 }
 
 
