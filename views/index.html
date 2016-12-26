@@ -33,7 +33,7 @@
         <h1 id="hero">f e d d</h1>
         <h6 id="hero">free <span class="glyphicon glyphicon-grain"></span> easy <span class="glyphicon glyphicon-grain"></span> dietary <span class="glyphicon glyphicon-grain"></span> database</h6>
     </hgroup>
-    <img id="more" class="burger-icon" src="images/burger.png"></img>
+    <img id="more" class="burger-icon" src="images/burger.png">
     <div class='container'>
         <div class="row">
 
@@ -83,7 +83,6 @@
         </div>
 
     </div>
-    </div>
 
     <!-- UPDATE & DELETE RESTAURANT MODAL -->
     <div id="myModal" class="modal fade" role="dialog">
@@ -97,26 +96,25 @@
                 </div>
                 <div class="modal-body">
 
-
                     <!-- FORM INSIDE MODAL!-->
                     <form class="form-inline" id="updateRestaurantForm">
 
                         <!-- name request -->
                         <div class="form-group">
                             <!-- <label for="title">Name</label> -->
-                            <input type="text" class="form-control" name="name" placeholder="Restaurant Name">
+                            <input type="text" class="form-control" name="name" placeholder="Restaurant Name" maxlength="30">
                         </div>
 
                         <!-- description request -->
                         <div class="form-group">
                             <!-- <label for="title">Description</label> -->
-                            <input type="text" class="form-control" name="description" placeholder="Description">
+                            <input type="text" class="form-control" name="description" placeholder="Description" maxlength="50">
                         </div>
 
                         <!-- address request -->
                         <div class="form-group">
                             <!-- <label for="title">Location</label> -->
-                            <input type="text" class="form-control" name="address" placeholder="Address">
+                            <input type="text" class="form-control" name="address" placeholder="Address" maxlength="50">
                         </div>
 
                         <!-- address request -->
@@ -128,7 +126,7 @@
                         <!-- url request -->
                         <div class="form-group">
                             <!-- <label for="title">Location</label> -->
-                            <input type="text" class="form-control" name="url" placeholder="Restaurant url">
+                            <input type="URL" class="form-control" name="url" placeholder="Restaurant url">
                         </div>
 
                         <!-- button -->
