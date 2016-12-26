@@ -146,14 +146,11 @@ $(document).ready(function() {
 
     $('#more').click(function() {
       $(this).hide();
-      $("#mySidenav").css('width', '250px');
-      $("#main").css('margin-left', '250px');
-      $("#mySidenav").css('width', '250px');
+      $("#mySidenav").addClass('sidenav-open');
     })
 
-    $('#mySidenav').click(function() {
+    $('.closebtn').click(function() {
       $('#more').show();
-      $("#mySidenav").css('width', '0px');
-      $("#main").css('margin-left', '0px');
+      $("#mySidenav").removeClass('sidenav-open');
     })
 });
