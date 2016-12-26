@@ -143,17 +143,17 @@ $(document).ready(function() {
 
     /// Click handler for the restaurant modal  ///
     $('body').on('click', 'button.restaurant-edit', setModalData);
+
+    $('#more').click(function() {
+      $(this).hide();
+      $("#mySidenav").css('width', '250px');
+      $("#main").css('margin-left', '250px');
+      $("#mySidenav").css('width', '250px');
+    })
+
+    $('#mySidenav').click(function() {
+      $('#more').show();
+      $("#mySidenav").css('width', '0px');
+      $("#main").css('margin-left', '0px');
+    })
 });
-
-////SIDE BAR NAVIGATION ////
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
-
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-}
