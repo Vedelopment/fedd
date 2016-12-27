@@ -24,6 +24,7 @@
 
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/restaurants.js"></script>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
     <!-- side bar nav button / open -->
     <hgroup>
         <h1 id="hero">f e d d</h1>
-        <h6 id="hero">free <span class="glyphicon glyphicon-grain"></span> easy <span class="glyphicon glyphicon-grain"></span> dietary <span class="glyphicon glyphicon-grain"></span> database</h6>
+        <h6>free <span class="glyphicon glyphicon-grain"></span> easy <span class="glyphicon glyphicon-grain"></span> dietary <span class="glyphicon glyphicon-grain"></span> database</h6>
     </hgroup>
     <img id="more" class="burger-icon" src="images/burger.png">
     <div class='container'>
@@ -81,10 +82,13 @@
         <div id="restaurantTarget">
             <!-- handlebars returns data here -->
         </div>
-
+        <div id="cuisineTarget">
+            <!-- handlebars returns data here -->
+        </div>
+    </div>
     </div>
 
-    <!-- UPDATE & DELETE RESTAURANT MODAL -->
+    <!-- UPDATE RESTAURANT MODAL -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -92,9 +96,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Update Listing</h4>
+                    <h4 class="modal-title">Update This Listing:</h4>
                 </div>
                 <div class="modal-body">
+
 
                     <!-- FORM INSIDE MODAL!-->
                     <form class="form-inline" id="updateRestaurantForm">
@@ -135,18 +140,9 @@
 
                     </form>
                 </div>
-
             </div>
-            <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-            </div>
-
-        </div>
-        <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
         </div>
     </div>
-
     <!-- HANDLEBARS SCRIPT tag -->
     <script id="restaurants-template" type="text/x-handlebars-template">
         <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
