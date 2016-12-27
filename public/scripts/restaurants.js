@@ -60,21 +60,21 @@ $(document).ready(function() {
     $('#restaurantTarget').on("click", ".deleteRestaurantButton", function(event){
         console.log('delete submitted');
         // var restId = $('#deleteRestaurantButton').data('id');
-        // var restId = $(this).closest('.content-card').data('data-id');
+        var restId = $(this).closest('.content-card').data('id');
         // var data = {};
         // $(this).serializeArray().forEach(function(item) {
         //     data[item.name] = item.value;
         // });
 
-        // console.log(restId);
+        console.log(restId);
         //
-        // $.ajax({
-        //     method: 'DELETE',
-        //     url: '/api/restaurants/' + restId,
-        //     data: data,
-        //     success: deleteRestaurantSuccess,
-        //     error: apiError
-        // });
+        $.ajax({
+            method: 'DELETE',
+            url: '/api/restaurants/' + restId,
+            data: 'json',
+            success: deleteRestaurantSuccess,
+            error: apiError
+        });
 
         // $(MODAL_SELECTOR).modal('toggle');
     });
@@ -100,6 +100,7 @@ $(document).ready(function() {
         allRestaurants.push(json);
         console.log(allRestaurants);
         $restaurantsList.append(json);
+        window.location.reload();
     }
 
     //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////
@@ -113,11 +114,20 @@ $(document).ready(function() {
         $article.find('.dietary').text(response.dietary);
     }
 
-    function appendSongError(err) {
-        console.log("not appended", err)
+    //////////   DELETE RESTAURANT SUCCESS FUNCTION   //////////
+    function deleteRestaurantSuccess(response) {
+        // var $article = $('article[data-id=' + response._id + ']');
+
+        function destroy(req, res) {
+
+          // find one album by id, delete it, and send it back as JSON
+
+          db.Restaurant.findOneAndRemove({ _id: req.params.restaurant_id }, function(err, deletedRestaurant) {
+             res.json(deletedRestaurant);
+           });
+        }
+        window.location.reload();
     }
-
-
 
     //////////   ERROR FUNCTION   //////////
     function apiError(e) {
