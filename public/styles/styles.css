@@ -1,57 +1,193 @@
-/* *{
-  border: dashed 2px black;
-} */
-
 body {
-  color: #333;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: .6em;
-  background-color: #c8c8c8;
-  background-image:url(http://i.imgur.com/qRNmp2e.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
+    font-size: 12px;
+    color: white;
+    font-family: 'Telex', sans-serif;
+    background-color: #c8c8c8;
+    background-image: url(http://i.imgur.com/qRNmp2e.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+
+/* spacing between restaurant list divs */
+
+article {
+    margin: 12px;
+}
+
+
+/* heading group for page title and subheading */
+
+hgroup {
+    color: white;
+    margin: 0 auto;
+    padding: .5em 0 2em 0;
+    text-align: center;
+    background-color: black;
+    opacity: .8;
 }
 
 h1 {
-  font-size: 100px;
-  margin-top: 10px;
-  text-align: center;
-  background-color: white;
-  opacity:.9;
-  border-radius: 15px 50px;
-  border: 1px black solid;
-  font-family: 'Palatino Linotype', ‘Book Antiqua’, Palatino, serif;
-/*   font-weight: bold; */
+    font-size: 8em;
 }
 
 h3 {
-  font-size: 6em;
+    font-size: 5em;
 }
 
-.content-card {
-  padding: 10px;
-  background-color: white;
-  border: 3px black solid;
-  text-align: center;
-  border-radius: 20px;
+h6 {
+    font-size: 2em;
 }
 
 p {
- font-size: 4em;
+    font-size: 2em;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding: 1px 8px;
+    transition: .3s;
+    border-radius: 4px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+    background-color: rgb(100, 250, 150);
+}
+
+button {
+    color: black;
+    background-color: rgb(100, 250, 150);
+    border: 1px solid black;
+    transition: .3s;
+}
+
+button:hover {
+    background-color: orange;
 }
 
 form {
-  padding: 15px;
+    padding: 15px;
+}
+
+.glyphicon-grain {
+    font-size: .5em;
+}
+
+.content-card {
+    padding: 10px;
+    opacity: .8;
+    background-color: black;
+    border: 3px black solid;
+    text-align: center;
+    border-radius: 20px;
 }
 
 .form-control {
-  border: 2px black solid;
+    border: 2px black solid;
 }
 
 .btn {
-  border: 2px black solid;
-  background-color: grey;
+    border: 2px black solid;
+    background-color: grey;
+    color: black;
+    font-weight: bold;
+}
+
+
+/*//////////////////////////*/
+
+
+/* The sidebar navigation menu*/
+
+
+/*//////////////////////////*/
+
+.sidenav {
+    height: 100%;
+    /* 100% Full-height */
+    width: 250px;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    right: -250px;
+    background-color: #111;
+    opacity: 1;
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 90px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.sidenav-open {
+    right: 0;
+}
+
+
+/* The navigation menu links */
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 2.2em;
+    color: rgb(220, 220, 220);
+    display: block;
+    transition: 0.4s
+}
+
+
+/* When you mouse over the navigation links, change their color */
+
+.sidenav a:hover, .offcanvas a:focus {
+    color: black;
+}
+
+
+/* hambburger image */
+
+.burger-icon {
+    height: 50px;
+    position: fixed;
+    display: visible;
+    top: 0;
+    right: 10px;
+    margin: 14px;
+}
+
+
+/* Position and style the close button (top right corner) */
+
+.sidenav .closebtn, .sidenav .closebtn:hover {
+    position: absolute;
+    margin-left: 50px;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.modal-title {
   color: black;
-  font-weight: bold;
+}
+
+.disclaimer {
+    font-size: 1.5em;
+    font-family: 'Telex', sans-serif;
+    color: red;
 }

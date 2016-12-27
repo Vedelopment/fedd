@@ -37,3 +37,47 @@ db.Restaurant.remove({}, function(err, restaurants) {
         });
     }
 });
+
+//////////   CUISINES SEED DATA   //////////
+var cuisine_list = [{
+    name: 'Thai',
+    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+}, {
+    name: 'Vietnamese',
+    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+}, {
+    name: 'Japanese',
+    dietary: 'vegetarian, gluten-free, dairy-free'
+}, {
+    name: 'South Indian',
+    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+}, {
+    name: 'Mexican',
+    dietary: 'vegetarian'
+}, {
+    name: 'Chinese',
+    dietary: 'vegetarian, dairy-free'
+}, {
+    name: 'Buddhist',
+    dietary: 'vegetarian'
+}, {
+    name: 'Greek',
+    dietary: 'vegetarian, gluten-free'
+}]
+
+//////////   REMOVES AND CREATES CUISINES LIST   //////////
+db.Cuisine.remove({}, function(err, cuisines) {
+    if (err) {
+        console.log('Error occurred in removing cuisines', err);
+    } else {
+        console.log('removed all cuisines');
+
+        db.Cuisine.create(cuisine_list, function(err, cuisines) {
+            if (err) {
+                return console.log('Error occurred in creating cuisines', err);
+            }
+            console.log("created", cuisines.length, "cuisines");
+            process.exit();
+        });
+    }
+});
