@@ -56,6 +56,29 @@ $(document).ready(function() {
         $(MODAL_SELECTOR).modal('toggle');
     });
 
+    //////////   DELETE RESTAURANT   //////////
+    $('#restaurantTarget').on("click", ".deleteRestaurantButton", function(event){
+        console.log('delete submitted');
+        // var restId = $('#deleteRestaurantButton').data('id');
+        // var restId = $(this).closest('.content-card').data('data-id');
+        // var data = {};
+        // $(this).serializeArray().forEach(function(item) {
+        //     data[item.name] = item.value;
+        // });
+
+        // console.log(restId);
+        //
+        // $.ajax({
+        //     method: 'DELETE',
+        //     url: '/api/restaurants/' + restId,
+        //     data: data,
+        //     success: deleteRestaurantSuccess,
+        //     error: apiError
+        // });
+
+        // $(MODAL_SELECTOR).modal('toggle');
+    });
+
     /////////////////////////////////////////////////////////////
     //////////////////   SUCCESS FUNCTIONS   ////////////////////
     /////////////////////////////////////////////////////////////
