@@ -9,11 +9,13 @@ body {
     background-size: cover;
 }
 
+
 /* spacing between restaurant list divs */
 
 article {
     margin: 12px;
 }
+
 
 /* heading group for page title and subheading */
 
@@ -31,7 +33,7 @@ h1 {
 }
 
 h3 {
-  font-size: 5em;
+    font-size: 5em;
 }
 
 h6 {
@@ -57,31 +59,31 @@ a:hover {
 }
 
 button {
-  color: black;
-  background-color: rgb(100, 250, 150);
-  border: 1px solid black;
-  transition: .3s;
+    color: black;
+    background-color: rgb(100, 250, 150);
+    border: 1px solid black;
+    transition: .3s;
 }
 
 button:hover {
-  background-color: orange;
+    background-color: orange;
 }
 
 form {
-  padding: 15px;
+    padding: 15px;
 }
 
 .glyphicon-grain {
-  font-size: .5em;
+    font-size: .5em;
 }
 
 .content-card {
-  padding: 10px;
-  opacity: .8;
-  background-color: black;
-  border: 3px black solid;
-  text-align: center;
-  border-radius: 20px;
+    padding: 10px;
+    opacity: .8;
+    background-color: black;
+    border: 3px black solid;
+    text-align: center;
+    border-radius: 20px;
 }
 
 .form-control {
@@ -148,29 +150,24 @@ form {
     color: black;
 }
 
+
 /* hambburger image */
 
 .burger-icon {
-  height: 50px;
-  position: fixed;
-  display: visible;
-  top: 0;
-  right: 10px;
-  margin: 14px;
+    height: 50px;
+    position: fixed;
+    display: visible;
+    top: 0;
+    right: 10px;
+    margin: 14px;
 }
 
+
 /* Position and style the close button (top right corner) */
+
 .sidenav .closebtn, .sidenav .closebtn:hover {
     position: absolute;
     margin-left: 50px;
-}
-
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
 }
 
 
@@ -185,20 +182,12 @@ form {
     }
 }
 
-/* hambburger image */
-
-#more {
-    font-size: 4em;
-    display: visible;
-    position: fixed;
-    right: 10px;
-    height: 90px;
-    padding-top: 20px;
-    margin: 14px;
+.modal-title {
+  color: black;
 }
 
 .disclaimer {
-  font-size: 1.5em;
-  font-family: 'Telex', sans-serif;
-  color: red;
+    font-size: 1.5em;
+    font-family: 'Telex', sans-serif;
+    color: red;
 }

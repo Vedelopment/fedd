@@ -24,6 +24,7 @@
 
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/cuisines.js"></script>
 </head>
 
 <body>
@@ -31,47 +32,41 @@
     <!-- side bar nav button / open -->
     <hgroup>
         <h1 id="hero">f e d d</h1>
-        <h6 id="hero">free <span class="glyphicon glyphicon-grain"></span> easy <span class="glyphicon glyphicon-grain"></span> dietary <span class="glyphicon glyphicon-grain"></span> database</h6>
+        <h6>free <span class="glyphicon glyphicon-grain"></span> easy <span class="glyphicon glyphicon-grain"></span> dietary <span class="glyphicon glyphicon-grain"></span> database</h6>
     </hgroup>
-    <div id="more" class="glyphicon glyphicon-menu-hamburger"></div>
-
+    <img id="more" class="burger-icon" src="images/burger.png">
     <article class="content-card col-md-6 col-md-offset-3">
+        <p>
+          Do you have a new allergy or want to find cuisines that naturally cater to your dietary needs? We've created a cuisine cheat sheet to help you out!
+        </p>
         <p class="disclaimer">
-            Please note that kosher and nut allergen cuisines are not listed as they are highly dependent on individual restaurant practices. Please also note the cuisines listed for a wheat allergy or
-            gluten sensitivity are for those where cross-contamination is a possibility. Always check with the restaurant if you have questions or concerns!
+          Please note that kosher and nut allergen cuisines are not listed, as these can vary greatly dependending on individual restaurant practices. Please also note the cuisines listed gluten-free include the possibility of cross-contamination. Always check with the restaurant if you have questions or concerns!
         </p>
     </article>
 
     <div class='container'>
 
-        <!-- <div id="restaurantTarget"> -->
+        <div id="cuisineTarget"> -->
         <!-- handlebars returns data here -->
-        <!-- </div> -->
+        </div>
 
     </div>
 
     <!-- HANDLEBARS SCRIPT tag -->
-    <script id="restaurants-template" type="text/x-handlebars-template">
-        <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
+    <script id="cuisines-template" type="text/x-handlebars-template">
+        <article class="content-card col-md-6 col-md-offset-3" data-id="{{cuisine._id}}">
             <!--handlebars text -->
-            <h3 class="name">
-                <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
-              </h3>
+            <h3 class="name">{{cuisine.name}}</h3>
             <hr>
-            <p class="description">{{restaurant.description}}</p>
-            <hr>
-            <p class="address">{{restaurant.address}}</p>
-            <hr>
-            <p class="dietary">{{restaurant.dietary}}</p>
+            <p class="dietary">{{cuisine.dietary}}</p>
             <!-- Trigger the modal with a button -->
-            <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
         </article>
     </script>
 
     <!-- SIDE BAR MENU -->
 
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn">&times;</a>
+        <img src="images/noburger.png" class="burger-icon closebtn">
         <a href="/">Restaurants</a>
         <a href="#">Add Your Own</a>
         <a href="#">Map it!</a>

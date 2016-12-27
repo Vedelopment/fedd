@@ -39,7 +39,7 @@ db.Restaurant.remove({}, function(err, restaurants) {
 });
 
 //////////   CUISINES SEED DATA   //////////
-var cuisines_list = [{
+var cuisine_list = [{
     name: 'Thai',
     dietary: 'vegetarian, vegan, gluten-free, dairy-free'
 }, {
@@ -64,3 +64,20 @@ var cuisines_list = [{
     name: 'Greek',
     dietary: 'vegetarian, gluten-free'
 }]
+
+//////////   REMOVES AND CREATES CUISINES LIST   //////////
+db.Cuisine.remove({}, function(err, cuisines) {
+    if (err) {
+        console.log('Error occurred in removing cuisines', err);
+    } else {
+        console.log('removed all cuisines');
+
+        db.Cuisine.create(cuisine_list, function(err, cuisines) {
+            if (err) {
+                return console.log('Error occurred in creating cuisines', err);
+            }
+            console.log("created", cuisines.length, "cuisines");
+            process.exit();
+        });
+    }
+});
