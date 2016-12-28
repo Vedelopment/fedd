@@ -169,6 +169,28 @@ app.get('/api/cuisines', function(req, res) {
     });
 });
 
+
+// ADD ALL Restaurants to MAP
+// 
+// app.get('/api/Restaurants/gps', function gps(req, res) {
+//   db.Restaurant.find(function(err, restaurants) {
+//     if (err) {
+//       return console.log('error with gps controller: ' + err);
+//     }
+//     var responseList = [];
+//     restauratnts.forEach(function(element, index, array) {
+//       var subArray = [];
+//       subArray.push(element.lat);
+//       subArray.push(element.lon);
+//       subArray.push(element.address);
+//       responseList.push(subArray);
+//     })
+//     res.send(responseList);
+//   })
+// });
+
+
+
 /**********
  * SERVER *
  **********/
