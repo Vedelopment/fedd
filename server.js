@@ -44,6 +44,10 @@ app.get('/cuisines', function cuisinespage(req, res) {
     res.sendFile(__dirname + '/views/cuisines.html');
 });
 
+app.get('/map', function mappage(req, res) {
+    res.sendFile(__dirname + '/views/map.html');
+});
+
 /*
  * JSON API Endpoints
  */

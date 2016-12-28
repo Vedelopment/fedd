@@ -6,20 +6,27 @@ var restaurant_list = [{
     description: 'Vegan Sushi Bar and Izakaya',
     address: '370 14th St, San Francisco, CA 94103',
     dietary: 'vegetarian, vegan, gluten-free, dairy-free',
-    url: 'https://www.yelp.com/biz/shizen-vegan-sushi-bar-and-izakaya-san-francisco'
+    url: 'https://www.yelp.com/biz/shizen-vegan-sushi-bar-and-izakaya-san-francisco',
+    lat: ,
+    lon:
 }, {
     name: 'Gracias Madre',
     description: 'Vegan Mexican Cuisine',
     address: '2211 Mission St, San Francisco, CA 94110',
     dietary: 'vegetarian, vegan, gluten-free, dairy-free',
-    url: 'http://gracias-madre.com/'
+    url: 'http://gracias-madre.com/',
+    lat: 37.761966,
+    lon: -122.419037
 }, {
     name: 'Cha-Ya',
     description: 'Vegan Sushi Restaurant',
     address: '762 Valencia St, San Francisco, CA 94110',
     dietary: 'vegetarian, vegan, gluten-free, dairy-free',
-    url: 'http://www.thechaya.com/'
+    url: 'http://www.thechaya.com/',
+    lat: 37.760947,
+    lon: -122.421791
 }]
+
 
 //////////   REMOVES AND CREATES RESTAURANT LIST   //////////
 db.Restaurant.remove({}, function(err, restaurants) {
