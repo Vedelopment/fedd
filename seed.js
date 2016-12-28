@@ -7,8 +7,8 @@ var restaurant_list = [{
     address: '370 14th St, San Francisco, CA 94103',
     dietary: 'vegetarian, vegan, gluten-free, dairy-free',
     url: 'https://www.yelp.com/biz/shizen-vegan-sushi-bar-and-izakaya-san-francisco',
-    lat: ,
-    lon:
+    lat: 37.768534,
+    lon: -122.421611
 }, {
     name: 'Gracias Madre',
     description: 'Vegan Mexican Cuisine',
