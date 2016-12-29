@@ -1,5 +1,7 @@
 console.log('sanity check!');
 
+
+
 // window.initMap= function() {}
 // //
 var initMap= function() {
@@ -47,6 +49,8 @@ var marker = new google.maps.Marker({
 // // }
 
 $(document).on("ready", function() {
+
+  $('#map').hide().show('slow');
 
   $.ajax( {
           method:"GET",
