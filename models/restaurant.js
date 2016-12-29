@@ -15,13 +15,14 @@ var RestaurantSchema = new Schema({
     Kosher: Boolean
   }],
   url: String,
-  lat: Number,
-	lon: Number
+  coordinates: {
+    lat: Number,
+  	lon: Number
+  }
   //cuisine: []//stretch: relate these, eventually be able to filter results//
   //coord: some data //stretch: google maps//
   //rating: some data //stretch: javascript logic stuff//
 });
-
 
 //Set up Restaurant model
 var Restaurant = mongoose.model('Restaurant', RestaurantSchema);
