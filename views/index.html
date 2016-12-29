@@ -149,14 +149,36 @@
                 <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
               </h3>
             <hr>
-            <p class="description">{{restaurant.description}}</p>
+            <h6 class="description">{{restaurant.description}}</h6>
             <hr>
-            <p class="address">{{restaurant.address}}</p>
+            <h6 class="address">{{restaurant.address}}</h6>
             <hr>
-            <p class="dietary">{{restaurant.dietary}}</p>
+            {{#each restaurant.dietary}}
+              <ul class="dietary">
+                {{#if vegetarian}}
+                <li>vegetarian</li>
+                {{/if}}
+                {{#if vegan}}
+                <li>vegan</li>
+                {{/if}}
+                {{#if glutenFree}}
+                <li>gluten-free</li>
+                {{/if}}
+                {{#if dairyFree}}
+                <li>dairy-free</li>
+                {{/if}}
+                {{#if nutAllergy}}
+                <li>nut-allergy</li>
+                {{/if}}
+                {{#if Kosher}}
+                <li>kosher</li>
+                {{/if}}
+              </ul>
+            {{/each}}
+            <hr>
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
-            <button type="button" class="btn btn-default deleteRestaurantButton">Delete</button>
+            <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button>
         </article>
     </script>
 
