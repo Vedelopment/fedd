@@ -39,7 +39,7 @@ hgroup {
     padding: .5em 0 2em 0;
     text-align: center;
     background-color: black;
-    opacity: .8;
+    opacity: .85;
 }
 
 h1 {
@@ -82,6 +82,11 @@ button:hover {
 
 form {
     padding: 15px;
+}
+
+.home-link:hover {
+  color: rgba(100, 250, 150, 1);
+  background-color: transparent;
 }
 
 .glyphicon-grain {
