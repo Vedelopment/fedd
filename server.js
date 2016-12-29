@@ -172,7 +172,8 @@ app.get('/api/cuisines', function(req, res) {
 
 // ADD ALL Restaurants to MAP
 //
-app.get('/api/restaurants/maps', function maps(req, res) {
+app.get('/api/restaurants', function maps(req, res) {
+  console.log('server map get');
   db.Restaurant.find(function(err, restaurants) {
     if (err) {
       return console.log('error with maps controller: ' + err);
