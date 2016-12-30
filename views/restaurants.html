@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>FEDD</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Telex" rel="stylesheet">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/restaurants.js"></script>
+</head>
+
+<body>
+    <!-- Main Body -->
+    <!-- side bar nav button / open -->
+    <hgroup>
+        <h1 id="hero"><a class="home-link" href="/">f e d d</a></h1>
+        <h6>free <span class="glyphicon glyphicon-grain"></span> easy <span class="glyphicon glyphicon-grain"></span> dietary <span class="glyphicon glyphicon-grain"></span> database</h6>
+    </hgroup>
+
+    <img id="more" class="burger-icon" src="images/burger.png">
+    <div class='container'>
+        <div class="row">
+
+            <!-- TOP ADD NEW RESTAURANT FORM -->
+
+            <div class="col-md-7 col-md-offset-3" id="addform">
+                <form class="form-inline" id="newRestaurantForm">
+
+                    <!-- name request -->
+                    <div class="form-group">
+                        <!-- <label for="title">Name</label> -->
+                        <input type="text" class="form-control" name="name" placeholder="Restaurant Name" maxlength="20">
+                    </div>
+
+                    <!-- description request -->
+                    <div class="form-group">
+                        <!-- <label for="title">Description</label> -->
+                        <input type="text" class="form-control" name="description" placeholder="Description" maxlength="50">
+                    </div>
+
+                    <!-- address request -->
+                    <div class="form-group">
+                        <!-- <label for="title">Location</label> -->
+                        <input type="text" class="form-control" name="address" placeholder="Address" maxlength="50">
+                    </div>
+
+                    <!-- address request -->
+                    <div class="form-group">
+                        <!-- <label for="title">Location</label> -->
+                        <input type="text" class="form-control" name="dietary" placeholder="Dietary Tags">
+                    </div>
+
+                    <!-- url request -->
+                    <div class="form-group">
+                        <!-- <label for="title">Location</label> -->
+                        <input type="URL" class="form-control" name="url" placeholder="Restaurant url">
+                    </div>
+
+                    <!-- button -->
+                    <button type="submit" class="btn btn-default">Add Restaurant</button>
+
+                </form>
+            </div>
+        </div>
+        <div id="restaurantTarget">
+            <!-- handlebars returns data here -->
+        </div>
+        <div id="cuisineTarget">
+            <!-- handlebars returns data here -->
+        </div>
+    </div>
+    </div>
+
+    <!-- UPDATE RESTAURANT MODAL -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Update Restaurant Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update This Listing:</h4>
+                </div>
+                <div class="modal-body">
+
+
+                    <!-- FORM INSIDE MODAL!-->
+                    <form class="form-inline" id="updateRestaurantForm">
+
+                        <!-- name request -->
+                        <div class="form-group">
+                            <!-- <label for="title">Name</label> -->
+                            <input type="text" class="form-control" name="name" placeholder="Restaurant Name" maxlength="30">
+                        </div>
+
+                        <!-- description request -->
+                        <div class="form-group">
+                            <!-- <label for="title">Description</label> -->
+                            <input type="text" class="form-control" name="description" placeholder="Description" maxlength="50">
+                        </div>
+
+                        <!-- address request -->
+                        <div class="form-group">
+                            <!-- <label for="title">Location</label> -->
+                            <input type="text" class="form-control" name="address" placeholder="Address" maxlength="50">
+                        </div>
+
+                        <!-- address request -->
+                        <div class="form-group">
+                            <!-- <label for="title">Location</label> -->
+                            <input type="text" class="form-control" name="dietary" placeholder="Dietary Tags">
+                        </div>
+
+                        <!-- url request -->
+                        <div class="form-group">
+                            <!-- <label for="title">Location</label> -->
+                            <input type="URL" class="form-control" name="url" placeholder="Restaurant url">
+                        </div>
+
+                        <!-- button -->
+                        <button type="submit" class="btn btn-default updateRestaurantButton">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- HANDLEBARS SCRIPT tag -->
+    <script id="restaurants-template" type="text/x-handlebars-template">
+        <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
+            <!--handlebars text -->
+            <h3 class="name">
+                <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
+              </h3>
+            <hr>
+            <h6 class="description">{{restaurant.description}}</h6>
+            <hr>
+            <h6 class="address">{{restaurant.address}}</h6>
+            <hr>
+            {{#each restaurant.dietary}}
+              <ul class="dietary">
+                {{#if vegetarian}}
+                <li>vegetarian</li>
+                {{/if}}
+                {{#if vegan}}
+                <li>vegan</li>
+                {{/if}}
+                {{#if glutenFree}}
+                <li>gluten-free</li>
+                {{/if}}
+                {{#if dairyFree}}
+                <li>dairy-free</li>
+                {{/if}}
+                {{#if nutAllergy}}
+                <li>nut-allergy</li>
+                {{/if}}
+                {{#if Kosher}}
+                <li>kosher</li>
+                {{/if}}
+              </ul>
+            {{/each}}
+            <hr>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
+            <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button>
+        </article>
+    </script>
+
+    <!-- SIDE BAR MENU -->
+
+    <div id="mySidenav" class="sidenav">
+        <img src="images/noburger.png" class="burger-icon closebtn">
+        <a href="/">Search</a>
+        <a href="restaurants">Restaurants</a>
+        <a href="#">Add Your Own</a>
+        <a href="#">Map it!</a>
+        <a href="cuisines">Cuisines</a>
+    </div>
+
+
+</body>
+
+</html>

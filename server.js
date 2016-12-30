@@ -40,6 +40,10 @@ app.get('/', function homepage(req, res) {
     res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/restaurants', function cuisinespage(req, res) {
+    res.sendFile(__dirname + '/views/restaurants.html');
+});
+
 app.get('/cuisines', function cuisinespage(req, res) {
     res.sendFile(__dirname + '/views/cuisines.html');
 });

@@ -19,6 +19,30 @@ var restaurant_list = [{
       lng: -122.421622
     }
 }, {
+    name: 'Shangri-La',
+    description: 'Chinese eatery serving vegetarian, vegan & kosher dishes.',
+    address: '2026 Irving St, San Francisco, CA 94122',
+    dietary: [{
+      vegetarian: true,
+      vegan: true,
+      glutenFree: false,
+      dairyFree: true,
+      nutAllergy: false,
+      Kosher: true
+    }],    url: 'http://www.shangrilavgrest.com/'
+}, {
+    name: 'Chipotle Mexican Grill',
+    description: 'Fast-food chain offering Mexican fare, including design-your-own burritos, tacos & bowls.',
+    address: '232 O\'Farrell St, San Francisco, CA 94102',
+    dietary: [{
+      vegetarian: true,
+      vegan: true,
+      glutenFree: true,
+      dairyFree: true,
+      nutAllergy: true,
+      Kosher: true
+    }],    url: 'https://chipotle.com/allergens'
+}, {
     name: 'Gracias Madre',
     description: 'Vegan Mexican Cuisine',
     address: '2211 Mission St, San Francisco, CA 94110',
