@@ -29,7 +29,11 @@ var restaurant_list = [{
       dairyFree: true,
       nutAllergy: false,
       Kosher: true
-    }],    url: 'http://www.shangrilavgrest.com/'
+    }],    url: 'http://www.shangrilavgrest.com/',
+    coordinates: {
+      lat: 37.763665,
+      lng: -122.479805
+    }
 }, {
     name: 'Chipotle Mexican Grill',
     description: 'Fast-food chain offering Mexican fare, including design-your-own burritos, tacos & bowls.',
@@ -41,7 +45,11 @@ var restaurant_list = [{
       dairyFree: true,
       nutAllergy: true,
       Kosher: true
-    }],    url: 'https://chipotle.com/allergens'
+    }],    url: 'https://chipotle.com/allergens',
+    coordinates: {
+      lat: 37.786536,
+      lng: -122.408587
+    }
 }, {
     name: 'Gracias Madre',
     description: 'Vegan Mexican Cuisine',
