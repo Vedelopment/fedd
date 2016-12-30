@@ -17,7 +17,7 @@ var RestaurantSchema = new Schema({
   url: String,
   coordinates: {
     lat: Number,
-  	lon: Number
+  	lng: Number
   }
   //cuisine: []//stretch: relate these, eventually be able to filter results//
   //coord: some data //stretch: google maps//

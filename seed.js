@@ -15,8 +15,8 @@ var restaurant_list = [{
     }],
     url: 'https://www.yelp.com/biz/shizen-vegan-sushi-bar-and-izakaya-san-francisco',
     coordinates: {
-      lat: 37.768534,
-      lon: -122.421611
+      lat: 37.768576,
+      lng: -122.421622
     }
 }, {
     name: 'Gracias Madre',
@@ -31,8 +31,10 @@ var restaurant_list = [{
       Kosher: false
     }],
     url: 'http://gracias-madre.com/',
-    lat: 37.761966,
-    lon: -122.419037
+    coordinates: {
+      lat: 37.761800,
+      lng: -122.419069
+    }
 }, {
     name: 'Cha-Ya',
     description: 'Vegan Sushi Restaurant',
@@ -45,8 +47,10 @@ var restaurant_list = [{
       nutAllergy: false,
       Kosher: false
     }],    url: 'http://www.thechaya.com/',
-    lat: 37.760947,
-    lon: -122.421791
+    coordinates: {
+      lat: 37.761006,
+      lng: -122.421652
+    }
 }]
 
 

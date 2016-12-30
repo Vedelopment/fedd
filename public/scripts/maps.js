@@ -1,6 +1,5 @@
 console.log('sanity check!');
 
-var restMarker = {url: "images/restIcon.png", scaledSize: new google.maps.Size (30, 30)}
 // var restaurantMarker = {url: "rest.png", scaledSize: new google.maps.Size (22, 32)}
 // $('#map').append();
   // icon: restaurantMarker
@@ -10,18 +9,22 @@ var restMarker = {url: "images/restIcon.png", scaledSize: new google.maps.Size (
   // }
 
 $(document).on("ready", function() {
+  var restMarker = {
+    url: "images/restIcon.png",
+    scaledSize: new google.maps.Size (30, 30)
+  },
+  sanFran = {lat: 37.78, lng: -122.44},
+  mapConfig = {
+    center: sanFran,
+    zoom: 14
+  };
 
-  var map = new google.maps.Map(document.getElementById('map'), {
-              center: { lat: 37.78, lng: -122.44},
-              zoom: 14
-                });
-
-            var sanFran = {lat: 37.78, lng: -122.44};
-            var marker = new google.maps.Marker({
-              position: sanFran,
-              map: map,
-              icon: restMarker
-            });
+  var map = new google.maps.Map(document.getElementById('map'), mapConfig);
+  var marker = new google.maps.Marker({
+    position: sanFran,
+    map: map,
+    icon: restMarker
+  });
 
 
 
@@ -36,12 +39,18 @@ $(document).on("ready", function() {
 
       function onSuccess(restaurants){
         console.log('hello??');
-        restaurants.forEach(function(restaurants){
-          var lat = restaurants.coordinates.lat;
-          var lon = restaurants.coordinates.lon;
-          var latLon = {lat, lon};
+        restaurants.forEach(function(restaurant){
+
+          //if no coordinates entered, skip all below
+          if (!restaurant.coordinates) {
+            return false;
+          }
+
+          var lat = restaurant.coordinates.lat;
+          var lng = restaurant.coordinates.lng;
+          var latLon = {lat, lng};
           console.log(latLon);
-          
+
           var marker = new google.maps.Marker({
             position: latLon,
             map: map,
