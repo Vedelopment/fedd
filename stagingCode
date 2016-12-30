@@ -10,6 +10,7 @@ Search:
 Code snippets that may help:
 
 In general, see: https://github.com/sf-wdi-34/express-dynamic-routes
+Possible query code: http://stackoverflow.com/questions/6267345/query-a-database-with-text-field-and-checkboxes
 
 Query Parameters in Express
 

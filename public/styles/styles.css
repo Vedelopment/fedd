@@ -124,14 +124,9 @@ form {
 }
 
 .form-search {
+    font-size: 1.5em;
+    text-align: center;
     padding: 0;
-}
-
-.input-search {
-    font-size: 3em;
-    height: auto;
-    margin: auto;
-    overflow: scroll;
 }
 
 .btn {
@@ -141,9 +136,19 @@ form {
     font-weight: bold;
 }
 
+.restaurant-search {
+  font-size: 1.8em;
+}
+
 .search-bucket {
     max-width: 800px;
     margin: 10px auto;
+}
+
+.checkbox-bucket {
+    max-width: 120px;
+    margin: 1.5em auto;
+    text-align: left;
 }
 
 .search-items {
@@ -237,6 +242,11 @@ form {
     }
     .burger-icon {
         height: 30px;
+    }
+    .checkbox-bucket {
+        max-width: 100px;
+        margin: 1.5em auto;
+        text-align: left;
     }
 }
 
