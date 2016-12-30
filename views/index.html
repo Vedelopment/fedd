@@ -60,6 +60,55 @@
 
     </div>
 
+  </div>
+  <div id="restaurantTarget">
+      <!-- handlebars returns data here -->
+  </div>
+
+</div>
+</div>
+
+<!-- HANDLEBARS SCRIPT tag -->
+<script id="restaurants-template" type="text/x-handlebars-template">
+  <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
+      <!--handlebars text -->
+      <h3 class="name">
+          <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
+        </h3>
+      <hr>
+      <h6 class="description">{{restaurant.description}}</h6>
+      <hr>
+      <h6 class="address">{{restaurant.address}}</h6>
+      <hr>
+      {{#each restaurant.dietary}}
+        <ul class="dietary">
+          {{#if vegetarian}}
+          <li>vegetarian</li>
+          {{/if}}
+          {{#if vegan}}
+          <li>vegan</li>
+          {{/if}}
+          {{#if glutenFree}}
+          <li>gluten-free</li>
+          {{/if}}
+          {{#if dairyFree}}
+          <li>dairy-free</li>
+          {{/if}}
+          {{#if nutAllergy}}
+          <li>nut-allergy</li>
+          {{/if}}
+          {{#if Kosher}}
+          <li>kosher</li>
+          {{/if}}
+        </ul>
+      {{/each}}
+      <hr>
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
+      <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button>
+  </article>
+</script>
+
     <!-- SIDE BAR MENU -->
 
     <div id="mySidenav" class="sidenav">
