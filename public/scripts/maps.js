@@ -1,29 +1,27 @@
 console.log('sanity check!');
 
-// var restaurantMarker = {url: "rest.png", scaledSize: new google.maps.Size (22, 32)}
-// $('#map').append();
-  // icon: restaurantMarker
-
-  // var newMarker = function() {
-  //
-  // }
 
 $(document).on("ready", function() {
+
+  //set map icon to fork knife//
   var restMarker = {
     url: "images/restIcon.png",
     scaledSize: new google.maps.Size (30, 30)
   },
+  //set center coordinates//
   sanFran = {lat: 37.78, lng: -122.44},
+
+  //
   mapConfig = {
     center: sanFran,
-    zoom: 14
+    zoom: 13
   };
 
   var map = new google.maps.Map(document.getElementById('map'), mapConfig);
   var marker = new google.maps.Marker({
     position: sanFran,
     map: map,
-    icon: restMarker
+    // icon: restMarker
   });
 
 
@@ -45,12 +43,12 @@ $(document).on("ready", function() {
           if (!restaurant.coordinates) {
             return false;
           }
-
+          //pull restaurants seed coordinates
           var lat = restaurant.coordinates.lat;
           var lng = restaurant.coordinates.lng;
           var latLon = {lat, lng};
           console.log(latLon);
-
+          //plot restaurants from seed data
           var marker = new google.maps.Marker({
             position: latLon,
             map: map,
@@ -63,4 +61,8 @@ $(document).on("ready", function() {
       function onError() {
         console.log('API map error')
       }
+
+
+
+
     });
