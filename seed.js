@@ -13,7 +13,11 @@ var restaurant_list = [{
       nutAllergy: false,
       Kosher: false
     }],
-    url: 'https://www.yelp.com/biz/shizen-vegan-sushi-bar-and-izakaya-san-francisco'
+    url: 'https://www.yelp.com/biz/shizen-vegan-sushi-bar-and-izakaya-san-francisco',
+    coordinates: {
+      lat: 37.768576,
+      lng: -122.421622
+    }
 }, {
     name: 'Shangri-La',
     description: 'Chinese eatery serving vegetarian, vegan & kosher dishes.',
@@ -49,7 +53,12 @@ var restaurant_list = [{
       dairyFree: true,
       nutAllergy: false,
       Kosher: false
-    }],    url: 'http://gracias-madre.com/'
+    }],
+    url: 'http://gracias-madre.com/',
+    coordinates: {
+      lat: 37.761800,
+      lng: -122.419069
+    }
 }, {
     name: 'Cha-Ya',
     description: 'Vegan Sushi Restaurant',
@@ -61,8 +70,13 @@ var restaurant_list = [{
       dairyFree: true,
       nutAllergy: false,
       Kosher: false
-    }],    url: 'http://www.thechaya.com/'
+    }],    url: 'http://www.thechaya.com/',
+    coordinates: {
+      lat: 37.761006,
+      lng: -122.421652
+    }
 }]
+
 
 //////////   REMOVES AND CREATES RESTAURANT LIST   //////////
 db.Restaurant.remove({}, function(err, restaurants) {

@@ -48,6 +48,10 @@ app.get('/cuisines', function cuisinespage(req, res) {
     res.sendFile(__dirname + '/views/cuisines.html');
 });
 
+app.get('/map', function mappage(req, res) {
+    res.sendFile(__dirname + '/views/map.html');
+});
+
 /*
  * JSON API Endpoints
  */
@@ -168,6 +172,29 @@ app.get('/api/cuisines', function(req, res) {
         res.json(restaurants);
     });
 });
+
+
+// ADD ALL Restaurants to MAP
+//
+app.get('/api/restaurants', function maps(req, res) {
+  console.log('server map get');
+  db.Restaurant.find(function(err, restaurants) {
+    if (err) {
+      return console.log('error with maps controller: ' + err);
+    }
+    var responseList = [];
+    restaurants.forEach(function(element, index, array) {
+      var subArray = [];
+      subArray.push(element.lat);
+      subArray.push(element.lon);
+      // subArray.push(element.address);
+      responseList.push(subArray);
+    })
+    res.send(responseList);
+  })
+});
+
+
 
 /**********
  * SERVER *

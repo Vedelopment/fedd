@@ -250,3 +250,15 @@ form {
     font-family: 'Telex', sans-serif;
     color: red;
 }
+
+
+
+/* GOOGLE MAPS*/
+
+#map {
+   width: 100%;
+   height: 400px;
+   background-color: grey;
+   margin: 50px;
+   border: 2px black solid;
+ }
