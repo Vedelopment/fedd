@@ -2,8 +2,7 @@ body {
     font-size: 1.2em;
     color: white;
     font-family: 'Telex', sans-serif;
-    background-color: #c8c8c8;
-    background-image: url(http://i.imgur.com/qRNmp2e.jpg);
+    background-image: url(../images/heroImage.jpg);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;

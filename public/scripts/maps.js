@@ -18,11 +18,11 @@ $(document).on("ready", function() {
   };
 
   var map = new google.maps.Map(document.getElementById('map'), mapConfig);
-  var marker = new google.maps.Marker({
-    position: sanFran,
-    map: map,
-    // icon: restMarker
-  });
+  // var marker = new google.maps.Marker({
+  //   position: sanFran,
+  //   map: map,
+  //   // icon: restMarker
+  // });
 
 
 
