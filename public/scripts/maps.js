@@ -6,10 +6,10 @@ $(document).on("ready", function() {
   //set map icon to fork knife//
   var restMarker = {
     url: "images/restIcon.png",
-    scaledSize: new google.maps.Size (30, 30)
+    scaledSize: new google.maps.Size (35, 35)
   },
   //set center coordinates//
-  sanFran = {lat: 37.78, lng: -122.44},
+  sanFran = {lat: 37.775676, lng: -122.446669},
 
   //
   mapConfig = {
