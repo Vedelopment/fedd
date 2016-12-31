@@ -52,6 +52,10 @@ app.get('/map', function mappage(req, res) {
     res.sendFile(__dirname + '/views/map.html');
 });
 
+app.get('/add-restaurant', function mappage(req, res) {
+    res.sendFile(__dirname + '/views/add-restaurant.html');
+});
+
 /*
  * JSON API Endpoints
  */
