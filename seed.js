@@ -107,28 +107,91 @@ db.Restaurant.remove({}, function(err, restaurants) {
 //////////   CUISINES SEED DATA   //////////
 var cuisine_list = [{
     name: 'Thai',
-    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+    dietary: {
+      vegetarian: 1,
+      vegan: 1,
+      glutenFree: 1,
+      dairyFree: 1,
+      nutAllergy: 0,
+      kosher: 0
+    },
 }, {
     name: 'Vietnamese',
-    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+    // dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+    dietary: {
+      vegetarian: 1,
+      vegan: 1,
+      glutenFree: 1,
+      dairyFree: 1,
+      nutAllergy: 0,
+      kosher: 0
+    },
 }, {
     name: 'Japanese',
-    dietary: 'vegetarian, gluten-free, dairy-free'
+    // dietary: 'vegetarian, gluten-free, dairy-free'
+    dietary: {
+      vegetarian: 1,
+      vegan: 1,
+      glutenFree: 1,
+      dairyFree: 0,
+      nutAllergy: 0,
+      kosher: 0
+    },
 }, {
     name: 'South Indian',
-    dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+    // dietary: 'vegetarian, vegan, gluten-free, dairy-free'
+    dietary: {
+      vegetarian: 1,
+      vegan: 1,
+      glutenFree: 1,
+      dairyFree: 1,
+      nutAllergy: 0,
+      kosher: 0
+    },
 }, {
     name: 'Mexican',
-    dietary: 'vegetarian'
+    // dietary: 'vegetarian'
+    dietary: {
+      vegetarian: 1,
+      vegan: 0,
+      glutenFree: 0,
+      dairyFree: 0,
+      nutAllergy: 0,
+      kosher: 0
+    },
 }, {
     name: 'Chinese',
-    dietary: 'vegetarian, dairy-free'
+    // dietary: 'vegetarian, dairy-free'
+    dietary: {
+      vegetarian: 1,
+      vegan: 0,
+      glutenFree: 0,
+      dairyFree: 1,
+      nutAllergy: 0,
+      kosher: 0
+    },
 }, {
     name: 'Buddhist',
-    dietary: 'vegetarian'
+    // dietary: 'vegetarian'
+    dietary: {
+      vegetarian: 1,
+      vegan: 0,
+      glutenFree: 0,
+      dairyFree: 0,
+      nutAllergy: 0,
+      kosher: 0
+    },
 }, {
     name: 'Greek',
-    dietary: 'vegetarian, gluten-free'
+    // dietary: 'vegetarian, gluten-free'
+    dietary: {
+      vegetarian: 1,
+      vegan: 0,
+      glutenFree: 1,
+      dairyFree: 0,
+      nutAllergy: 0,
+      kosher: 0
+    },
 }]
 
 //////////   REMOVES AND CREATES CUISINES LIST   //////////
