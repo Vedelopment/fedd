@@ -25,6 +25,7 @@
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
     <script src="/scripts/restaurants.js"></script>
+    <script src="/scripts/handlebars-helpers.js"></script>
 </head>
 
 <body>
@@ -153,12 +154,16 @@
             <hr>
             <h6 class="address">{{restaurant.address}}</h6>
             <hr>
-            {{#each restaurant.dietary}}
+            {{restaurant.dietary.vegetarian}}
+            {{restaurant.dietary.vegan}}
+            {{#each restaurant}}
               <ul class="dietary">
-                {{#if vegetarian}}
+                {{#tag restaurant.dietary.vegetarian}}
                 <li>vegetarian</li>
-                {{/if}}
-                {{#if vegan}}
+                {{else}}
+                <li>not vegetarian</li>
+                {{/tag}}
+                {{#if restaurant.dietary.vegan}}
                 <li>vegan</li>
                 {{/if}}
                 {{#if glutenFree}}
@@ -174,7 +179,7 @@
                 <li>kosher</li>
                 {{/if}}
               </ul>
-            {{/each}}
+            <!-- {{/each}} -->
             <hr>
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>

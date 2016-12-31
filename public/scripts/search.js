@@ -6,16 +6,17 @@ var allRestaurants = [];
 
 $(document).ready(function() {
 
-    //////////   HANDLEBARS   //////////
+    // HANDLEBARS
     $restaurantsList = $('#restaurantTarget');
 
     var restaurantSource = $('#restaurants-template').html();
     restaurantTemplate = Handlebars.compile(restaurantSource);
 
-    //////////   SUBMIT SEARCH RESTAURANTS   //////////
+    // SUBMIT SEARCH RESTAURANTS FORM
     $('#restaurantSearch').click(function(event) {
         event.preventDefault();
 
+        // STORE CHECKBOX VALUE
         var vegetarianBox = $("#cbox1").is('input:checked');
         var veganBox = $("#cbox2").is('input:checked');
         var glutenFreeBox = $("#cbox3").is('input:checked');
@@ -23,6 +24,7 @@ $(document).ready(function() {
         var nutAllergyBox = $("#cbox5").is('input:checked');
         var kosherBox = $("#cbox6").is('input:checked');
 
+        // SET SEARCH ARRAY INITIAL VALUES TO "0"
         var searchArray = {
             vegetarian: 0,
             vegan: 0,
@@ -32,8 +34,8 @@ $(document).ready(function() {
             kosher: 0,
         };
 
+        // SETS SEARCH ARRAY VALUES BASED ON FORM INPUT
         function filterSearch() {
-            console.log('filterSearch called');
             if (vegetarianBox) {
                 searchArray.vegetarian = 1;
             }
@@ -52,26 +54,29 @@ $(document).ready(function() {
             if (kosherBox) {
                 searchArray.kosher = 1;
             }
-        }
+        };
 
         filterSearch();
 
-        //////////   SEARCH RESTAURANTS   //////////
+        // GET ALL RESTAURANTS TO FILTER
         $.ajax({
             method: "GET",
             url: "/api/restaurants",
             dataType: "json",
             success: queryRestaurantDatabase,
             error: onError
-        })
+        });
 
-        // console.log(searchArray);
+        // FILTER RESTAURANTS BY COMPARING SEARCH ARRAY DIETARY VALUES TO EACH RESTAURANT'S DIETARY VALUES
         function queryRestaurantDatabase(allRestaurants) {
+
+            // EMPTY PREVIOUS SEARCH RESULTS
             $restaurantsList.empty();
+
+            // FILTER RESTAURANTS
             allRestaurants.forEach(function(restaurantData) {
-                console.log(searchArray);
-                // console.log(restaurantData);
                 if (
+                    // ALL MUST BE TRUE TO RETURN RESTAURANT, EACH STATEMENT IS ONLY FALSE IF SEARCH ARRAY VALUE IS "1" AND RESTAURANT DIETARY VALUE IS "0"
                     searchArray.vegetarian <= restaurantData.dietary.vegetarian &&
                     searchArray.vegan <= restaurantData.dietary.vegan &&
                     searchArray.glutenFree <= restaurantData.dietary.glutenFree &&
@@ -79,32 +84,24 @@ $(document).ready(function() {
                     searchArray.nutAllergy <= restaurantData.dietary.nutAllergy &&
                     searchArray.kosher <= restaurantData.dietary.kosher
                 ) {
+                    // RENDER SEARCH RESULTS IN HMTL
                     restaurantHtml = restaurantTemplate({
                         restaurant: restaurantData
                     });
                     $restaurantsList.append(restaurantHtml);
 
-                }// else {
-                //     console.log('a few restaurants did not make the cut!');
-                // }
-            })
+                };
+            });
 
+            // RESET FORM
             $('#searchRestaurants').each(function() {
                 this.reset();
             });
-
-            searchArray.vegetarian = 0;
-            searchArray.vegan = 0;
-            searchArray.glutenFree = 0;
-            searchArray.dairyFree = 0;
-            searchArray.nutAllergy = 0;
-            searchArray.kosher = 0;
-
         };
 
         function onError() {
             console.log('API search error')
-        }
+        };
     });
 
 });
