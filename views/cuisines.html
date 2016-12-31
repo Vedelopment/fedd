@@ -59,7 +59,13 @@
             <!--handlebars text -->
             <h3 class="name">{{cuisine.name}}</h3>
             <hr>
-            <p class="dietary">{{cuisine.dietary}}</p>
+            <ul class="dietary">
+              {{#each cuisine.dietary}}
+                {{#if this}}
+                  <li>{{@key}}</li>
+                {{/if}}
+              {{/each}}
+            </ul>
             <!-- Trigger the modal with a button -->
         </article>
     </script>
