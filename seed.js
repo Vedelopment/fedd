@@ -11,7 +11,7 @@ var restaurant_list = [{
       glutenFree: true,
       dairyFree: true,
       nutAllergy: false,
-      Kosher: false
+      kosher: false
     }],
     url: 'https://www.yelp.com/biz/shizen-vegan-sushi-bar-and-izakaya-san-francisco',
     coordinates: {
@@ -28,7 +28,7 @@ var restaurant_list = [{
       glutenFree: false,
       dairyFree: true,
       nutAllergy: false,
-      Kosher: true
+      kosher: true
     }],    url: 'http://www.shangrilavgrest.com/',
     coordinates: {
       lat: 37.763665,
@@ -44,7 +44,7 @@ var restaurant_list = [{
       glutenFree: true,
       dairyFree: true,
       nutAllergy: true,
-      Kosher: true
+      kosher: true
     }],    url: 'https://chipotle.com/allergens',
     coordinates: {
       lat: 37.786536,
@@ -60,7 +60,7 @@ var restaurant_list = [{
       glutenFree: true,
       dairyFree: true,
       nutAllergy: false,
-      Kosher: false
+      kosher: false
     }],
     url: 'http://gracias-madre.com/',
     coordinates: {
@@ -77,7 +77,7 @@ var restaurant_list = [{
       glutenFree: true,
       dairyFree: true,
       nutAllergy: false,
-      Kosher: false
+      kosher: false
     }],    url: 'http://www.thechaya.com/',
     coordinates: {
       lat: 37.761006,

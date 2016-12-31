@@ -12,7 +12,7 @@ var RestaurantSchema = new Schema({
     glutenFree: Boolean,
     dairyFree: Boolean,
     nutAllergy: Boolean,
-    Kosher: Boolean
+    kosher: Boolean
   }],
   url: String,
   coordinates: {

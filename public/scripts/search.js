@@ -22,12 +22,12 @@ $(document).ready(function() {
       var dairyFreeBox = $("#cbox4").is('input:checked');
       var kosherBox = $("#cbox5").is('input:checked');
       var nutAllergyBox = $("#cbox6").is('input:checked');
-      console.log(vegetarianBox);
-      console.log(veganBox);
-      console.log(glutenFreeBox);
-      console.log(dairyFreeBox);
-      console.log(kosherBox);
-      console.log(nutAllergyBox);
+      // console.log(vegetarianBox);
+      // console.log(veganBox);
+      // console.log(glutenFreeBox);
+      // console.log(dairyFreeBox);
+      // console.log(kosherBox);
+      // console.log(nutAllergyBox);
 
       //////////   SEARCH RESTAURANTS   //////////
       $.ajax({
@@ -41,15 +41,16 @@ $(document).ready(function() {
       function queryRestaurantDatabase(allRestaurants) {
         console.log('query function called');
         allRestaurants.forEach(function(restaurantData) {
-          if (restaurantData.dietary.vegan = true) {
+          console.log(restaurantData.dietary.valueOf());
+          if (restaurantData.dietary.kosher = true) {
               restaurantHtml = restaurantTemplate({
                   restaurant: restaurantData
               });
               $restaurantsList.append(restaurantHtml);
+
             } else {
               console.log ('a few restaurants did not make the cut!');
             }
-
         })
       };
 
