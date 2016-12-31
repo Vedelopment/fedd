@@ -4,7 +4,14 @@ var mongoose = require('mongoose'),
 //Set up Cuisine Schema
 var CuisineSchema = new Schema({
   name: String,
-  dietary: [String]
+  dietary: {
+    vegetarian: Number,
+    vegan: Number,
+    glutenFree: Number,
+    dairyFree: Number,
+    nutAllergy: Number,
+    kosher: Number
+  },
 });
 
 
