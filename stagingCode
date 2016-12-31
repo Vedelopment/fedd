@@ -1,0 +1,27 @@
+PSEUDO
+
+Search:
+- take text input from form (or check box data?)
+- turn this input into a query string
+- take the string and add it to the ajax call route
+- go to restaurants and retrieve instances with .find?
+- also on form submit, run handlebars to render instances that match query
+
+Filter based on checkbox form:
+- if checkbox is true AND restaurant tag is true, return restaurant
+- if vegan and vegetarian, return vegan and vegetarian restaurants
+
+Code snippets that may help:
+
+In general, see: https://github.com/sf-wdi-34/express-dynamic-routes
+Possible query code: http://stackoverflow.com/questions/6267345/query-a-database-with-text-field-and-checkboxes
+
+Query Parameters in Express
+
+In Express, query string parameters are available in the request.query object. Let's add our first route to practice query params.
+
+app.get("/thank", function (request, response) {
+  console.log(request.query);
+  var name = request.query.name;
+  response.send('Thank you, ' + name + '!');
+});

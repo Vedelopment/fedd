@@ -1,5 +1,7 @@
 console.log('sanity check!');
 
+
+
 $(document).ready(function() {
 
     $('#more').click(function() {
@@ -11,4 +13,6 @@ $(document).ready(function() {
         // $('#more').show();
         $("#mySidenav").removeClass('sidenav-open');
     })
+
+
 });

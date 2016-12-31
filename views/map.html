@@ -21,10 +21,15 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/map.css">
 
+    <!-- GMAP API Script -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLmqOJCqoflqVtcQpdfDbtzJh6v4IdDTo&callback=initMap" async defer></script> -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLmqOJCqoflqVtcQpdfDbtzJh6v4IdDTo"></script>
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
-    <script src="/scripts/cuisines.js"></script>
+    <script src="/scripts/maps.js"></script>
+    <script src="/scripts/handlebars-helpers.js"></script>
 </head>
 
 <body>
@@ -36,33 +41,13 @@
     </hgroup>
 
     <img id="more" class="burger-icon" src="images/burger.png">
-    <article class="content-card col-md-6 col-md-offset-3">
-        <h5>
-          Do you have a new allergy or want to find cuisines that naturally cater to your dietary needs? We've created a cuisine cheat sheet to help you out!
-        </h5>
-        <p class="disclaimer">
-          Please note that kosher and nut allergen cuisines are not listed, as these can vary greatly dependending on individual restaurant practices. Please also note the cuisines listed gluten-free include the possibility of cross-contamination. Always check with the restaurant if you have questions or concerns!
-        </p>
-    </article>
-
     <div class='container'>
+        <div class="row">
 
-        <div id="cuisineTarget"> -->
-        <!-- handlebars returns data here -->
-        </div>
+    <!-- GMAP -->
 
-    </div>
-
-    <!-- HANDLEBARS SCRIPT tag -->
-    <script id="cuisines-template" type="text/x-handlebars-template">
-        <article class="content-card col-md-6 col-md-offset-3" data-id="{{cuisine._id}}">
-            <!--handlebars text -->
-            <h3 class="name">{{cuisine.name}}</h3>
-            <hr>
-            <p class="dietary">{{cuisine.dietary}}</p>
-            <!-- Trigger the modal with a button -->
-        </article>
-    </script>
+  <!-- <h3>Restaurant Map</h3> -->
+    <div id="map"></div>
 
     <!-- SIDE BAR MENU -->
 
@@ -74,12 +59,6 @@
         <a href="map">Map it!</a>
         <a href="cuisines">Cuisines</a>
     </div>
-
-    <!-- Use any element to open the sidenav -->
-    <!-- <span onclick="openNav()">HELLO CLICK HERE</span> -->
-    <!-- <div id="main">
-
-        </div> -->
 
 
 </body>
