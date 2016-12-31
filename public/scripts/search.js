@@ -14,58 +14,97 @@ $(document).ready(function() {
 
     //////////   SUBMIT SEARCH RESTAURANTS   //////////
     $('#restaurantSearch').click(function(event) {
-      event.preventDefault();
-      console.log('restaurant search submitted');
-      var vegetarianBox = $("#cbox1").is('input:checked');
-      var veganBox = $("#cbox2").is('input:checked');
-      var glutenFreeBox = $("#cbox3").is('input:checked');
-      var dairyFreeBox = $("#cbox4").is('input:checked');
-      var kosherBox = $("#cbox5").is('input:checked');
-      var nutAllergyBox = $("#cbox6").is('input:checked');
-      // console.log(vegetarianBox);
-      // console.log(veganBox);
-      // console.log(glutenFreeBox);
-      // console.log(dairyFreeBox);
-      // console.log(kosherBox);
-      // console.log(nutAllergyBox);
+        event.preventDefault();
 
-      //////////   SEARCH RESTAURANTS   //////////
-      $.ajax({
-        method:"GET",
-        url:"/api/restaurants",
-        dataType: "json",
-        success: queryRestaurantDatabase,
-        error: onError
-      })
+        var vegetarianBox = $("#cbox1").is('input:checked');
+        var veganBox = $("#cbox2").is('input:checked');
+        var glutenFreeBox = $("#cbox3").is('input:checked');
+        var dairyFreeBox = $("#cbox4").is('input:checked');
+        var nutAllergyBox = $("#cbox5").is('input:checked');
+        var kosherBox = $("#cbox6").is('input:checked');
 
-      function queryRestaurantDatabase(allRestaurants) {
-        console.log('query function called');
-        allRestaurants.forEach(function(restaurantData) {
-          if (restaurantData.dietary.kosher == true) {
-              restaurantHtml = restaurantTemplate({
-                  restaurant: restaurantData
-              });
-              $restaurantsList.append(restaurantHtml);
+        var searchArray = {
+            vegetarian: false,
+            vegan: false,
+            glutenFree: false,
+            dairyFree: false,
+            nutAllergy: false,
+            kosher: false,
+        };
 
-            } else {
-              console.log ('a few restaurants did not make the cut!');
+        function filterSearch() {
+            console.log('filterSearch called');
+            if (vegetarianBox) {
+                searchArray.vegetarian = true;
             }
+            if (veganBox) {
+                searchArray.vegan = true;
+            }
+            if (glutenFreeBox) {
+                searchArray.glutenFree = true;
+            }
+            if (dairyFreeBox) {
+                searchArray.dairyFree = true;
+            }
+            if (nutAllergyBox) {
+                searchArray.nutAllergy = true;
+            }
+            if (kosherBox) {
+                searchArray.kosher = true;
+            }
+        }
+
+        filterSearch();
+
+        //////////   SEARCH RESTAURANTS   //////////
+        $.ajax({
+            method: "GET",
+            url: "/api/restaurants",
+            dataType: "json",
+            success: queryRestaurantDatabase,
+            error: onError
         })
-      };
 
-      // function queryRestaurantDatabase(allRestaurants) {
-      //     allRestaurants.forEach(function(restaurantData) {
-      //         restaurantHtml = restaurantTemplate({
-      //             restaurant: restaurantData
-      //         });
-      //         $restaurantsList.append(restaurantHtml);
-      //
-      //     })
-      // };
+        // console.log(searchArray);
+        function queryRestaurantDatabase(allRestaurants) {
+            $restaurantsList.empty();
+            allRestaurants.forEach(function(restaurantData) {
+                console.log(searchArray);
+                // console.log(restaurantData);
+                if (
+                    searchArray.vegetarian === restaurantData.dietary.vegetarian &&
+                    searchArray.vegan === restaurantData.dietary.vegan &&
+                    searchArray.glutenFree === restaurantData.dietary.glutenFree &&
+                    searchArray.dairyFree === restaurantData.dietary.dairyFree &&
+                    searchArray.nutAllergy === restaurantData.dietary.nutAllergy &&
+                    searchArray.kosher === restaurantData.dietary.kosher
+                ) {
+                    restaurantHtml = restaurantTemplate({
+                        restaurant: restaurantData
+                    });
+                    $restaurantsList.append(restaurantHtml);
 
-      function onError() {
-        console.log('API search error')
-      }
+                }// else {
+                //     console.log('a few restaurants did not make the cut!');
+                // }
+            })
+
+            $('#searchRestaurants').each(function() {
+                this.reset();
+            });
+
+            searchArray.vegetarian = false;
+            searchArray.vegan = false;
+            searchArray.glutenFree = false;
+            searchArray.dairyFree = false;
+            searchArray.nutAllergy = false;
+            searchArray.kosher = false;
+
+        };
+
+        function onError() {
+            console.log('API search error')
+        }
     });
 
 });

@@ -107,24 +107,6 @@ app.get('/api/restaurants', function(req, res) {
     });
 });
 
-// // RETURN RESTAURANT SEARCH RESULTS
-// app.get('/api/restaurants/search', function(req, res) {
-//   db.Restaurant.find(function(err, restaurants) {
-//     if (err) {
-//       return console.log('error with maps controller: ' + err);
-//     }
-//     var responseList = [];
-//     restaurants.forEach(function(element, index, array) {
-//       var subArray = [];
-//       subArray.push(element.lat);
-//       subArray.push(element.lon);
-//       // subArray.push(element.address);
-//       responseList.push(subArray);
-//     })
-//     res.send(responseList);
-//   });
-// });
-
 // CREATE A NEW RESTAURANT
 app.post('/api/restaurants', function(req, res) {
     var restaurantInfo = {

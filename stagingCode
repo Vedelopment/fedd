@@ -7,6 +7,10 @@ Search:
 - go to restaurants and retrieve instances with .find?
 - also on form submit, run handlebars to render instances that match query
 
+Filter based on checkbox form:
+- if checkbox is true AND restaurant tag is true, return restaurant
+- if vegan and vegetarian, return vegan and vegetarian restaurants
+
 Code snippets that may help:
 
 In general, see: https://github.com/sf-wdi-34/express-dynamic-routes
