@@ -24,33 +24,33 @@ $(document).ready(function() {
         var kosherBox = $("#cbox6").is('input:checked');
 
         var searchArray = {
-            vegetarian: false,
-            vegan: false,
-            glutenFree: false,
-            dairyFree: false,
-            nutAllergy: false,
-            kosher: false,
+            vegetarian: 0,
+            vegan: 0,
+            glutenFree: 0,
+            dairyFree: 0,
+            nutAllergy: 0,
+            kosher: 0,
         };
 
         function filterSearch() {
             console.log('filterSearch called');
             if (vegetarianBox) {
-                searchArray.vegetarian = true;
+                searchArray.vegetarian = 1;
             }
             if (veganBox) {
-                searchArray.vegan = true;
+                searchArray.vegan = 1;
             }
             if (glutenFreeBox) {
-                searchArray.glutenFree = true;
+                searchArray.glutenFree = 1;
             }
             if (dairyFreeBox) {
-                searchArray.dairyFree = true;
+                searchArray.dairyFree = 1;
             }
             if (nutAllergyBox) {
-                searchArray.nutAllergy = true;
+                searchArray.nutAllergy = 1;
             }
             if (kosherBox) {
-                searchArray.kosher = true;
+                searchArray.kosher = 1;
             }
         }
 
@@ -72,12 +72,12 @@ $(document).ready(function() {
                 console.log(searchArray);
                 // console.log(restaurantData);
                 if (
-                    searchArray.vegetarian === restaurantData.dietary.vegetarian &&
-                    searchArray.vegan === restaurantData.dietary.vegan &&
-                    searchArray.glutenFree === restaurantData.dietary.glutenFree &&
-                    searchArray.dairyFree === restaurantData.dietary.dairyFree &&
-                    searchArray.nutAllergy === restaurantData.dietary.nutAllergy &&
-                    searchArray.kosher === restaurantData.dietary.kosher
+                    searchArray.vegetarian <= restaurantData.dietary.vegetarian &&
+                    searchArray.vegan <= restaurantData.dietary.vegan &&
+                    searchArray.glutenFree <= restaurantData.dietary.glutenFree &&
+                    searchArray.dairyFree <= restaurantData.dietary.dairyFree &&
+                    searchArray.nutAllergy <= restaurantData.dietary.nutAllergy &&
+                    searchArray.kosher <= restaurantData.dietary.kosher
                 ) {
                     restaurantHtml = restaurantTemplate({
                         restaurant: restaurantData
@@ -93,12 +93,12 @@ $(document).ready(function() {
                 this.reset();
             });
 
-            searchArray.vegetarian = false;
-            searchArray.vegan = false;
-            searchArray.glutenFree = false;
-            searchArray.dairyFree = false;
-            searchArray.nutAllergy = false;
-            searchArray.kosher = false;
+            searchArray.vegetarian = 0;
+            searchArray.vegan = 0;
+            searchArray.glutenFree = 0;
+            searchArray.dairyFree = 0;
+            searchArray.nutAllergy = 0;
+            searchArray.kosher = 0;
 
         };
 

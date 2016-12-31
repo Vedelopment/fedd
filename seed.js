@@ -6,12 +6,12 @@ var restaurant_list = [{
     description: 'Vegan Sushi Bar and Izakaya',
     address: '370 14th St, San Francisco, CA 94103',
     dietary: {
-      vegetarian: true,
-      vegan: true,
-      glutenFree: true,
-      dairyFree: true,
-      nutAllergy: false,
-      kosher: false
+      vegetarian: 1,
+      vegan: 1,
+      glutenFree: 1,
+      dairyFree: 1,
+      nutAllergy: 0,
+      kosher: 0
     },
     url: 'https://www.yelp.com/biz/shizen-vegan-sushi-bar-and-izakaya-san-francisco',
     coordinates: {
@@ -23,12 +23,12 @@ var restaurant_list = [{
     description: 'Chinese eatery serving vegetarian, vegan & kosher dishes.',
     address: '2026 Irving St, San Francisco, CA 94122',
     dietary: {
-      vegetarian: true,
-      vegan: true,
-      glutenFree: false,
-      dairyFree: true,
-      nutAllergy: false,
-      kosher: true
+      vegetarian: 1,
+      vegan: 1,
+      glutenFree: 0,
+      dairyFree: 1,
+      nutAllergy: 0,
+      kosher: 1
     },    url: 'http://www.shangrilavgrest.com/',
     coordinates: {
       lat: 37.763665,
@@ -39,12 +39,12 @@ var restaurant_list = [{
     description: 'Fast-food chain offering Mexican fare, including design-your-own burritos, tacos & bowls.',
     address: '232 O\'Farrell St, San Francisco, CA 94102',
     dietary: {
-      vegetarian: true,
-      vegan: true,
-      glutenFree: true,
-      dairyFree: true,
-      nutAllergy: true,
-      kosher: true
+      vegetarian: 1,
+      vegan: 1,
+      glutenFree: 1,
+      dairyFree: 1,
+      nutAllergy: 1,
+      kosher: 1
     },    url: 'https://chipotle.com/allergens',
     coordinates: {
       lat: 37.786536,
@@ -55,12 +55,12 @@ var restaurant_list = [{
     description: 'Vegan Mexican Cuisine',
     address: '2211 Mission St, San Francisco, CA 94110',
     dietary: {
-      vegetarian: true,
-      vegan: true,
-      glutenFree: true,
-      dairyFree: true,
-      nutAllergy: false,
-      kosher: false
+      vegetarian: 1,
+      vegan: 1,
+      glutenFree: 1,
+      dairyFree: 1,
+      nutAllergy: 0,
+      kosher: 0
     },
     url: 'http://gracias-madre.com/',
     coordinates: {
@@ -72,12 +72,12 @@ var restaurant_list = [{
     description: 'Vegan Sushi Restaurant',
     address: '762 Valencia St, San Francisco, CA 94110',
     dietary: {
-      vegetarian: true,
-      vegan: true,
-      glutenFree: true,
-      dairyFree: true,
-      nutAllergy: false,
-      kosher: false
+      vegetarian: 1,
+      vegan: 1,
+      glutenFree: 1,
+      dairyFree: 1,
+      nutAllergy: 0,
+      kosher: 0
     },
     url: 'http://www.thechaya.com/',
     coordinates: {
