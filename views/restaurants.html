@@ -67,6 +67,12 @@
                     <div class="form-group">
                         <!-- <label for="title">Location</label> -->
                         <input type="text" class="form-control" name="dietary" placeholder="Dietary Tags">
+                        <!-- <input type="checkbox" name="vegBox" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
+                        <input type="checkbox" name="veganBox" id="cbox2"> <label for="cbox2">Vegan</label></br>
+                        <input type="checkbox" name="glutenBox" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
+                        <input type="checkbox" name="dairyBox" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
+                        <input type="checkbox" name="nutBox" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
+                        <input type="checkbox" name="koshBox" id="cbox6"> <label for="cbox6">Kosher</label></br> -->
                     </div>
 
                     <!-- url request -->
@@ -142,49 +148,31 @@
             </div>
         </div>
     </div>
+
     <!-- HANDLEBARS SCRIPT tag -->
     <script id="restaurants-template" type="text/x-handlebars-template">
-        <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
-            <!--handlebars text -->
-            <h3 class="name">
-                <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
-              </h3>
-            <hr>
-            <h6 class="description">{{restaurant.description}}</h6>
-            <hr>
-            <h6 class="address">{{restaurant.address}}</h6>
-            <hr>
-            {{restaurant.dietary.vegetarian}}
-            {{restaurant.dietary.vegan}}
-            {{#each restaurant}}
-              <ul class="dietary">
-                {{#tag restaurant.dietary.vegetarian}}
-                <li>vegetarian</li>
-                {{else}}
-                <li>not vegetarian</li>
-                {{/tag}}
-                {{#if restaurant.dietary.vegan}}
-                <li>vegan</li>
+      <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
+          <!--handlebars text -->
+          <h3 class="name">
+              <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
+            </h3>
+          <hr>
+          <h6 class="description">{{restaurant.description}}</h6>
+          <hr>
+          <h6 class="address">{{restaurant.address}}</h6>
+          <hr>
+            <ul class="dietary">
+              {{#each restaurant.dietary}}
+                {{#if this}}
+                  <li>{{@key}}</li>
                 {{/if}}
-                {{#if glutenFree}}
-                <li>gluten-free</li>
-                {{/if}}
-                {{#if dairyFree}}
-                <li>dairy-free</li>
-                {{/if}}
-                {{#if nutAllergy}}
-                <li>nut-allergy</li>
-                {{/if}}
-                {{#if kosher}}
-                <li>kosher</li>
-                {{/if}}
-              </ul>
-            <!-- {{/each}} -->
-            <hr>
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
-            <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button>
-        </article>
+              {{/each}}
+            </ul>
+          <hr>
+          <!-- Trigger the modal with a button -->
+          <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
+          <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button>
+      </article>
     </script>
 
     <!-- SIDE BAR MENU -->

@@ -81,28 +81,13 @@
       <hr>
       <h6 class="address">{{restaurant.address}}</h6>
       <hr>
-      {{#each restaurant.dietary}}
-        <ul class="dietary">
-          {{#if vegetarian}}
-          <li>vegetarian</li>
+      <ul class="dietary">
+        {{#each restaurant.dietary}}
+          {{#if this}}
+            <li>{{@key}}</li>
           {{/if}}
-          {{#if vegan}}
-          <li>vegan</li>
-          {{/if}}
-          {{#if glutenFree}}
-          <li>gluten-free</li>
-          {{/if}}
-          {{#if dairyFree}}
-          <li>dairy-free</li>
-          {{/if}}
-          {{#if nutAllergy}}
-          <li>nut-allergy</li>
-          {{/if}}
-          {{#if kosher}}
-          <li>kosher</li>
-          {{/if}}
-        </ul>
-      {{/each}}
+        {{/each}}
+      </ul>
       <hr>
       <!-- Trigger the modal with a button -->
       <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
