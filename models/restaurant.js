@@ -6,14 +6,14 @@ var RestaurantSchema = new Schema({
   name: String,
   description: String, //stretch: validate less than 140 charac//
   address: String,
-  dietary: [{
+  dietary: {
     vegetarian: Boolean,
     vegan: Boolean,
     glutenFree: Boolean,
     dairyFree: Boolean,
     nutAllergy: Boolean,
     kosher: Boolean
-  }],
+  },
   url: String,
   coordinates: {
     lat: Number,
