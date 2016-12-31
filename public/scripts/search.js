@@ -40,19 +40,16 @@ $(document).ready(function() {
 
       function queryRestaurantDatabase(allRestaurants) {
         console.log('query function called');
-        // console.log(allRestaurants);
         allRestaurants.forEach(function(restaurantData) {
-          console.log(restaurantData.dietary.vegan);
-          // console.log(restaurantData);
-          // if (restaurantData.name == 'Shizen') {
-          //     restaurantHtml = restaurantTemplate({
-          //         restaurant: restaurantData
-          //     });
-          //     $restaurantsList.append(restaurantHtml);
-          //
-          //   } else {
-          //     console.log ('a few restaurants did not make the cut!');
-          //   }
+          if (restaurantData.dietary.kosher == true) {
+              restaurantHtml = restaurantTemplate({
+                  restaurant: restaurantData
+              });
+              $restaurantsList.append(restaurantHtml);
+
+            } else {
+              console.log ('a few restaurants did not make the cut!');
+            }
         })
       };
 
