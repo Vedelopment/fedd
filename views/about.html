@@ -21,15 +21,10 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/styles.css">
-    <link rel="stylesheet" href="/styles/map.css">
 
-    <!-- GMAP API Script -->
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLmqOJCqoflqVtcQpdfDbtzJh6v4IdDTo&callback=initMap" async defer></script> -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLmqOJCqoflqVtcQpdfDbtzJh6v4IdDTo"></script>
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
-    <script src="/scripts/maps.js"></script>
-    <script src="/scripts/handlebars-helpers.js"></script>
+    <!-- <script src="/scripts/cuisines.js"></script> -->
 </head>
 
 <body>
@@ -41,13 +36,12 @@
     </hgroup>
 
     <img id="more" class="burger-icon" src="images/burger.png">
-    <div class='container'>
-        <div class="row">
+    <article class="content-card col-md-6 col-md-offset-3">
+        <h5>
+          Fedd is a simple way to search for restaurants based on dietary restrictions.
+        </h5>
+    </article>
 
-    <!-- GMAP -->
-
-  <!-- <h3>Restaurant Map</h3> -->
-    <div id="map"></div>
 
     <!-- SIDE BAR MENU -->
 
@@ -60,6 +54,12 @@
         <a href="cuisines">Cuisines</a>
         <a href="about">About</a>
     </div>
+
+    <!-- Use any element to open the sidenav -->
+    <!-- <span onclick="openNav()">HELLO CLICK HERE</span> -->
+    <!-- <div id="main">
+
+        </div> -->
 
 
 </body>
