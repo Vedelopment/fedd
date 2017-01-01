@@ -271,3 +271,11 @@ form {
    margin: 50px;
    border: 2px black solid;
  }
+
+#octocat {
+  height: 110px;
+  display: block;
+  margin: auto;
+  opacity: 2;
+
+}
