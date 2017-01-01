@@ -24,6 +24,7 @@
 
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/restaurants.js"></script>
 </head>
 
 <body>
@@ -37,57 +38,56 @@
     <img id="more" class="burger-icon" src="images/burger.png">
 
             <!-- TOP ADD NEW RESTAURANT FORM -->
-            <div class="content-card col-sm-6 col-sm-offset-3 form-card" id="addform">
+            <article class="content-card col-sm-6 col-sm-offset-3" id="addform">
                 <form class="form-inline" id="newRestaurantForm">
 
                     <!-- name request -->
-                    <div class="input-bucket">
-                        <!-- <label for="title">Name</label> -->
+                    <div>
                         <input type="text" class="form-control" name="name" placeholder="Restaurant Name" maxlength="20">
                     </div>
 
                     <!-- description request -->
-                    <div class="input-bucket">
-                        <!-- <label for="title">Description</label> -->
+                    <div>
                         <input type="text" class="form-control" name="description" placeholder="Description" maxlength="50">
                     </div>
 
                     <!-- address request -->
-                    <div class="input-bucket">
-                        <!-- <label for="title">Location</label> -->
+                    <div>
                         <input type="text" class="form-control" name="address" placeholder="Address" maxlength="50">
                     </div>
 
-
                     <!-- url request -->
-                    <div class="input-bucket">
-                        <!-- <label for="title">Location</label> -->
+                    <div>
                         <input type="URL" class="form-control" name="url" placeholder="Restaurant url">
                     </div>
 
                     <!-- dietary tag request -->
-                    <div class="input-bucket checkbox-bucket">
-                      <!-- <label for="title">Location</label> -->
+                    <div class="checkbox-bucket">
                       <!-- <input type="text" class="form-control" name="dietary" placeholder="Dietary Tags"> -->
-                      <input type="checkbox" name="vegBox" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
-                      <input type="checkbox" name="veganBox" id="cbox2"> <label for="cbox2">Vegan</label></br>
-                      <input type="checkbox" name="glutenBox" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
-                      <input type="checkbox" name="dairyBox" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
-                      <input type="checkbox" name="nutBox" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
-                      <input type="checkbox" name="koshBox" id="cbox6"> <label for="cbox6">Kosher</label></br>
+                      <input type="checkbox" name="vegBox" class="vegetarian" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
+                      <input type="checkbox" name="veganBox" class="vegan" id="cbox2"> <label for="cbox2">Vegan</label></br>
+                      <input type="checkbox" name="glutenBox" class="glutenFree" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
+                      <input type="checkbox" name="dairyBox" class="dairyFree" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
+                      <input type="checkbox" name="nutBox" class="nutAllergy" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
+                      <input type="checkbox" name="koshBox" class="kosher" id="cbox6"> <label for="cbox6">Kosher</label></br>
                     </div>
 
                     <!-- button -->
-                    <button type="submit" class="btn-sm restaurant-edit">Add Restaurant</button>
+                    <button type="submit" class="btn-sm restaurant-add">Add Restaurant</button>
 
                 </form>
-            </div>
+            </article>
 
         <div id="restaurantTarget">
             <!-- handlebars returns data here -->
         </div>
 
     </div>
+
+    <!-- HANDLEBARS SCRIPT tag -->
+    <script id="restaurants-template" type="text/x-handlebars-template">
+
+    </script>
 
     <!-- SIDE BAR MENU -->
 

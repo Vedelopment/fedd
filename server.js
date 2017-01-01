@@ -113,6 +113,7 @@ app.get('/api/restaurants', function(req, res) {
 
 // CREATE A NEW RESTAURANT
 app.post('/api/restaurants', function(req, res) {
+    console.log('new restaurant server req')
     var restaurantInfo = {
         name: req.body.name,
         description: req.body.description,
@@ -126,6 +127,7 @@ app.post('/api/restaurants', function(req, res) {
             response.status(500).send('database error');
             return console.log('error', err);
         } else {
+            console.log('created new restaurant: ' + restaurant);
             res.json(restaurant);
         }
     });

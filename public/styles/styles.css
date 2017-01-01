@@ -109,10 +109,6 @@ form {
     border-radius: 20px;
 }
 
-.form-card {
-    /*margin: 2em auto;*/
-}
-
 .dietary li {
     font-size: 1.5em;
     display: inline-block;
@@ -125,10 +121,14 @@ form {
 
 .form-control {
     border: 2px black solid;
+    margin: 0.5em;
+}
+
+label {
+    font-size: 1.5em;
 }
 
 .form-search {
-    font-size: 1.5em;
     text-align: center;
     padding: 0;
 }
@@ -153,10 +153,6 @@ form {
     max-width: 120px;
     margin: 1.5em auto;
     text-align: left;
-}
-
-.input-bucket {
-    padding: 1em;
 }
 
 .search-items {
