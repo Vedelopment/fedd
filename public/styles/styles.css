@@ -272,10 +272,8 @@ form {
    border: 2px black solid;
  }
 
- a #github {
-     text-decoration: none;
-     color: white;
-     /*padding: 1px 8px;*/
-     /*transition: .3s;
-     border-radius: 4px;*/
- }
+#github {
+   height: 45px;
+   position: fixed;
+   left: 675px;
+}
