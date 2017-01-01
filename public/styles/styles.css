@@ -34,7 +34,7 @@ article {
 
 hgroup {
     color: white;
-    margin: 0 auto;
+    margin: 0 auto 2em auto;
     padding: .5em 0 2em 0;
     text-align: center;
     background-color: black;
@@ -109,6 +109,10 @@ form {
     border-radius: 20px;
 }
 
+.form-card {
+    /*margin: 2em auto;*/
+}
+
 .dietary li {
     font-size: 1.5em;
     display: inline-block;
@@ -149,6 +153,10 @@ form {
     max-width: 120px;
     margin: 1.5em auto;
     text-align: left;
+}
+
+.input-bucket {
+    padding: 1em;
 }
 
 .search-items {
