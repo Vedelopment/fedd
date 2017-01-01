@@ -25,7 +25,7 @@ $(document).ready(function() {
     //////////   SUBMIT NEW RESTAURANT   //////////
     $('.restaurant-add').click(function(event) {
         event.preventDefault();
-        console.log('new restaurant for submit');
+        // console.log('new restaurant for submit');
 
         var dietaryTags = "";
         $('input[type=checkbox]').each(function () {
@@ -34,13 +34,26 @@ $(document).ready(function() {
             dietaryTags += (dietaryTags=="" ? "{" + key + ": " + thisVal : ", " + key + ": " + thisVal);
         });
         dietaryTags = dietaryTags + "}";
-        console.log (dietaryTags);
+        // console.log (dietaryTags);
+
+        $('#newRestaurantForm').submit(event);
+        event.preventDefault();
+        var formData = $('#newRestaurantForm').serialize();
+        var dietaryString = JSON.stringify(dietaryTags);
+        // dietaryString = dietaryString.replace(/\"/g, "");
+        // var dietaryString = $.param(dietaryTags);
+        // var submitData = "dietary=" + dietaryTags + "&" + formData;
+        var submitData = "dietary=" + dietaryString + "&" + formData;
+        console.log(dietaryString);
+        console.log(submitData);
+        // dietaryString = JSON.parse(dietaryString);
+        // console.log(dietaryString);
 
 
         $.ajax({
             method: 'POST',
             url: '/api/restaurants',
-            data: $('#newRestaurantForm').serialize(),
+            data: submitData,
             success: newRestaurantSuccess,
             error: apiError
         });
@@ -112,6 +125,7 @@ $(document).ready(function() {
         $('#newRestaurantForm input').val('');
         allRestaurants.push(json);
         console.log(allRestaurants);
+        console.log(json);
         $restaurantsList.append(json);
         // window.location.reload();
     }
