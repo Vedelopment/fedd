@@ -272,10 +272,10 @@ form {
    border: 2px black solid;
  }
 
-#octocat {
-  height: 110px;
-  display: block;
-  margin: auto;
-  opacity: 2;
-
-}
+ a #github {
+     text-decoration: none;
+     color: white;
+     /*padding: 1px 8px;*/
+     /*transition: .3s;
+     border-radius: 4px;*/
+ }
