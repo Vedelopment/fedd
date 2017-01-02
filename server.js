@@ -114,22 +114,24 @@ app.get('/api/restaurants', function(req, res) {
 // CREATE A NEW RESTAURANT
 app.post('/api/restaurants', function(req, res) {
     console.log('new restaurant server req')
-    var dietaryReq = req.body.dietary;
-    var dietary = JSON.parse(dietaryReq);
+    var veg = JSON.parse(req.body.vegetarian);
+    var vegan = JSON.parse(req.body.vegan);
+    var gluten = JSON.parse(req.body.glutenFree);
+    var dairy = JSON.parse(req.body.dairyFree);
+    var nut = JSON.parse(req.body.nutAllergy);
+    var kosher = JSON.parse(req.body.kosher);
     var restaurantInfo = {
         name: req.body.name,
         description: req.body.description,
         address: req.body.address,
-        dietary: dietary,
-        // "{" + dietary,
-        // "{" +
-        //   "vegetarian: " + req.body.name + "," +
-        //   "vegan: " + req.body.name + "," +
-        //   "glutenFree: " + req.body.name + "," +
-        //   "dairyFree: " + req.body.name + "," +
-        //   "nutAllergy: " + req.body.name + "," +
-        //   "kosher: " + req.body.name
-        // + "}",
+        dietary: {
+          vegetarian: veg,
+          vegan: vegan,
+          glutenFree: gluten,
+          dairyFree: dairy,
+          nutAllergy: nut,
+          kosher: kosher
+          },
         url: req.body.url
     };
     var newRestaurant = new db.Restaurant(restaurantInfo);

@@ -31,20 +31,21 @@ $(document).ready(function() {
         $('input[type=checkbox]').each(function () {
             var key = $(this).attr('class');
             var thisVal = (this.checked ? "1" : "0");
-            dietaryTags += (dietaryTags=="" ? "{" + key + ": " + thisVal : ", " + key + ": " + thisVal);
+            // dietaryTags += (dietaryTags=="" ? key + ": " + thisVal : ", " + key + ": " + thisVal);
+            dietaryTags += (dietaryTags=="" ? key + "=" + thisVal : "&" + key + "=" + thisVal);
         });
-        dietaryTags = dietaryTags + "}";
+        // dietaryTags = dietaryTags + "}";
         // console.log (dietaryTags);
 
         $('#newRestaurantForm').submit(event);
         event.preventDefault();
         var formData = $('#newRestaurantForm').serialize();
-        var dietaryString = JSON.stringify(dietaryTags);
+        // var dietaryString = JSON.stringify(dietaryTags);
         // dietaryString = dietaryString.replace(/\"/g, "");
         // var dietaryString = $.param(dietaryTags);
         // var submitData = "dietary=" + dietaryTags + "&" + formData;
-        var submitData = "dietary=" + dietaryString + "&" + formData;
-        console.log(dietaryString);
+        var submitData = dietaryTags + "&" + formData;
+        console.log(dietaryTags);
         console.log(submitData);
         // dietaryString = JSON.parse(dietaryString);
         // console.log(dietaryString);
