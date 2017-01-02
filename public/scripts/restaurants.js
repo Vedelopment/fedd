@@ -44,6 +44,7 @@ $(document).ready(function() {
 
         var formData = $('#newRestaurantForm').serialize();
         var submitData = dietaryTags + "&" + formData;
+        console.log(submitData);
 
         $.ajax({
             method: 'POST',
