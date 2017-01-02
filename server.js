@@ -52,6 +52,10 @@ app.get('/map', function mappage(req, res) {
     res.sendFile(__dirname + '/views/map.html');
 });
 
+app.get('/add-restaurant', function mappage(req, res) {
+    res.sendFile(__dirname + '/views/add-restaurant.html');
+});
+
 /*
  * JSON API Endpoints
  */
@@ -109,11 +113,25 @@ app.get('/api/restaurants', function(req, res) {
 
 // CREATE A NEW RESTAURANT
 app.post('/api/restaurants', function(req, res) {
+    console.log('new restaurant server req')
+    var veg = JSON.parse(req.body.vegetarian);
+    var vegan = JSON.parse(req.body.vegan);
+    var gluten = JSON.parse(req.body.glutenFree);
+    var dairy = JSON.parse(req.body.dairyFree);
+    var nut = JSON.parse(req.body.nutAllergy);
+    var kosher = JSON.parse(req.body.kosher);
     var restaurantInfo = {
         name: req.body.name,
         description: req.body.description,
         address: req.body.address,
-        dietary: req.body.dietary,
+        dietary: {
+          vegetarian: veg,
+          vegan: vegan,
+          glutenFree: gluten,
+          dairyFree: dairy,
+          nutAllergy: nut,
+          kosher: kosher
+          },
         url: req.body.url
     };
     var newRestaurant = new db.Restaurant(restaurantInfo);
@@ -122,6 +140,7 @@ app.post('/api/restaurants', function(req, res) {
             response.status(500).send('database error');
             return console.log('error', err);
         } else {
+            console.log('created new restaurant: ' + restaurant);
             res.json(restaurant);
         }
     });
