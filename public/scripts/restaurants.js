@@ -23,33 +23,26 @@ $(document).ready(function() {
 
 
     //////////   SUBMIT NEW RESTAURANT   //////////
-    $('.restaurant-add').click(function(event) {
-        event.preventDefault();
-        // console.log('new restaurant for submit');
+    $('#newRestaurantForm').on('keyup keypress', function(e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode === 13) {
+        e.preventDefault();
+        return false;
+      }
+    });
 
+    $('.restaurant-add').click(function(event) {
+      // $('#newRestaurantForm').submit();
+        event.preventDefault();
         var dietaryTags = "";
         $('input[type=checkbox]').each(function () {
             var key = $(this).attr('class');
             var thisVal = (this.checked ? "1" : "0");
-            // dietaryTags += (dietaryTags=="" ? key + ": " + thisVal : ", " + key + ": " + thisVal);
             dietaryTags += (dietaryTags=="" ? key + "=" + thisVal : "&" + key + "=" + thisVal);
         });
-        // dietaryTags = dietaryTags + "}";
-        // console.log (dietaryTags);
 
-        $('#newRestaurantForm').submit(event);
-        event.preventDefault();
         var formData = $('#newRestaurantForm').serialize();
-        // var dietaryString = JSON.stringify(dietaryTags);
-        // dietaryString = dietaryString.replace(/\"/g, "");
-        // var dietaryString = $.param(dietaryTags);
-        // var submitData = "dietary=" + dietaryTags + "&" + formData;
         var submitData = dietaryTags + "&" + formData;
-        console.log(dietaryTags);
-        console.log(submitData);
-        // dietaryString = JSON.parse(dietaryString);
-        // console.log(dietaryString);
-
 
         $.ajax({
             method: 'POST',
@@ -124,11 +117,9 @@ $(document).ready(function() {
     function newRestaurantSuccess(json) {
         console.log('new restaurant success called')
         $('#newRestaurantForm input').val('');
+        $('input:checkbox').removeAttr('checked');
         allRestaurants.push(json);
-        console.log(allRestaurants);
-        console.log(json);
         $restaurantsList.append(json);
-        // window.location.reload();
     }
 
     //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////
