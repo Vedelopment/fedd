@@ -8,7 +8,7 @@
 
 <i> Full Stack App built for WDI's Project 1 </i>
 
-Fedd is a simple way to search for restaurants based on dietary restrictions.
+Fedd is a simple way to search for restaurants based on dietary preferences.
 
 Users are able to search based on one or multiple dietary tags, contribute to our online restaurant database and see where they're located using Google Maps API. We hope this site will save our users the time and frustration that comes with trying to find a safe place to eat.
 
@@ -30,16 +30,10 @@ Express
 
 
 ## Code We're Proud Of
-```javascript
-$.ajax({
-    method: 'GET',
-    url: '/api/restaurants',
-    success: handleRestaurantsLoadSuccess,
-    error: apiError,
-});
-
 <hr>
-
+The code below was tricky. We wanted to filter restaurants and include ones that satisfied the user's dietary tag requests. One function had to compare each checkbox value with the restaurant value. To be able to ignore a tag if it wasn't selected we changed the restaurant tag value to 0 or 1 as well as the checkbox values. If the box was not checked, the statement for that tag would return true and thus be ignored, regardless of the restaurant value.
+<hr>
+```javascript
 // FILTER RESTAURANTS
 allRestaurants.forEach(function(restaurantData) {
     if (
