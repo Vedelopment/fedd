@@ -117,6 +117,7 @@ $(document).ready(function() {
     //////////   ADD NEW RESTAURANT SUCCESS FUNCTION   //////////
     function newRestaurantSuccess(json) {
         console.log('new restaurant success called')
+        $restaurantsList.empty();
         $('#newRestaurantForm input').val('');
         $('input:checkbox').removeAttr('checked');
         allRestaurants.push(json);
