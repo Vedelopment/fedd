@@ -30,7 +30,10 @@ Express
 
 
 ## Code We're Proud Of
+<<<<<<< HEAD
 
+=======
+>>>>>>> c61efd535b7166436fe7d4a0e0ebc901038cfd02
 ```
 javascript
 $.ajax({
