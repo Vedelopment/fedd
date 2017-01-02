@@ -21,79 +21,33 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/map.css">
 
+    <!-- GMAP API Script -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLmqOJCqoflqVtcQpdfDbtzJh6v4IdDTo&callback=initMap" async defer></script> -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLmqOJCqoflqVtcQpdfDbtzJh6v4IdDTo"></script>
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
-    <script src="/scripts/search.js"></script>
+    <script src="/scripts/maps.js"></script>
     <script src="/scripts/handlebars-helpers.js"></script>
 </head>
 
 <body>
     <!-- Main Body -->
     <!-- side bar nav button / open -->
-
     <hgroup>
         <h1 id="hero"><a class="home-link" href="/">f e d d</a></h1>
         <h6>free <span class="glyphicon glyphicon-grain"></span> easy <span class="glyphicon glyphicon-grain"></span> dietary <span class="glyphicon glyphicon-grain"></span> database</h6>
     </hgroup>
 
     <img id="more" class="burger-icon" src="images/burger.png">
+    <div class='container'>
+        <div class="row">
 
-    <div class="search-bucket">
-        <article class="content-card search-items" data-id="{{restaurant._id}}">
-        <h4>Search Restaurants</h4></br>
-        <h6>Find restaurants that meet your dietary needs by selecting one or more options below.</h6>
-        <form id="searchRestaurants" class="form-search search-items">
-          <!-- <input type="checkbox" class="form-control input-search"> -->
-          <div class="checkbox-bucket">
-            <input type="checkbox" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
-            <input type="checkbox" id="cbox2"> <label for="cbox2">Vegan</label></br>
-            <input type="checkbox" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
-            <input type="checkbox" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
-            <input type="checkbox" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
-            <input type="checkbox" id="cbox6"> <label for="cbox6">Kosher</label></br>
-          </div>
+    <!-- GMAP -->
 
-          <button type="submit" id="restaurantSearch" class="btn-sm restaurant-search">get fedd!</button>
-
-        </form>
-        </article>
-
-    </div>
-
-  </div>
-  <div id="restaurantTarget">
-      <!-- handlebars returns data here -->
-  </div>
-
-</div>
-</div>
-
-<!-- HANDLEBARS SCRIPT tag -->
-<script id="restaurants-template" type="text/x-handlebars-template">
-  <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
-      <!--handlebars text -->
-      <h3 class="name">
-          <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
-        </h3>
-      <hr>
-      <h6 class="description">{{restaurant.description}}</h6>
-      <hr>
-      <h6 class="address">{{restaurant.address}}</h6>
-      <hr>
-      <ul class="dietary">
-        {{#each restaurant.dietary}}
-          {{#if this}}
-            <li>{{@key}}</li>
-          {{/if}}
-        {{/each}}
-      </ul>
-      <hr>
-      <!-- Trigger the modal with a button -->
-      <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
-      <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button>
-  </article>
-</script>
+  <!-- <h3>Restaurant Map</h3> -->
+    <div id="map"></div>
 
     <!-- SIDE BAR MENU -->
 

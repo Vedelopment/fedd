@@ -23,12 +23,32 @@ $(document).ready(function() {
 
 
     //////////   SUBMIT NEW RESTAURANT   //////////
-    $('#newRestaurantForm').on('submit', function(event) {
-        event.preventDefault();
+    $('#newRestaurantForm').on('keyup keypress', function(e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode === 13) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    $('.restaurant-add').click(function(event) {
+        $('#newRestaurantForm').submit(function(event) {
+          event.preventDefault();
+        });
+        var dietaryTags = "";
+        $('input[type=checkbox]').each(function () {
+            var key = $(this).attr('class');
+            var thisVal = (this.checked ? "1" : "0");
+            dietaryTags += (dietaryTags=="" ? key + "=" + thisVal : "&" + key + "=" + thisVal);
+        });
+
+        var formData = $('#newRestaurantForm').serialize();
+        var submitData = dietaryTags + "&" + formData;
+
         $.ajax({
             method: 'POST',
             url: '/api/restaurants',
-            data: $(this).serialize(),
+            data: submitData,
             success: newRestaurantSuccess,
             error: apiError
         });
@@ -56,6 +76,29 @@ $(document).ready(function() {
         $(MODAL_SELECTOR).modal('toggle');
     });
 
+    //////////   DELETE RESTAURANT   //////////
+    $('#restaurantTarget').on("click", ".deleteRestaurantButton", function(event){
+        console.log('delete submitted');
+        // var restId = $('#deleteRestaurantButton').data('id');
+        var restId = $(this).closest('.content-card').data('id');
+        // var data = {};
+        // $(this).serializeArray().forEach(function(item) {
+        //     data[item.name] = item.value;
+        // });
+
+        console.log(restId);
+        //
+        $.ajax({
+            method: 'DELETE',
+            url: '/api/restaurants/' + restId,
+            data: 'json',
+            success: deleteRestaurantSuccess,
+            error: apiError
+        });
+
+        // $(MODAL_SELECTOR).modal('toggle');
+    });
+
     /////////////////////////////////////////////////////////////
     //////////////////   SUCCESS FUNCTIONS   ////////////////////
     /////////////////////////////////////////////////////////////
@@ -73,10 +116,25 @@ $(document).ready(function() {
 
     //////////   ADD NEW RESTAURANT SUCCESS FUNCTION   //////////
     function newRestaurantSuccess(json) {
+        console.log('new restaurant success called')
         $('#newRestaurantForm input').val('');
+        $('input:checkbox').removeAttr('checked');
         allRestaurants.push(json);
-        console.log(allRestaurants);
         $restaurantsList.append(json);
+
+        //////////   HANDLEBARS   //////////
+        $restaurantsList = $('#newRestaurantTarget');
+
+        var restaurantSource = $('#restaurants-template').html();
+        restaurantTemplate = Handlebars.compile(restaurantSource);
+
+        //////////   LOAD API SEED DATA AFTER NEW RESTAURANT ADDED   //////////
+        $.ajax({
+            method: 'GET',
+            url: '/api/restaurants',
+            success: handleRestaurantsLoadSuccess,
+            error: apiError,
+        });
     }
 
     //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////
@@ -90,17 +148,31 @@ $(document).ready(function() {
         $article.find('.dietary').text(response.dietary);
     }
 
-    function appendSongError(err) {
-        console.log("not appended", err)
+    //////////   DELETE RESTAURANT SUCCESS FUNCTION   //////////
+    function deleteRestaurantSuccess(response) {
+        // var $article = $('article[data-id=' + response._id + ']');
+
+        function destroy(req, res) {
+
+          // find one album by id, delete it, and send it back as JSON
+
+          db.Restaurant.findOneAndRemove({ _id: req.params.restaurant_id }, function(err, deletedRestaurant) {
+             res.json(deletedRestaurant);
+           });
+        }
+        window.location.reload();
     }
-
-
 
     //////////   ERROR FUNCTION   //////////
     function apiError(e) {
         console.log('api error, is the server working?');
         // $('#restaurantTarget').text('api error, is the server working?');
     }
+
+
+    /////////////////////////////////////////////////////////////
+    //////////////////   MODAL FUNCTIONS   //////////////////////
+    /////////////////////////////////////////////////////////////
 
 
     ///// Sets all form information to the restaurant /////

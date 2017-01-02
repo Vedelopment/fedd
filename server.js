@@ -40,9 +40,24 @@ app.get('/', function homepage(req, res) {
     res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/restaurants', function cuisinespage(req, res) {
+    res.sendFile(__dirname + '/views/restaurants.html');
+});
+
 app.get('/cuisines', function cuisinespage(req, res) {
     res.sendFile(__dirname + '/views/cuisines.html');
 });
+
+app.get('/map', function mappage(req, res) {
+    res.sendFile(__dirname + '/views/map.html');
+});
+
+app.get('/add-restaurant', function mappage(req, res) {
+    res.sendFile(__dirname + '/views/add-restaurant.html');
+});
+
+app.get('/about', function mappage(req, res) {
+    res.sendFile(__dirname + '/views/about.html');
 
 /*
  * JSON API Endpoints
@@ -101,11 +116,25 @@ app.get('/api/restaurants', function(req, res) {
 
 // CREATE A NEW RESTAURANT
 app.post('/api/restaurants', function(req, res) {
+    console.log('new restaurant server req')
+    var veg = JSON.parse(req.body.vegetarian);
+    var vegan = JSON.parse(req.body.vegan);
+    var gluten = JSON.parse(req.body.glutenFree);
+    var dairy = JSON.parse(req.body.dairyFree);
+    var nut = JSON.parse(req.body.nutAllergy);
+    var kosher = JSON.parse(req.body.kosher);
     var restaurantInfo = {
         name: req.body.name,
         description: req.body.description,
         address: req.body.address,
-        dietary: req.body.dietary,
+        dietary: {
+          vegetarian: veg,
+          vegan: vegan,
+          glutenFree: gluten,
+          dairyFree: dairy,
+          nutAllergy: nut,
+          kosher: kosher
+          },
         url: req.body.url
     };
     var newRestaurant = new db.Restaurant(restaurantInfo);
@@ -114,6 +143,7 @@ app.post('/api/restaurants', function(req, res) {
             response.status(500).send('database error');
             return console.log('error', err);
         } else {
+            console.log('created new restaurant: ' + restaurant);
             res.json(restaurant);
         }
     });
@@ -145,16 +175,14 @@ app.patch('/api/restaurants/:id', function(req, res) {
 });
 
 //DELETE RESTAURANT
-app.delete('/api/restaurants/:id', function(req, res) {
-    console.log('restaurants delete', req.params);
-    var restaurantId = req.params.id;
-    var deleteRestaurantIndex = restaurants.findIndex(function(element, index) {
-        return (element._id === parseInt(req.params.id)); //params are strings
-    });
-    console.log('deleting restaurants with index', deleteRestaurantIndex);
-    var restaurantToDelete = restaurants[deleteRestaurantIndex];
-    restaurants.splice(deleteRestaurantIndex, 1);
-    res.json(restaurantToDelete);
+app.delete('/api/Restaurants/:id', function (req, res) {
+  // get Restaurant id from url params (`req.params`)
+  console.log('Restaurants delete', req.params);
+  var RestaurantId = req.params.id;
+  // find the index of the Restaurant we want to remove
+  db.Restaurant.findOneAndRemove({ _id: RestaurantId }, function (err, deletedRestaurant) {
+    res.json(deletedRestaurant);
+  });
 });
 
 // GET ALL CUISINES
@@ -166,6 +194,29 @@ app.get('/api/cuisines', function(req, res) {
         res.json(restaurants);
     });
 });
+
+
+// ADD ALL Restaurants to MAP
+//
+app.get('/api/restaurants', function maps(req, res) {
+  console.log('server map get');
+  db.Restaurant.find(function(err, restaurants) {
+    if (err) {
+      return console.log('error with maps controller: ' + err);
+    }
+    var responseList = [];
+    restaurants.forEach(function(element, index, array) {
+      var subArray = [];
+      subArray.push(element.lat);
+      subArray.push(element.lon);
+      // subArray.push(element.address);
+      responseList.push(subArray);
+    })
+    res.send(responseList);
+  })
+});
+
+
 
 /**********
  * SERVER *

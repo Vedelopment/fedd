@@ -1,47 +1,15 @@
+.test {
+  color: black;
+}
+
 body {
-    font-size: 12px;
+    font-size: 1.2em;
     color: white;
     font-family: 'Telex', sans-serif;
-    background-color: #c8c8c8;
-    background-image: url(http://i.imgur.com/qRNmp2e.jpg);
+    background-image: url(../images/heroImage.jpg);
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-}
-
-
-/* spacing between restaurant list divs */
-
-article {
-    margin: 12px;
-}
-
-
-/* heading group for page title and subheading */
-
-hgroup {
-    color: white;
-    margin: 0 auto;
-    padding: .5em 0 2em 0;
-    text-align: center;
-    background-color: black;
-    opacity: .8;
-}
-
-h1 {
-    font-size: 8em;
-}
-
-h3 {
-    font-size: 5em;
-}
-
-h6 {
-    font-size: 2em;
-}
-
-p {
-    font-size: 2em;
 }
 
 a {
@@ -56,6 +24,60 @@ a:hover {
     text-decoration: none;
     color: black;
     background-color: rgb(100, 250, 150);
+}
+
+
+/* spacing between restaurant list divs */
+
+article {
+    margin: 12px;
+}
+
+
+/* heading group for page title and subheading */
+
+hgroup {
+    color: white;
+    margin: 0 auto 2em auto;
+    padding: .5em 0 2em 0;
+    text-align: center;
+    background-color: black;
+    opacity: .85;
+}
+
+h1 {
+    font-size: 8em;
+}
+
+h3 a {
+    color: rgba(100, 250, 150, .9);
+    font-size: 2em;
+}
+
+h4 {
+    font-size: 3em;
+}
+
+h5 {
+    font-size: 2.3em;
+}
+
+h6 {
+    font-size: 2em;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    font-size: 2em;
+    list-style: none;
+    text-align: center;
+}
+
+p {
+    font-size: 1.5em;
 }
 
 button {
@@ -73,21 +95,50 @@ form {
     padding: 15px;
 }
 
+.home-link:hover {
+    color: rgba(100, 250, 150, 1);
+    background-color: transparent;
+}
+
 .glyphicon-grain {
     font-size: .5em;
 }
 
 .content-card {
     padding: 10px;
-    opacity: .8;
+    opacity: .85;
     background-color: black;
     border: 3px black solid;
     text-align: center;
     border-radius: 20px;
 }
 
+.add-restaurant-offset {
+    margin: 560px 0 0 0;
+}
+
+.dietary li {
+    font-size: 1.5em;
+    display: inline-block;
+    background-color: rgba(250, 250, 250, .8);
+    color: black;
+    border-radius: 3px;
+    padding: .1em .3em;
+    margin: .3em;
+}
+
 .form-control {
     border: 2px black solid;
+    margin: 0.5em;
+}
+
+label {
+    font-size: 1.5em;
+}
+
+.form-search {
+    text-align: center;
+    padding: 0;
 }
 
 .btn {
@@ -95,6 +146,26 @@ form {
     background-color: grey;
     color: black;
     font-weight: bold;
+}
+
+.restaurant-search {
+  font-size: 1.8em;
+}
+
+.search-bucket {
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+.checkbox-bucket {
+    max-width: 120px;
+    margin: 1.5em auto;
+    text-align: left;
+}
+
+.search-items {
+    max-width: 800px;
+    margin: 10px 1%;
 }
 
 
@@ -108,13 +179,9 @@ form {
 
 .sidenav {
     height: 100%;
-    /* 100% Full-height */
     width: 250px;
-    /* 0 width - change this with JavaScript */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Stay on top */
     top: 0;
     right: -250px;
     background-color: #111;
@@ -124,7 +191,6 @@ form {
     padding-top: 90px;
     /* Place content 60px from the top */
     transition: 0.5s;
-    /* 0.5 second transition effect to slide in the sidenav */
 }
 
 .sidenav-open {
@@ -154,7 +220,7 @@ form {
 /* hambburger image */
 
 .burger-icon {
-    height: 50px;
+    height: 45px;
     position: fixed;
     display: visible;
     top: 0;
@@ -173,21 +239,81 @@ form {
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 
-@media screen and (max-height: 450px) {
+@media screen and (max-width: 500px) {
     .sidenav {
         padding-top: 15px;
     }
     .sidenav a {
         font-size: 18px;
     }
+    .input-search {
+        font-size: 1.5em;
+    }
+    body {
+        font-size: 1em;
+    }
+    .burger-icon {
+        height: 30px;
+    }
+    .checkbox-bucket {
+        max-width: 100px;
+        margin: 1.5em auto;
+        text-align: left;
+    }
 }
 
 .modal-title {
-  color: black;
+    color: black;
 }
 
 .disclaimer {
     font-size: 1.5em;
     font-family: 'Telex', sans-serif;
     color: red;
+}
+
+
+
+/* GOOGLE MAPS*/
+
+#map {
+   width: 100%;
+   height: 400px;
+   background-color: grey;
+   margin: 50px;
+   border: 2px black solid;
+ }
+
+/*About page */
+
+#github {
+   height: 45px;
+   position: fixed;
+   left: 675px;
+}
+
+#github:hover {
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
+}
+
+#about {
+  margin-top: 75px;
+}
+
+
+/*FOOTER*/
+
+footer {
+font-size: 1.2em;
+font-family: 'Telex', sans-serif;
+position: absolute;
+bottom: 0;
+width: 100%;
+height: 40px;
+/*background-color: black;*/
+text-align: center;
+opacity: 1;
+color:black
 }
