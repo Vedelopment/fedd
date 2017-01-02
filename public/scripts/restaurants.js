@@ -32,8 +32,9 @@ $(document).ready(function() {
     });
 
     $('.restaurant-add').click(function(event) {
-      // $('#newRestaurantForm').submit();
-        event.preventDefault();
+        $('#newRestaurantForm').submit(function(event) {
+          event.preventDefault();
+        });
         var dietaryTags = "";
         $('input[type=checkbox]').each(function () {
             var key = $(this).attr('class');
@@ -120,6 +121,20 @@ $(document).ready(function() {
         $('input:checkbox').removeAttr('checked');
         allRestaurants.push(json);
         $restaurantsList.append(json);
+
+        //////////   HANDLEBARS   //////////
+        $restaurantsList = $('#newRestaurantTarget');
+
+        var restaurantSource = $('#restaurants-template').html();
+        restaurantTemplate = Handlebars.compile(restaurantSource);
+
+        //////////   LOAD API SEED DATA AFTER NEW RESTAURANT ADDED   //////////
+        $.ajax({
+            method: 'GET',
+            url: '/api/restaurants',
+            success: handleRestaurantsLoadSuccess,
+            error: apiError,
+        });
     }
 
     //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////

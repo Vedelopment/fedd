@@ -43,22 +43,22 @@
 
                     <!-- name request -->
                     <div>
-                        <input type="text" class="form-control" name="name" placeholder="Restaurant Name" maxlength="30">
+                        <input required type="text" class="form-control" name="name" placeholder="Restaurant Name" maxlength="30">
                     </div>
 
                     <!-- description request -->
                     <div>
-                        <input type="text" class="form-control" name="description" placeholder="Description" maxlength="100">
+                        <input required type="text" class="form-control" name="description" placeholder="Description" maxlength="100">
                     </div>
 
                     <!-- address request -->
                     <div>
-                        <input type="text" class="form-control" name="address" placeholder="Address" maxlength="50">
+                        <input required type="text" class="form-control" name="address" placeholder="Address" maxlength="50">
                     </div>
 
                     <!-- url request -->
                     <div>
-                        <input type="url" class="form-control" name="url" placeholder="Restaurant url">
+                        <input required type="url" class="form-control" name="url" placeholder="Restaurant url">
                     </div>
 
                     <!-- dietary tag request -->
@@ -78,7 +78,7 @@
 
             </article>
 
-        <div id="restaurantTarget">
+        <div id="newRestaurantTarget" class="add-restaurant-offset">
             <!-- handlebars returns data here -->
         </div>
 
@@ -86,7 +86,28 @@
 
     <!-- HANDLEBARS SCRIPT tag -->
     <script id="restaurants-template" type="text/x-handlebars-template">
-
+      <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
+          <!--handlebars text -->
+          <h3 class="name">
+              <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
+            </h3>
+          <hr>
+          <h6 class="description">{{restaurant.description}}</h6>
+          <hr>
+          <h6 class="address">{{restaurant.address}}</h6>
+          <hr>
+            <ul class="dietary">
+              {{#each restaurant.dietary}}
+                {{#if this}}
+                  <li>{{@key}}</li>
+                {{/if}}
+              {{/each}}
+            </ul>
+          <hr>
+          <!-- Trigger the modal with a button -->
+          <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
+          <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button>
+      </article>
     </script>
 
     <!-- SIDE BAR MENU -->

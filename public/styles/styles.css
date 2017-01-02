@@ -113,6 +113,10 @@ form {
     border-radius: 20px;
 }
 
+.add-restaurant-offset {
+    margin: 560px 0 0 0;
+}
+
 .dietary li {
     font-size: 1.5em;
     display: inline-block;
