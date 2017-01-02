@@ -287,9 +287,10 @@ label {
 /*About page */
 
 #github {
-   height: 45px;
-   position: fixed;
-   left: 675px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: 75px;
 }
 
 #github:hover {
@@ -312,7 +313,6 @@ position: absolute;
 bottom: 0;
 width: 100%;
 height: 40px;
-/*background-color: black;*/
 text-align: center;
 opacity: 1;
 color:black
