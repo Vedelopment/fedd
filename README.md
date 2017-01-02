@@ -10,7 +10,7 @@
 
 Fedd is a simple way to search for restaurants based on dietary restrictions.
 
-Users are able to search based on one or multiple dietary tags, contribute to our online restaurant database and see where they're located using Google Maps API. We hope this site will save our users the time and frustration that comes with trying to find a safe place to eat. 
+Users are able to search based on one or multiple dietary tags, contribute to our online restaurant database and see where they're located using Google Maps API. We hope this site will save our users the time and frustration that comes with trying to find a safe place to eat.
 
 Feel free to fork / star / watch for your own personal use.
 
@@ -31,12 +31,35 @@ Express
 
 ## Code We're Proud Of
 
-```javascript
+```
+javascript
 $.ajax({
     method: 'GET',
     url: '/api/restaurants',
     success: handleRestaurantsLoadSuccess,
     error: apiError,
+});
+```
+<hr>
+```
+// FILTER RESTAURANTS
+allRestaurants.forEach(function(restaurantData) {
+    if (
+        // ALL MUST BE TRUE TO RETURN RESTAURANT, EACH STATEMENT IS ONLY FALSE IF SEARCH ARRAY VALUE IS "1" AND RESTAURANT DIETARY VALUE IS "0"
+        searchArray.vegetarian <= restaurantData.dietary.vegetarian &&
+        searchArray.vegan <= restaurantData.dietary.vegan &&
+        searchArray.glutenFree <= restaurantData.dietary.glutenFree &&
+        searchArray.dairyFree <= restaurantData.dietary.dairyFree &&
+        searchArray.nutAllergy <= restaurantData.dietary.nutAllergy &&
+        searchArray.kosher <= restaurantData.dietary.kosher
+    ) {
+        // RENDER SEARCH RESULTS IN HMTL
+        restaurantHtml = restaurantTemplate({
+            restaurant: restaurantData
+        });
+        $restaurantsList.append(restaurantHtml);
+
+    };
 });
 
 ```
