@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>FEDD</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Telex" rel="stylesheet">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/restaurants.js"></script>
+</head>
+
+<body>
+    <!-- Main Body -->
+    <!-- side bar nav button / open -->
+    <hgroup>
+        <h1 id="hero"><a class="home-link" href="/">f e d d</a></h1>
+        <h6>free <span class="glyphicon glyphicon-grain"></span> easy <span class="glyphicon glyphicon-grain"></span> dietary <span class="glyphicon glyphicon-grain"></span> database</h6>
+    </hgroup>
+
+    <img id="more" class="burger-icon" src="images/burger.png">
+
+            <!-- TOP ADD NEW RESTAURANT FORM -->
+            <article class="content-card col-sm-6 col-sm-offset-3" id="addform">
+                <form class="form-inline" id="newRestaurantForm">
+
+                    <!-- name request -->
+                    <div>
+                        <input required type="text" class="form-control" name="name" placeholder="Restaurant Name" maxlength="30">
+                    </div>
+
+                    <!-- description request -->
+                    <div>
+                        <input required type="text" class="form-control" name="description" placeholder="Description" maxlength="100">
+                    </div>
+
+                    <!-- address request -->
+                    <div>
+                        <input required type="text" class="form-control" name="address" placeholder="Address" maxlength="50">
+                    </div>
+
+                    <!-- url request -->
+                    <div>
+                        <input required type="url" class="form-control" name="url" placeholder="Restaurant url">
+                    </div>
+
+                    <!-- dietary tag request -->
+                    <div class="checkbox-bucket">
+                      <!-- <input type="text" class="form-control" name="dietary" placeholder="Dietary Tags"> -->
+                      <input type="checkbox" name="vegBox" class="vegetarian" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
+                      <input type="checkbox" name="veganBox" class="vegan" id="cbox2"> <label for="cbox2">Vegan</label></br>
+                      <input type="checkbox" name="glutenBox" class="glutenFree" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
+                      <input type="checkbox" name="dairyBox" class="dairyFree" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
+                      <input type="checkbox" name="nutBox" class="nutAllergy" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
+                      <input type="checkbox" name="koshBox" class="kosher" id="cbox6"> <label for="cbox6">Kosher</label></br>
+                    </div>
+                    <!-- button -->
+                    <button type="submit" class="btn-sm restaurant-add">Add Restaurant</button>
+                </form>
+
+
+            </article>
+
+        <div id="newRestaurantTarget" class="add-restaurant-offset">
+            <!-- handlebars returns data here -->
+        </div>
+
+    </div>
+
+    <!-- HANDLEBARS SCRIPT tag -->
+    <script id="restaurants-template" type="text/x-handlebars-template">
+      <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
+          <!--handlebars text -->
+          <h3 class="name">
+              <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
+            </h3>
+          <hr>
+          <h6 class="description">{{restaurant.description}}</h6>
+          <hr>
+          <h6 class="address">{{restaurant.address}}</h6>
+          <hr>
+            <ul class="dietary">
+              {{#each restaurant.dietary}}
+                {{#if this}}
+                  <li>{{@key}}</li>
+                {{/if}}
+              {{/each}}
+            </ul>
+          <hr>
+          <!-- Trigger the modal with a button -->
+          <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
+          <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button>
+      </article>
+    </script>
+
+    <!-- SIDE BAR MENU -->
+
+    <div id="mySidenav" class="sidenav">
+        <img src="images/noburger.png" class="burger-icon closebtn">
+        <a href="/">Search</a>
+        <a href="restaurants">Restaurants</a>
+        <a href="add-restaurant">Add Your Own</a>
+        <a href="map">Map it!</a>
+        <a href="cuisines">Cuisines</a>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,3 +1,7 @@
+.test {
+  color: black;
+}
+
 body {
     font-size: 1.2em;
     color: white;
@@ -34,7 +38,7 @@ article {
 
 hgroup {
     color: white;
-    margin: 0 auto;
+    margin: 0 auto 2em auto;
     padding: .5em 0 2em 0;
     text-align: center;
     background-color: black;
@@ -109,6 +113,10 @@ form {
     border-radius: 20px;
 }
 
+.add-restaurant-offset {
+    margin: 560px 0 0 0;
+}
+
 .dietary li {
     font-size: 1.5em;
     display: inline-block;
@@ -121,10 +129,14 @@ form {
 
 .form-control {
     border: 2px black solid;
+    margin: 0.5em;
+}
+
+label {
+    font-size: 1.5em;
 }
 
 .form-search {
-    font-size: 1.5em;
     text-align: center;
     padding: 0;
 }

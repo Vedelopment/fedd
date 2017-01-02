@@ -36,24 +36,12 @@ $(document).ready(function() {
 
         // SETS SEARCH ARRAY VALUES BASED ON FORM INPUT
         function filterSearch() {
-            if (vegetarianBox) {
-                searchArray.vegetarian = 1;
-            }
-            if (veganBox) {
-                searchArray.vegan = 1;
-            }
-            if (glutenFreeBox) {
-                searchArray.glutenFree = 1;
-            }
-            if (dairyFreeBox) {
-                searchArray.dairyFree = 1;
-            }
-            if (nutAllergyBox) {
-                searchArray.nutAllergy = 1;
-            }
-            if (kosherBox) {
-                searchArray.kosher = 1;
-            }
+            if (vegetarianBox) {searchArray.vegetarian = 1;}
+            if (veganBox) {searchArray.vegan = 1;}
+            if (glutenFreeBox) {searchArray.glutenFree = 1;}
+            if (dairyFreeBox) {searchArray.dairyFree = 1;}
+            if (nutAllergyBox) {searchArray.nutAllergy = 1;}
+            if (kosherBox) {searchArray.kosher = 1;}
         };
 
         filterSearch();
