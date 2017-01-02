@@ -5,7 +5,7 @@ $(document).on("ready", function() {
 
   //set map icon to fork knife//
   var restMarker = {
-    url: "images/location_map.png",
+    url: "images/location_map_green.png",
     scaledSize: new google.maps.Size (35 , 35)
   },
   //set center coordinates//
