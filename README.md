@@ -30,6 +30,10 @@ Express
 
 
 ## Code We're Proud Of
+<<<<<<< HEAD
+
+=======
+>>>>>>> c61efd535b7166436fe7d4a0e0ebc901038cfd02
 ```
 javascript
 $.ajax({
@@ -40,7 +44,6 @@ $.ajax({
 });
 ```
 <hr>
-The code below was tricky. We wanted to filter restaurants and include ones that satisfied the user's dietary tag requests. One function had to compare each checkbox value with the restaurant value. To be able to ignore a tag if it wasn't selected we changed the restaurant tag value to 0 or 1 as well as the checkbox values. If the box was not checked, the statement for that tag would return true and thus be ignored, regardless of the restaurant value.
 ```
 // FILTER RESTAURANTS
 allRestaurants.forEach(function(restaurantData) {
