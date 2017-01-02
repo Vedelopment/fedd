@@ -30,7 +30,6 @@ Express
 
 
 ## Code We're Proud Of
-
 ```
 javascript
 $.ajax({
@@ -61,6 +60,7 @@ allRestaurants.forEach(function(restaurantData) {
 
     };
 });
+=======
 
 ```
 
