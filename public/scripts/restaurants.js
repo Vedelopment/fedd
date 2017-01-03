@@ -4,23 +4,9 @@ var MODAL_SELECTOR = '#myModal';
 var restaurantTemplate;
 var $restaurantsList;
 var allRestaurants = [];
+var Restaurants = [];
 
 $(document).ready(function() {
-
-    //////////   HANDLEBARS   //////////
-    $restaurantsList = $('#restaurantTarget');
-
-    var restaurantSource = $('#restaurants-template').html();
-    restaurantTemplate = Handlebars.compile(restaurantSource);
-
-    //////////   LOAD API SEED DATA ON PAGE LOAD   //////////
-    $.ajax({
-        method: 'GET',
-        url: '/api/restaurants',
-        success: handleRestaurantsLoadSuccess,
-        error: apiError,
-    });
-
 
     //////////   SUBMIT NEW RESTAURANT   //////////
     $('#newRestaurantForm').on('keyup keypress', function(e) {
@@ -114,6 +100,18 @@ $(document).ready(function() {
 
         })
     };
+
+    // //////////   LOAD NEW RESTAURANT SUCCESS FUNCTION   //////////
+    // function handleNewRestaurantSuccess(Restaurants) {
+    //   db.Restaurant.findOne({name: req.params.name},function(restaurantData) {
+    //       console.log(restaurantData);
+    //       restaurantHtml = restaurantTemplate({
+    //           restaurant: restaurantData
+    //       });
+    //       $restaurantsList.append(restaurantHtml);
+    //
+    //   })
+    // };
 
     //////////   ADD NEW RESTAURANT SUCCESS FUNCTION   //////////
     function newRestaurantSuccess(json) {
