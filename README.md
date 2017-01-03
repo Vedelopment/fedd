@@ -14,7 +14,7 @@ Users are able to search based on one or multiple dietary tags, contribute to ou
 
 Feel free to fork / star / watch for your own personal use.
 
-See the published project at [gettfedd.herokuapp.com](https://getfedd.herokuapp.com/)!
+See the published project at [getfedd.herokuapp.com](https://getfedd.herokuapp.com/)!
 
 #Technologies Used   
 Mongoose, MongoDBs
