@@ -1,4 +1,4 @@
-# FEDD - [Live Link](https://google.com)
+# FEDD - [Live Link](https://getfedd.herokuapp.com/)
 
 <img src="https://cloud.githubusercontent.com/assets/7833470/10423298/ea833a68-7079-11e5-84f8-0a925ab96893.png" width="100">
 
@@ -14,7 +14,7 @@ Users are able to search based on one or multiple dietary tags, contribute to ou
 
 Feel free to fork / star / watch for your own personal use.
 
-See the published project at [fedd.herokuapp.com](http://google.com/)!
+See the published project at [gettfedd.herokuapp.com](https://getfedd.herokuapp.com/)!
 
 #Technologies Used   
 Mongoose, MongoDBs
