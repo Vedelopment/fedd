@@ -4,23 +4,9 @@ var MODAL_SELECTOR = '#myModal';
 var restaurantTemplate;
 var $restaurantsList;
 var allRestaurants = [];
+var Restaurants = [];
 
 $(document).ready(function() {
-
-    //////////   HANDLEBARS   //////////
-    $restaurantsList = $('#restaurantTarget');
-
-    var restaurantSource = $('#restaurants-template').html();
-    restaurantTemplate = Handlebars.compile(restaurantSource);
-
-    //////////   LOAD API SEED DATA ON PAGE LOAD   //////////
-    $.ajax({
-        method: 'GET',
-        url: '/api/restaurants',
-        success: handleRestaurantsLoadSuccess,
-        error: apiError,
-    });
-
 
     //////////   SUBMIT NEW RESTAURANT   //////////
     $('#newRestaurantForm').on('keyup keypress', function(e) {
@@ -34,23 +20,24 @@ $(document).ready(function() {
     $('.restaurant-add').click(function(event) {
         $('#newRestaurantForm').submit(function(event) {
           event.preventDefault();
-        });
-        var dietaryTags = "";
-        $('input[type=checkbox]').each(function () {
-            var key = $(this).attr('class');
-            var thisVal = (this.checked ? "1" : "0");
-            dietaryTags += (dietaryTags=="" ? key + "=" + thisVal : "&" + key + "=" + thisVal);
-        });
+          var dietaryTags = "";
+          $('input[type=checkbox]').each(function () {
+             var key = $(this).attr('class');
+             var thisVal = (this.checked ? "1" : "0");
+             dietaryTags += (dietaryTags=="" ? key + "=" + thisVal : "&" + key + "=" + thisVal);
+          });
 
-        var formData = $('#newRestaurantForm').serialize();
-        var submitData = dietaryTags + "&" + formData;
+          var formData = $('#newRestaurantForm').serialize();
+          var submitData = dietaryTags + "&" + formData;
+          console.log(submitData);
 
-        $.ajax({
-            method: 'POST',
-            url: '/api/restaurants',
-            data: submitData,
-            success: newRestaurantSuccess,
-            error: apiError
+          $.ajax({
+             method: 'POST',
+             url: '/api/restaurants',
+             data: submitData,
+             success: newRestaurantSuccess,
+             error: apiError
+          });
         });
     });
 
@@ -105,6 +92,7 @@ $(document).ready(function() {
 
     //////////   LOAD ALL RESTAURANTS SUCCESS FUNCTION   //////////
     function handleRestaurantsLoadSuccess(allRestaurants) {
+        $restaurantsList.empty();
         allRestaurants.forEach(function(restaurantData) {
             restaurantHtml = restaurantTemplate({
                 restaurant: restaurantData
@@ -114,28 +102,43 @@ $(document).ready(function() {
         })
     };
 
+    // FUTURE CODE
+    // //////////   LOAD NEW RESTAURANT SUCCESS FUNCTION   //////////
+    // function handleNewRestaurantSuccess(Restaurants) {
+    //   db.Restaurant.findOne({name: req.params.name},function(restaurantData) {
+    //       console.log(restaurantData);
+    //       restaurantHtml = restaurantTemplate({
+    //           restaurant: restaurantData
+    //       });
+    //       $restaurantsList.append(restaurantHtml);
+    //
+    //   })
+    // };
+
     //////////   ADD NEW RESTAURANT SUCCESS FUNCTION   //////////
     function newRestaurantSuccess(json) {
         console.log('new restaurant success called')
         $restaurantsList.empty();
+        // allRestaurants.push(json);
+        // $restaurantsList.append(json);
         $('#newRestaurantForm input').val('');
         $('input:checkbox').removeAttr('checked');
-        allRestaurants.push(json);
-        $restaurantsList.append(json);
-
+        alert('Thank you for adding a restaurant!');
+        window.location.href = "restaurants";
+        // FUTURE CODE
         //////////   HANDLEBARS   //////////
-        $restaurantsList = $('#newRestaurantTarget');
-
-        var restaurantSource = $('#restaurants-template').html();
-        restaurantTemplate = Handlebars.compile(restaurantSource);
-
-        //////////   LOAD API SEED DATA AFTER NEW RESTAURANT ADDED   //////////
-        $.ajax({
-            method: 'GET',
-            url: '/api/restaurants',
-            success: handleRestaurantsLoadSuccess,
-            error: apiError,
-        });
+        // $restaurantsList = $('#newRestaurantTarget');
+        //
+        // var restaurantSource = $('#restaurants-template').html();
+        // restaurantTemplate = Handlebars.compile(restaurantSource);
+        //
+        // //////////   LOAD API SEED DATA AFTER NEW RESTAURANT ADDED   //////////
+        // $.ajax({
+        //     method: 'GET',
+        //     url: '/api/restaurants',
+        //     success: handleRestaurantsLoadSuccess,
+        //     error: apiError,
+        // });
     }
 
     //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////

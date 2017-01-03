@@ -25,7 +25,7 @@
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
     <script src="/scripts/search.js"></script>
-    <script src="/scripts/handlebars-helpers.js"></script>
+    <script src="/scripts/restaurants.js"></script>
 </head>
 
 <body>
@@ -64,6 +64,66 @@
   </div>
   <div id="restaurantTarget">
       <!-- handlebars returns data here -->
+  </div>
+
+
+  <!-- UPDATE RESTAURANT MODAL -->
+  <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+          <!-- Update Restaurant Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Update This Listing:</h4>
+              </div>
+              <div class="modal-body">
+
+
+                  <!-- FORM INSIDE MODAL!-->
+                  <form class="form-inline" id="updateRestaurantForm">
+
+                      <!-- name request -->
+                      <div class="form-group">
+                          <!-- <label for="title">Name</label> -->
+                          <input type="text" class="form-control" name="name" placeholder="Restaurant Name" maxlength="30">
+                      </div>
+
+                      <!-- description request -->
+                      <div class="form-group">
+                          <!-- <label for="title">Description</label> -->
+                          <input type="text" class="form-control" name="description" placeholder="Description" maxlength="100">
+                      </div>
+
+                      <!-- address request -->
+                      <div class="form-group">
+                          <!-- <label for="title">Location</label> -->
+                          <input type="text" class="form-control" name="address" placeholder="Address" maxlength="50">
+                      </div>
+
+                      <!-- dietary tag request -->
+                      <div class="checkbox-bucket">
+                        <!-- <input type="text" class="form-control" name="dietary" placeholder="Dietary Tags"> -->
+                        <input type="checkbox" name="vegBox" class="boxVal vegetarian" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
+                        <input type="checkbox" name="veganBox" class="boxVal vegan" id="cbox2"> <label for="cbox2">Vegan</label></br>
+                        <input type="checkbox" name="glutenBox" class="boxVal glutenFree" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
+                        <input type="checkbox" name="dairyBox" class="boxVal dairyFree" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
+                        <input type="checkbox" name="nutBox" class="boxVal nutAllergy" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
+                        <input type="checkbox" name="koshBox" class="boxVal kosher" id="cbox6"> <label for="cbox6">Kosher</label></br>
+                      </div>
+
+                      <!-- url request -->
+                      <div class="form-group">
+                          <!-- <label for="title">Location</label> -->
+                          <input type="URL" class="form-control" name="url" placeholder="Restaurant url">
+                      </div>
+
+                      <!-- button -->
+                      <button class="btn btn-default updateRestaurantButton">Update</button>
+                  </form>
+              </div>
+          </div>
+      </div>
   </div>
 
 </div>

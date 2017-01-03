@@ -16,6 +16,7 @@
 
     <!-- VENDOR SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
     <!-- Latest compiled and minified JavaScript -->
@@ -25,6 +26,7 @@
     <!-- APPLICATION SCRIPTS -->
     <script src="/scripts/app.js"></script>
     <script src="/scripts/restaurants.js"></script>
+    <script src="/scripts/restaurant-database.js"></script>
 </head>
 
 <body>
@@ -43,22 +45,22 @@
 
                     <!-- name request -->
                     <div>
-                        <input required type="text" class="form-control" name="name" placeholder="Restaurant Name" maxlength="30">
+                        <input required type="text" class="form-control name-class" name="name" placeholder="Restaurant Name" maxlength="30">
                     </div>
 
                     <!-- description request -->
                     <div>
-                        <input required type="text" class="form-control" name="description" placeholder="Description" maxlength="100">
+                        <input required type="text" class="form-control desc-class" name="description" placeholder="Description" maxlength="100">
                     </div>
 
                     <!-- address request -->
                     <div>
-                        <input required type="text" class="form-control" name="address" placeholder="Address" maxlength="50">
+                        <input required type="text" class="form-control addy-class" name="address" placeholder="Address" maxlength="50">
                     </div>
 
                     <!-- url request -->
                     <div>
-                        <input required type="url" class="form-control" name="url" placeholder="Restaurant url">
+                        <input required type="url" class="form-control url-class" name="url" placeholder="Restaurant url">
                     </div>
 
                     <!-- dietary tag request -->
@@ -105,8 +107,8 @@
             </ul>
           <hr>
           <!-- Trigger the modal with a button -->
-          <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
-          <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button>
+          <!-- <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
+          <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button> -->
       </article>
     </script>
 
