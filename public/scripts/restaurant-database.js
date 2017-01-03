@@ -16,6 +16,7 @@ $(document).ready(function() {
 
     //////////   LOAD ALL RESTAURANTS SUCCESS FUNCTION   //////////
     function handleRestaurantsLoadSuccess(allRestaurants) {
+      $restaurantsList.empty();
       allRestaurants.forEach(function(restaurantData) {
         restaurantHtml = restaurantTemplate({
           restaurant: restaurantData
