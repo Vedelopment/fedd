@@ -1,3 +1,4 @@
-Handlebars.registerHelper('tag', function(options) {
-  return options.fn(this);
-});
+// FUTURE CODE
+// Handlebars.registerHelper('tag', function(options) {
+//   return options.fn(this);
+// });

@@ -14,9 +14,6 @@ var CuisineSchema = new Schema({
   },
 });
 
-
-
-
 //Set up Cuisine model
 var Cuisine = mongoose.model('Cuisine', CuisineSchema);
 

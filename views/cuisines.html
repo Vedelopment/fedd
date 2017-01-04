@@ -36,6 +36,7 @@
     </hgroup>
 
     <img id="more" class="burger-icon" src="images/burger.png">
+
     <article class="content-card col-md-6 col-md-offset-3">
         <h5>
           Do you have a new allergy or want to find cuisines that naturally cater to your dietary needs? We've created a cuisine cheat sheet to help you out!
@@ -60,18 +61,17 @@
             <h3 class="name">{{cuisine.name}}</h3>
             <hr>
             <ul class="dietary">
+              <!-- Render dietary tag if true for each tag -->
               {{#each cuisine.dietary}}
                 {{#if this}}
                   <li>{{@key}}</li>
                 {{/if}}
               {{/each}}
             </ul>
-            <!-- Trigger the modal with a button -->
         </article>
     </script>
 
     <!-- SIDE BAR MENU -->
-
     <div id="mySidenav" class="sidenav">
         <img src="images/noburger.png" class="burger-icon closebtn">
         <a href="/">Search</a>
@@ -81,8 +81,6 @@
         <a href="cuisines">Cuisines</a>
         <a href="about">About</a>
     </div>
-
-
 
 </body>
 

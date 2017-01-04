@@ -4,10 +4,9 @@ var mongoose = require('mongoose'),
 //Set up Restaurant Schema
 var RestaurantSchema = new Schema({
   name: String,
-  description: String, //stretch: validate less than 140 charac//
+  description: String,
   address: String,
   dietary:
-  // {},
   {
     vegetarian: Number,
     vegan: Number,
@@ -21,6 +20,7 @@ var RestaurantSchema = new Schema({
     lat: Number,
   	lng: Number
   }
+  // FUTURE CODE
   //cuisine: []//stretch: relate these, eventually be able to filter results//
   //coord: some data //stretch: google maps//
   //rating: some data //stretch: javascript logic stuff//

@@ -39,46 +39,44 @@
 
     <img id="more" class="burger-icon" src="images/burger.png">
 
-            <!-- TOP ADD NEW RESTAURANT FORM -->
-            <article class="content-card col-sm-6 col-sm-offset-3" id="addform">
-                <form class="form-inline" id="newRestaurantForm">
+        <!-- TOP ADD NEW RESTAURANT FORM -->
+        <article class="content-card col-sm-6 col-sm-offset-3" id="addform">
+            <form class="form-inline" id="newRestaurantForm">
 
-                    <!-- name request -->
-                    <div>
-                        <input required type="text" class="form-control name-class" name="name" placeholder="Restaurant Name" maxlength="30">
-                    </div>
+                <!-- name request -->
+                <div>
+                    <input required type="text" class="form-control name-class" name="name" placeholder="Restaurant Name" maxlength="30">
+                </div>
 
-                    <!-- description request -->
-                    <div>
-                        <input required type="text" class="form-control desc-class" name="description" placeholder="Description" maxlength="100">
-                    </div>
+                <!-- description request -->
+                <div>
+                    <input required type="text" class="form-control desc-class" name="description" placeholder="Description" maxlength="100">
+                </div>
 
-                    <!-- address request -->
-                    <div>
-                        <input required type="text" class="form-control addy-class" name="address" placeholder="Address" maxlength="50">
-                    </div>
+                <!-- address request -->
+                <div>
+                    <input required type="text" class="form-control addy-class" name="address" placeholder="Address" maxlength="50">
+                </div>
 
-                    <!-- url request -->
-                    <div>
-                        <input required type="url" class="form-control url-class" name="url" placeholder="Restaurant url">
-                    </div>
+                <!-- url request -->
+                <div>
+                    <input required type="url" class="form-control url-class" name="url" placeholder="Restaurant url">
+                </div>
 
-                    <!-- dietary tag request -->
-                    <div class="checkbox-bucket">
-                      <!-- <input type="text" class="form-control" name="dietary" placeholder="Dietary Tags"> -->
-                      <input type="checkbox" name="vegBox" class="vegetarian" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
-                      <input type="checkbox" name="veganBox" class="vegan" id="cbox2"> <label for="cbox2">Vegan</label></br>
-                      <input type="checkbox" name="glutenBox" class="glutenFree" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
-                      <input type="checkbox" name="dairyBox" class="dairyFree" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
-                      <input type="checkbox" name="nutBox" class="nutAllergy" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
-                      <input type="checkbox" name="koshBox" class="kosher" id="cbox6"> <label for="cbox6">Kosher</label></br>
-                    </div>
-                    <!-- button -->
-                    <button type="submit" class="btn-sm restaurant-add">Add Restaurant</button>
-                </form>
-
-
-            </article>
+                <!-- dietary tag request -->
+                <div class="checkbox-bucket">
+                  <!-- <input type="text" class="form-control" name="dietary" placeholder="Dietary Tags"> -->
+                  <input type="checkbox" name="vegBox" class="vegetarian" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
+                  <input type="checkbox" name="veganBox" class="vegan" id="cbox2"> <label for="cbox2">Vegan</label></br>
+                  <input type="checkbox" name="glutenBox" class="glutenFree" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
+                  <input type="checkbox" name="dairyBox" class="dairyFree" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
+                  <input type="checkbox" name="nutBox" class="nutAllergy" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
+                  <input type="checkbox" name="koshBox" class="kosher" id="cbox6"> <label for="cbox6">Kosher</label></br>
+                </div>
+                <!-- button -->
+                <button type="submit" class="btn-sm restaurant-add">Add Restaurant</button>
+            </form>
+        </article>
 
         <div id="newRestaurantTarget" class="add-restaurant-offset">
             <!-- handlebars returns data here -->
@@ -99,6 +97,7 @@
           <h6 class="address">{{restaurant.address}}</h6>
           <hr>
             <ul class="dietary">
+              <!-- Render dietary tag if true for each tag -->
               {{#each restaurant.dietary}}
                 {{#if this}}
                   <li>{{@key}}</li>
@@ -106,14 +105,10 @@
               {{/each}}
             </ul>
           <hr>
-          <!-- Trigger the modal with a button -->
-          <!-- <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
-          <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button> -->
       </article>
     </script>
 
     <!-- SIDE BAR MENU -->
-
     <div id="mySidenav" class="sidenav">
         <img src="images/noburger.png" class="burger-icon closebtn">
         <a href="/">Search</a>
@@ -122,7 +117,6 @@
         <a href="map">Map it!</a>
         <a href="cuisines">Cuisines</a>
     </div>
-
 
 </body>
 
