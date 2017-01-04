@@ -31,27 +31,15 @@ Express
 
 ## Code We're Proud Of
 <hr>
-The code below was tricky. We wanted to filter restaurants and include ones that satisfied the user's dietary tag requests. One function had to compare each checkbox value with the restaurant value. To be able to ignore a tag if it wasn't selected we changed the restaurant tag value to 0 or 1 as well as the checkbox values. If the box was not checked, the statement for that tag would return true and thus be ignored, regardless of the restaurant value.
+The code below passes all checkbox values to server and converts them to 0 or 1.
 <hr>
 ```javascript
-// FILTER RESTAURANTS
-allRestaurants.forEach(function(restaurantData) {
-    if (
-        // ALL MUST BE TRUE TO RETURN RESTAURANT, EACH STATEMENT IS ONLY FALSE IF SEARCH ARRAY VALUE IS "1" AND RESTAURANT DIETARY VALUE IS "0"
-        searchArray.vegetarian <= restaurantData.dietary.vegetarian &&
-        searchArray.vegan <= restaurantData.dietary.vegan &&
-        searchArray.glutenFree <= restaurantData.dietary.glutenFree &&
-        searchArray.dairyFree <= restaurantData.dietary.dairyFree &&
-        searchArray.nutAllergy <= restaurantData.dietary.nutAllergy &&
-        searchArray.kosher <= restaurantData.dietary.kosher
-    ) {
-        // RENDER SEARCH RESULTS IN HMTL
-        restaurantHtml = restaurantTemplate({
-            restaurant: restaurantData
-        });
-        $restaurantsList.append(restaurantHtml);
-
-    };
+// CREATE DIETARY OBJECT FROM CHECKBOX INPUT, TURN ON/OFF VALUE TO 1/0 VALUE
+var dietaryTags = "";
+$('input[type=checkbox]').each(function () {
+   var key = $(this).attr('class');
+   var thisVal = (this.checked ? 1 : 0);
+   newData.dietary[key] = thisVal;
 });
 ```
 
