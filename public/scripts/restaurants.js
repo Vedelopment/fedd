@@ -45,19 +45,42 @@ $(document).ready(function() {
     $('#updateRestaurantForm').submit(function(event) {
         event.preventDefault();
         var restId = $(MODAL_SELECTOR).data('id');
-        var data = {};
-        $(this).serializeArray().forEach(function(item) {
-            data[item.name] = item.value;
+        var newData = {};
+        console.log("We just created ", newData);
+        var dataObj = $(this).serializeArray().forEach(function(item) {
+            newData[item.name] = item.value;
+        });
+        newData.dietary = {};
+        // console.log(typeof(data));
+        // console.log(JSON.serializeArray(data));
+
+        var dietaryTags = "";
+        $('input[type=checkbox]').each(function () {
+           var key = $(this).attr('class');
+           var thisVal = (this.checked ? 1 : 0);
+           newData.dietary[key] = thisVal;
+          //  dietaryTags += (dietaryTags=="" ? key + "=" + thisVal : "&" + key + "=" + thisVal);
         });
 
-        console.log(restId, data);
+        delete newData.vegBox;
+        delete newData.veganBox;
+        delete newData.glutenBox;
+        delete newData.dairyBox;
+        delete newData.nutBox;
+        delete newData.koshBox;
+
+        console.log("after tags added, ", newData);
+        // var formData = $('#newRestaurantForm').serialize();
+        // var submitData = dietaryTags + "&" + newData;
+        // console.log(dietaryTags);
+        // console.log(submitData);
 
         $.ajax({
-            method: 'PATCH',
-            url: '/api/restaurants/' + restId,
-            data: data,
-            success: updateRestaurantSuccess,
-            error: apiError
+           method: 'PUT',
+           url: '/api/restaurants/' + restId,
+           data: newData,
+           success: updateRestaurantSuccess,
+           error: apiError
         });
 
         $(MODAL_SELECTOR).modal('toggle');
@@ -119,7 +142,7 @@ $(document).ready(function() {
     function newRestaurantSuccess(json) {
         console.log('new restaurant success called')
         $restaurantsList.empty();
-        // allRestaurants.push(json);
+        allRestaurants.push(json);
         // $restaurantsList.append(json);
         $('#newRestaurantForm input').val('');
         $('input:checkbox').removeAttr('checked');
@@ -142,14 +165,21 @@ $(document).ready(function() {
     }
 
     //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////
-    function updateRestaurantSuccess(response) {
-        var $article = $('article[data-id=' + response._id + ']');
+    function updateRestaurantSuccess(json) {
+        console.log('update restaurant success called')
+        // $restaurantsList.empty();
+        // allRestaurants.push(json);
+        // $restaurantsList.append(json);
+        alert('Thank you for updating this restaurant!');
+        window.location.href = "restaurants";
 
-        $article.find('.name a').text(response.name);
-        $article.find('.name a').attr('href', response.url);
-        $article.find('.description').text(response.description);
-        $article.find('.address').text(response.address);
-        $article.find('.dietary').text(response.dietary);
+        // var $article = $('article[data-id=' + response._id + ']');
+        //
+        // $article.find('.name a').text(response.name);
+        // $article.find('.name a').attr('href', response.url);
+        // $article.find('.description').text(response.description);
+        // $article.find('.address').text(response.address);
+        // $article.find('.dietary').html(response.dietary);
     }
 
     //////////   DELETE RESTAURANT SUCCESS FUNCTION   //////////
@@ -191,29 +221,58 @@ $(document).ready(function() {
             dietary = $article.find('.dietary').text().trim();
 
         ////creates obj of data////
+        var dietaryTags = "";
+        $('input[type=checkbox]').each(function () {
+          var key = $(this).attr('class');
+          var thisVal = (this.checked ? "1" : "0");
+          dietaryTags += (dietaryTags=="" ? "{" + key + ":" + thisVal : ", " + key + ":" + thisVal);
+        });
+        var dietaryTags = dietaryTags + "}";
+        // console.log(typeof(dietaryTags));
+        // console.log(dietaryTags);
+
         var data = {
             id: id,
             name: name,
             url: url,
             description: description,
             address: address,
-            dietary: dietary
+            dietary: dietaryTags
+            // dietary: {
+            //   vegetarian: veg,
+            //   vegan: vegan,
+            //   glutenFree: gluten,
+            //   dairyFree: dairy,
+            //   nutAllergy: nut,
+            //   kosher: kosher
+            //   },
         }
+        // console.log(data);
 
         /// Selecting all elements ///
         var $modal = $(MODAL_SELECTOR);
-        $description = $modal.find('input[name=description]'),
+            $description = $modal.find('input[name=description]'),
             $name = $modal.find('input[name=name]'),
             $address = $modal.find('input[name=address]'),
-            $dietary = $modal.find('input[name=dietary]'),
+            // $dietary = $modal.find('input[name=dietary]'),
+            // $dietary = {
+              // $vegetarian = $modal.find('input[name=vegetarianBox]'),
+              // $vegan = $modal.find('input[name=veganBox]'),
+              // $gluten = $modal.find('input[name=glutenBox]'),
+              // $dairy = $modal.find('input[name=dairyBox]'),
+              // $nut = $modal.find('input[name=nutBox]'),
+              // $kosh = $modal.find('input[name=koshBox]'),
+            // },
             $url = $modal.find('input[name=url]');
+
+        // console.log($dietary);
 
         /// Setting all elements in modal to display previous information ///
         $modal.data('id', data.id);
         $description.val(data.description);
         $name.val(data.name);
         $address.val(data.address);
-        $dietary.val(data.dietary);
+        // $dietary.val(data.dietary);
         $url.val(data.url);
     }
 

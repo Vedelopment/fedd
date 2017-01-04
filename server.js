@@ -151,23 +151,26 @@ app.post('/api/restaurants', function(req, res) {
 });
 
 //UPDATE RESTAURANT LISTING
-app.patch('/api/restaurants/:id', function(req, res) {
+app.put('/api/restaurants/:id', function(req, res) {
     db.Restaurant.findOne({
         _id: req.params.id
     }, function(err, foundRestaurant) {
         if (err) {
             res.status(500).send('error: ');
         } else {
-            foundRestaurant.name = req.body.name || foundRestaurant.name;
-            foundRestaurant.description = req.body.description || foundRestaurant.description;
-            foundRestaurant.address = req.body.address || foundRestaurant.address;
-            foundRestaurant.dietary = req.body.dietary || foundRestaurant.dietary;
-            foundRestaurant.url = req.body.url || foundRestaurant.url;
+            foundRestaurant.name = req.body.name;
+            foundRestaurant.description = req.body.description;
+            foundRestaurant.address = req.body.address;
+            foundRestaurant.dietary = req.body.dietary;
+            foundRestaurant.url = req.body.url;
 
-            foundRestaurant.save(function(err, savedRestaurant) {
+            // console.log(foundRestaurant.dietary);
+
+            foundRestaurant.save(function(err, foundRestaurant) {
                 if (err) {
                     response.status(500).send('database error');
                 } else {
+                    console.log(foundRestaurant);
                     res.json(foundRestaurant);
                 }
             })
@@ -196,26 +199,26 @@ app.get('/api/cuisines', function(req, res) {
     });
 });
 
-
+// FUTURE CODE
 // ADD ALL Restaurants to MAP
 //
-app.get('/api/restaurants', function maps(req, res) {
-  console.log('server map get');
-  db.Restaurant.find(function(err, restaurants) {
-    if (err) {
-      return console.log('error with maps controller: ' + err);
-    }
-    var responseList = [];
-    restaurants.forEach(function(element, index, array) {
-      var subArray = [];
-      subArray.push(element.lat);
-      subArray.push(element.lon);
-      // subArray.push(element.address);
-      responseList.push(subArray);
-    })
-    res.send(responseList);
-  })
-});
+// app.get('/api/restaurants', function maps(req, res) {
+//   console.log('server map get');
+//   db.Restaurant.find(function(err, restaurants) {
+//     if (err) {
+//       return console.log('error with maps controller: ' + err);
+//     }
+//     var responseList = [];
+//     restaurants.forEach(function(element, index, array) {
+//       var subArray = [];
+//       subArray.push(element.lat);
+//       subArray.push(element.lon);
+//       // subArray.push(element.address);
+//       responseList.push(subArray);
+//     })
+//     res.send(responseList);
+//   })
+// });
 
 
 
