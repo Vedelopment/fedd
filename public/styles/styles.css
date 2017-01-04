@@ -177,7 +177,7 @@ footer {
 .checkbox-bucket-modal {
     color: black;
     font-size: 0.8em;
-    border: 2px black solid;
+    border: 3px black solid;
     border-radius: 4px;
     margin: 8px;
     padding: 1em;
@@ -277,11 +277,23 @@ footer {
         max-width: 100px;
         margin: 1.5em auto;
         text-align: left;
+        background: white;
     }
 }
 
 .modal-title {
     color: black;
+    background: ghostwhite;
+}
+
+.modal-header {
+  background: ghostwhite;
+
+}
+
+.modal-body {
+  background: ghostwhite;
+  /*opacity: .6;*/
 }
 
 /* Cuisines Page Disclaimer*/
