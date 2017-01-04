@@ -1,18 +1,15 @@
 console.log('sanity check!');
 
-
-
 $(document).ready(function() {
 
+    // OPEN HAMBURGER MENU
     $('#more').click(function() {
-        // $(this).hide();
         $("#mySidenav").addClass('sidenav-open');
     })
 
+    // CLOSE HAMBURGER MENU
     $('.closebtn').click(function() {
-        // $('#more').show();
         $("#mySidenav").removeClass('sidenav-open');
     })
-
 
 });

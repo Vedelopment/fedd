@@ -9,6 +9,8 @@ var Restaurants = [];
 $(document).ready(function() {
 
     //////////   SUBMIT NEW RESTAURANT   //////////
+
+    // PREVENT ENTER KEY FROM SUBMITTING FORM IN INPUT FIELD
     $('#newRestaurantForm').on('keyup keypress', function(e) {
       var keyCode = e.keyCode || e.which;
       if (keyCode === 13) {
@@ -17,9 +19,14 @@ $(document).ready(function() {
       }
     });
 
+    // SUBMIT FORM ON BUTTON CLICK ONLY
     $('.restaurant-add').click(function(event) {
+
+        // BUTTON CLICK CALLS FORM SUBMIT
         $('#newRestaurantForm').submit(function(event) {
           event.preventDefault();
+
+          // CREATE QUERY STRING FROM CHECKBOX INPUT
           var dietaryTags = "";
           $('input[type=checkbox]').each(function () {
              var key = $(this).attr('class');
@@ -27,10 +34,13 @@ $(document).ready(function() {
              dietaryTags += (dietaryTags=="" ? key + "=" + thisVal : "&" + key + "=" + thisVal);
           });
 
+          // CREAT QUERY STRING FROM FORM DATA
           var formData = $('#newRestaurantForm').serialize();
-          var submitData = dietaryTags + "&" + formData;
-          console.log(submitData);
 
+          // JOIN CHECKBOX QUERY STRING AND OTHER FORM DATA QUERY STRING
+          var submitData = dietaryTags + "&" + formData;
+
+          // POST REQUEST USING JOINED QUERY STRING
           $.ajax({
              method: 'POST',
              url: '/api/restaurants',
@@ -44,24 +54,27 @@ $(document).ready(function() {
     //////////   UDPATE RESTAURANT   //////////
     $('#updateRestaurantForm').submit(function(event) {
         event.preventDefault();
+
+        // FIND ID OF RESTAURANT THAT OPENS MODAL
         var restId = $(MODAL_SELECTOR).data('id');
+
+        // CREATE OBJECT TO UPDATE RESTAURANT
         var newData = {};
         console.log("We just created ", newData);
         var dataObj = $(this).serializeArray().forEach(function(item) {
             newData[item.name] = item.value;
         });
         newData.dietary = {};
-        // console.log(typeof(data));
-        // console.log(JSON.serializeArray(data));
 
+        // CREATE DIETARY OBJECT FROM CHECKBOX INPUT, TURN ON/OFF VALUE TO 1/0 VALUE
         var dietaryTags = "";
         $('input[type=checkbox]').each(function () {
            var key = $(this).attr('class');
            var thisVal = (this.checked ? 1 : 0);
            newData.dietary[key] = thisVal;
-          //  dietaryTags += (dietaryTags=="" ? key + "=" + thisVal : "&" + key + "=" + thisVal);
         });
 
+        // REMOVE CHECKBOX ON/OFF VALUES FROM FORM SUBMIT OBJECT
         delete newData.vegBox;
         delete newData.veganBox;
         delete newData.glutenBox;
@@ -69,12 +82,7 @@ $(document).ready(function() {
         delete newData.nutBox;
         delete newData.koshBox;
 
-        console.log("after tags added, ", newData);
-        // var formData = $('#newRestaurantForm').serialize();
-        // var submitData = dietaryTags + "&" + newData;
-        // console.log(dietaryTags);
-        // console.log(submitData);
-
+        // PUT REQUEST WITH UPDATE RESTAURANT DATA OBJECT
         $.ajax({
            method: 'PUT',
            url: '/api/restaurants/' + restId,
@@ -83,21 +91,17 @@ $(document).ready(function() {
            error: apiError
         });
 
+        // CLOSE MODAL
         $(MODAL_SELECTOR).modal('toggle');
     });
 
     //////////   DELETE RESTAURANT   //////////
     $('#restaurantTarget').on("click", ".deleteRestaurantButton", function(event){
-        console.log('delete submitted');
-        // var restId = $('#deleteRestaurantButton').data('id');
-        var restId = $(this).closest('.content-card').data('id');
-        // var data = {};
-        // $(this).serializeArray().forEach(function(item) {
-        //     data[item.name] = item.value;
-        // });
 
-        console.log(restId);
-        //
+        // FIND RESTAURANT ID
+        var restId = $(this).closest('.content-card').data('id');
+
+        // DELETE REQUEST FOR RESTAURANT MATCHING REQ ID
         $.ajax({
             method: 'DELETE',
             url: '/api/restaurants/' + restId,
@@ -105,8 +109,6 @@ $(document).ready(function() {
             success: deleteRestaurantSuccess,
             error: apiError
         });
-
-        // $(MODAL_SELECTOR).modal('toggle');
     });
 
     /////////////////////////////////////////////////////////////
@@ -140,14 +142,15 @@ $(document).ready(function() {
 
     //////////   ADD NEW RESTAURANT SUCCESS FUNCTION   //////////
     function newRestaurantSuccess(json) {
+
         console.log('new restaurant success called')
         $restaurantsList.empty();
         allRestaurants.push(json);
-        // $restaurantsList.append(json);
         $('#newRestaurantForm input').val('');
         $('input:checkbox').removeAttr('checked');
         alert('Thank you for adding a restaurant!');
         window.location.href = "restaurants";
+
         // FUTURE CODE
         //////////   HANDLEBARS   //////////
         // $restaurantsList = $('#newRestaurantTarget');
@@ -167,29 +170,17 @@ $(document).ready(function() {
     //////////   UPDATE RESTAURANT SUCCESS FUNCTION   //////////
     function updateRestaurantSuccess(json) {
         console.log('update restaurant success called')
-        // $restaurantsList.empty();
-        // allRestaurants.push(json);
-        // $restaurantsList.append(json);
+
         alert('Thank you for updating this restaurant!');
         window.location.href = "restaurants";
-
-        // var $article = $('article[data-id=' + response._id + ']');
-        //
-        // $article.find('.name a').text(response.name);
-        // $article.find('.name a').attr('href', response.url);
-        // $article.find('.description').text(response.description);
-        // $article.find('.address').text(response.address);
-        // $article.find('.dietary').html(response.dietary);
     }
 
     //////////   DELETE RESTAURANT SUCCESS FUNCTION   //////////
     function deleteRestaurantSuccess(response) {
-        // var $article = $('article[data-id=' + response._id + ']');
 
         function destroy(req, res) {
 
           // find one album by id, delete it, and send it back as JSON
-
           db.Restaurant.findOneAndRemove({ _id: req.params.restaurant_id }, function(err, deletedRestaurant) {
              res.json(deletedRestaurant);
            });
@@ -211,6 +202,7 @@ $(document).ready(function() {
 
     ///// Sets all form information to the restaurant /////
     function setModalData(event) {
+
         /// gets all text data of restaurant ////
         var $article = $(event.target).parents('article'),
             id = $article.data('id'),
@@ -228,8 +220,6 @@ $(document).ready(function() {
           dietaryTags += (dietaryTags=="" ? "{" + key + ":" + thisVal : ", " + key + ":" + thisVal);
         });
         var dietaryTags = dietaryTags + "}";
-        // console.log(typeof(dietaryTags));
-        // console.log(dietaryTags);
 
         var data = {
             id: id,
@@ -238,34 +228,14 @@ $(document).ready(function() {
             description: description,
             address: address,
             dietary: dietaryTags
-            // dietary: {
-            //   vegetarian: veg,
-            //   vegan: vegan,
-            //   glutenFree: gluten,
-            //   dairyFree: dairy,
-            //   nutAllergy: nut,
-            //   kosher: kosher
-            //   },
         }
-        // console.log(data);
 
         /// Selecting all elements ///
         var $modal = $(MODAL_SELECTOR);
             $description = $modal.find('input[name=description]'),
             $name = $modal.find('input[name=name]'),
             $address = $modal.find('input[name=address]'),
-            // $dietary = $modal.find('input[name=dietary]'),
-            // $dietary = {
-              // $vegetarian = $modal.find('input[name=vegetarianBox]'),
-              // $vegan = $modal.find('input[name=veganBox]'),
-              // $gluten = $modal.find('input[name=glutenBox]'),
-              // $dairy = $modal.find('input[name=dairyBox]'),
-              // $nut = $modal.find('input[name=nutBox]'),
-              // $kosh = $modal.find('input[name=koshBox]'),
-            // },
             $url = $modal.find('input[name=url]');
-
-        // console.log($dietary);
 
         /// Setting all elements in modal to display previous information ///
         $modal.data('id', data.id);

@@ -90,7 +90,7 @@ app.get('/api', function api_index(req, res) {
             path: "/api/restaurants",
             description: "Add a restaurant to our database."
         }, {
-            method: "PATCH",
+            method: "PUTCH",
             path: "/api/restaurants/:id",
             description: "Update Restaurant Information."
         }, {
@@ -118,12 +118,14 @@ app.get('/api/restaurants', function(req, res) {
 // CREATE A NEW RESTAURANT
 app.post('/api/restaurants', function(req, res) {
     console.log('new restaurant server req')
+    // PARSE REQ DATA
     var veg = JSON.parse(req.body.vegetarian);
     var vegan = JSON.parse(req.body.vegan);
     var gluten = JSON.parse(req.body.glutenFree);
     var dairy = JSON.parse(req.body.dairyFree);
     var nut = JSON.parse(req.body.nutAllergy);
     var kosher = JSON.parse(req.body.kosher);
+    // ASSIGN REQ VARIABLE VALUES TO OBJECT KEYS
     var restaurantInfo = {
         name: req.body.name,
         description: req.body.description,
@@ -138,12 +140,14 @@ app.post('/api/restaurants', function(req, res) {
           },
         url: req.body.url
     };
+    // CREATE NEW RESTAURANT INSTANCE AND SAVE
     var newRestaurant = new db.Restaurant(restaurantInfo);
     newRestaurant.save(function(err, restaurant) {
         if (err) {
             response.status(500).send('database error');
             return console.log('error', err);
         } else {
+            // CONSOLE LOG AND RESPOND WITH NEW RESTAURANT DATA
             console.log('created new restaurant: ' + restaurant);
             res.json(restaurant);
         }
@@ -158,32 +162,33 @@ app.put('/api/restaurants/:id', function(req, res) {
         if (err) {
             res.status(500).send('error: ');
         } else {
+            // UPDATE THESE RESTAURANT KEYS WITH NEW REQ VALUES
             foundRestaurant.name = req.body.name;
             foundRestaurant.description = req.body.description;
             foundRestaurant.address = req.body.address;
             foundRestaurant.dietary = req.body.dietary;
             foundRestaurant.url = req.body.url;
 
-            // console.log(foundRestaurant.dietary);
-
+            // UPDATE RESTAURANT AND SAVE
             foundRestaurant.save(function(err, foundRestaurant) {
                 if (err) {
                     response.status(500).send('database error');
                 } else {
-                    console.log(foundRestaurant);
+                    // CONSOLE LOG AND RESPOND WITH UPDATED RESTAURANT NAME
+                    console.log('updated ' + req.body.name);
                     res.json(foundRestaurant);
                 }
-            })
+            });
         }
     });
 });
 
 //DELETE RESTAURANT
 app.delete('/api/Restaurants/:id', function (req, res) {
-  // get Restaurant id from url params (`req.params`)
+  // GET RESTAURANT ID FROM URL PARAMS (`req.params`)
   console.log('Restaurants delete', req.params);
   var RestaurantId = req.params.id;
-  // find the index of the Restaurant we want to remove
+  // FIND THE INDEX OF THE RESTAURANT WE WANT TO REMOVE
   db.Restaurant.findOneAndRemove({ _id: RestaurantId }, function (err, deletedRestaurant) {
     res.json(deletedRestaurant);
   });

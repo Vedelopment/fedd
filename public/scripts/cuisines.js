@@ -6,11 +6,13 @@ var allCuisines = [];
 
 $(document).ready(function() {
 
+    // HANDLEBARS FOR CUISINES
     $cuisinesList = $('#cuisineTarget');
 
     var cuisineSource = $('#cuisines-template').html();
     cuisineTemplate = Handlebars.compile(cuisineSource);
 
+    // GET ALL CUISINES
     $.ajax({
         method: 'GET',
         url: '/api/cuisines',
@@ -31,7 +33,6 @@ $(document).ready(function() {
 
     function apiError(e) {
         console.log('api error, is the server working?');
-        // $('#restaurantTarget').text('api error, is the server working?');
     }
 
 });

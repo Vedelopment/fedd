@@ -41,122 +41,113 @@
 
     <div class="search-bucket">
         <article class="content-card search-items" data-id="{{restaurant._id}}">
-        <h4>Search Restaurants</h4></br>
-        <h6>Find restaurants that meet your dietary needs by selecting one or more options below.</h6>
-        <form id="searchRestaurants" class="form-search search-items">
-          <!-- <input type="checkbox" class="form-control input-search"> -->
-          <div class="checkbox-bucket">
-            <input type="checkbox" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
-            <input type="checkbox" id="cbox2"> <label for="cbox2">Vegan</label></br>
-            <input type="checkbox" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
-            <input type="checkbox" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
-            <input type="checkbox" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
-            <input type="checkbox" id="cbox6"> <label for="cbox6">Kosher</label></br>
-          </div>
+          <h4>Search Restaurants</h4></br>
+          <h6>Find restaurants that meet your dietary needs by selecting one or more options below.</h6>
+          <form id="searchRestaurants" class="form-search search-items">
+            <!-- <input type="checkbox" class="form-control input-search"> -->
+            <div class="checkbox-bucket">
+              <input type="checkbox" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
+              <input type="checkbox" id="cbox2"> <label for="cbox2">Vegan</label></br>
+              <input type="checkbox" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
+              <input type="checkbox" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
+              <input type="checkbox" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
+              <input type="checkbox" id="cbox6"> <label for="cbox6">Kosher</label></br>
+            </div>
 
-          <button type="submit" id="restaurantSearch" class="btn-sm restaurant-search">get fedd!</button>
+            <button type="submit" id="restaurantSearch" class="btn-sm restaurant-search">get fedd!</button>
 
-        </form>
+          </form>
         </article>
 
     </div>
 
-  </div>
-  <div id="restaurantTarget">
-      <!-- handlebars returns data here -->
-  </div>
-
-
-  <!-- UPDATE RESTAURANT MODAL -->
-  <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-
-          <!-- Update Restaurant Modal content-->
-          <div class="modal-content">
-              <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Update This Listing:</h4>
-              </div>
-              <div class="modal-body">
-
-
-                  <!-- FORM INSIDE MODAL!-->
-                  <form class="form-inline" id="updateRestaurantForm">
-
-                      <!-- name request -->
-                      <div class="form-group">
-                          <!-- <label for="title">Name</label> -->
-                          <input type="text" class="form-control" name="name" placeholder="Restaurant Name" maxlength="30">
-                      </div>
-
-                      <!-- description request -->
-                      <div class="form-group">
-                          <!-- <label for="title">Description</label> -->
-                          <input type="text" class="form-control" name="description" placeholder="Description" maxlength="100">
-                      </div>
-
-                      <!-- address request -->
-                      <div class="form-group">
-                          <!-- <label for="title">Location</label> -->
-                          <input type="text" class="form-control" name="address" placeholder="Address" maxlength="50">
-                      </div>
-
-                      <!-- dietary tag request -->
-                      <div class="checkbox-bucket-modal">
-                        <!-- <input type="text" class="form-control" name="dietary" placeholder="Dietary Tags"> -->
-                        <input type="checkbox" name="vegBox" class="vegetarian" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
-                        <input type="checkbox" name="veganBox" class="vegan" id="cbox2"> <label for="cbox2">Vegan</label></br>
-                        <input type="checkbox" name="glutenBox" class="glutenFree" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
-                        <input type="checkbox" name="dairyBox" class="dairyFree" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
-                        <input type="checkbox" name="nutBox" class="nutAllergy" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
-                        <input type="checkbox" name="koshBox" class="kosher" id="cbox6"> <label for="cbox6">Kosher</label></br>
-                      </div>
-
-                      <!-- url request -->
-                      <div class="form-group">
-                          <!-- <label for="title">Location</label> -->
-                          <input type="URL" class="form-control" name="url" placeholder="Restaurant url">
-                      </div>
-
-                      <!-- button -->
-                      <button class="btn btn-default updateRestaurantButton">Update</button>
-                  </form>
-              </div>
-          </div>
+    </div>
+      <div id="restaurantTarget">
+          <!-- handlebars returns data here -->
       </div>
-  </div>
 
-</div>
-</div>
+    <!-- UPDATE RESTAURANT MODAL -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-<!-- HANDLEBARS SCRIPT tag -->
-<script id="restaurants-template" type="text/x-handlebars-template">
-  <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
-      <!--handlebars text -->
-      <h3 class="name">
-          <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
-        </h3>
-      <hr>
-      <h6 class="description">{{restaurant.description}}</h6>
-      <hr>
-      <h6 class="address">{{restaurant.address}}</h6>
-      <hr>
-      <ul class="dietary">
-        {{#each restaurant.dietary}}
-          {{#if this}}
-            <li>{{@key}}</li>
-          {{/if}}
-        {{/each}}
-      </ul>
-      <hr>
-      <!-- Trigger the modal with a button -->
-      <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
-      <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button>
-  </article>
-</script>
+            <!-- Update Restaurant Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update This Listing:</h4>
+                </div>
+                <div class="modal-body">
+
+                    <!-- FORM INSIDE MODAL!-->
+                    <form class="form-inline" id="updateRestaurantForm">
+
+                        <!-- name request -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Restaurant Name" maxlength="30">
+                        </div>
+
+                        <!-- description request -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="description" placeholder="Description" maxlength="100">
+                        </div>
+
+                        <!-- address request -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="address" placeholder="Address" maxlength="50">
+                        </div>
+
+                        <!-- dietary tag request -->
+                        <div class="checkbox-bucket-modal">
+                          <input type="checkbox" name="vegBox" class="vegetarian" id="cbox1"> <label for="cbox1">Vegetarian</label></br>
+                          <input type="checkbox" name="veganBox" class="vegan" id="cbox2"> <label for="cbox2">Vegan</label></br>
+                          <input type="checkbox" name="glutenBox" class="glutenFree" id="cbox3"> <label for="cbox3">Gluten Free</label></br>
+                          <input type="checkbox" name="dairyBox" class="dairyFree" id="cbox4"> <label for="cbox4">Dairy Free</label></br>
+                          <input type="checkbox" name="nutBox" class="nutAllergy" id="cbox5"> <label for="cbox5">Nut Allergy</label></br>
+                          <input type="checkbox" name="koshBox" class="kosher" id="cbox6"> <label for="cbox6">Kosher</label></br>
+                        </div>
+
+                        <!-- url request -->
+                        <div class="form-group">
+                            <!-- <label for="title">Location</label> -->
+                            <input type="URL" class="form-control" name="url" placeholder="Restaurant url">
+                        </div>
+
+                        <!-- button -->
+                        <button class="btn btn-default updateRestaurantButton">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HANDLEBARS SCRIPT tag -->
+    <script id="restaurants-template" type="text/x-handlebars-template">
+      <article class="content-card col-md-6 col-md-offset-3" data-id="{{restaurant._id}}">
+          <!--handlebars text -->
+          <h3 class="name">
+              <a href="{{restaurant.url}}" target="_blank">{{restaurant.name}}</a>
+            </h3>
+          <hr>
+          <h6 class="description">{{restaurant.description}}</h6>
+          <hr>
+          <h6 class="address">{{restaurant.address}}</h6>
+          <hr>
+          <ul class="dietary">
+            <!-- Render dietary tag if true for each tag -->
+            {{#each restaurant.dietary}}
+              {{#if this}}
+                <li>{{@key}}</li>
+              {{/if}}
+            {{/each}}
+          </ul>
+          <hr>
+          <!-- Trigger the modal with a button -->
+          <button type="button" class="btn-sm restaurant-edit" data-toggle="modal" data-target="#myModal">Edit</button>
+          <button type="button" class="btn-sm btn-danger deleteRestaurantButton">Delete</button>
+      </article>
+    </script>
 
     <!-- SIDE BAR MENU -->
-
     <div id="mySidenav" class="sidenav">
         <img src="images/noburger.png" class="burger-icon closebtn">
         <a href="/">Search</a>
@@ -166,7 +157,6 @@
         <a href="cuisines">Cuisines</a>
         <a href="about">About</a>
     </div>
-
 
 </body>
 

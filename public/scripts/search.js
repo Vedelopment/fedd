@@ -28,15 +28,6 @@ $(document).ready(function() {
         } else {
           event.preventDefault();
 
-        // $('.boxVal').validator.addMethod("roles", function(value, elem, param) {
-        //     if($(".roles:checkbox:checked").length > 0){
-        //        return true;
-        //    }else {
-        //        return false;
-        //    }
-        // },"You must select at least one!");
-
-
           // SET SEARCH ARRAY INITIAL VALUES TO "0"
           var searchArray = {
               vegetarian: 0,

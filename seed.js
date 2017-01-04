@@ -86,24 +86,6 @@ var restaurant_list = [{
     }
 }]
 
-
-//////////   REMOVES AND CREATES RESTAURANT LIST   //////////
-db.Restaurant.remove({}, function(err, restaurants) {
-    if (err) {
-        console.log('Error occurred in removing restaurants', err);
-    } else {
-        console.log('removed all restaurants');
-
-        db.Restaurant.create(restaurant_list, function(err, restaurants) {
-            if (err) {
-                return console.log('Error occurred in creating restaurants', err);
-            }
-            console.log("created", restaurants.length, "restaurants");
-            process.exit();
-        });
-    }
-});
-
 //////////   CUISINES SEED DATA   //////////
 var cuisine_list = [{
     name: 'Thai',
@@ -194,19 +176,36 @@ var cuisine_list = [{
     },
 }]
 
+//////////   REMOVES AND CREATES RESTAURANT LIST   //////////
+db.Restaurant.remove({}, function(err, restaurants) {
+  if (err) {
+    console.log('Error occurred in removing restaurants', err);
+  } else {
+    console.log('removed all restaurants');
+
+    db.Restaurant.create(restaurant_list, function(err, restaurants) {
+      if (err) {
+        return console.log('Error occurred in creating restaurants', err);
+      }
+      console.log("created", restaurants.length, "restaurants");
+      process.exit();
+    });
+  }
+});
+
 //////////   REMOVES AND CREATES CUISINES LIST   //////////
 db.Cuisine.remove({}, function(err, cuisines) {
     if (err) {
         console.log('Error occurred in removing cuisines', err);
     } else {
-        console.log('removed all cuisines');
+      console.log('removed all cuisines');
 
-        db.Cuisine.create(cuisine_list, function(err, cuisines) {
-            if (err) {
-                return console.log('Error occurred in creating cuisines', err);
-            }
-            console.log("created", cuisines.length, "cuisines");
-            process.exit();
-        });
+      db.Cuisine.create(cuisine_list, function(err, cuisines) {
+        if (err) {
+            return console.log('Error occurred in creating cuisines', err);
+        }
+        console.log("created", cuisines.length, "cuisines");
+        process.exit();
+      });
     }
 });
