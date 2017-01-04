@@ -16,9 +16,10 @@ $(document).on("ready", function() {
         zoom: 13
       };
 
+      var map = new google.maps.Map(document.getElementById('map'), mapConfig);
+      
       // FUTURE CODE?
       // PLACE MARKER ON MAP CENTER -- NOT IN CURRENT WORKING VERSION
-      // var map = new google.maps.Map(document.getElementById('map'), mapConfig);
       // var marker = new google.maps.Marker({
       //   position: sanFran,
       //   map: map,
